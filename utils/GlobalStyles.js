@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
   body {
+    font-size: 14px;
     margin: 0;
     background: #f9f9f9;
     font-family: ${sansSerif}
