@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { serif } from '../utils/fonts';
+import { serif, sansSerif } from '../utils/fonts';
 
 const StyledH1 = styled.h1`
   margin: 0;
   margin-left: 2rem;
   align-self: center;
-  font-family: ${serif};
+  letter-spacing: -3px;
+  font-family: ${sansSerif};
   text-transform: uppercase;
   font-weight: 700;
 `;
