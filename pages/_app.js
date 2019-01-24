@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Header from '../components/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
+import { Wrapper } from '../elements/Wrapper';
 
 export default class MyApp extends App {
   render() {
@@ -10,7 +11,9 @@ export default class MyApp extends App {
       <Container>
         <GlobalStyle />
         <Header />
-        <Component {...pageProps} />
+        <Wrapper>
+          <Component {...pageProps} />
+        </Wrapper>
       </Container>
     );
   }
