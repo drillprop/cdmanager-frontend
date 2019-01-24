@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -15,13 +16,25 @@ const StyledNav = styled.nav`
     list-style: none;
     margin-right: 2rem;
   }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 const Navigation = () => (
   <StyledNav>
     <ul>
-      <li>Sign Up</li>
-      <li>Sign In</li>
+      <li>
+        <Link href='/signup'>
+          <a>Sign Up</a>
+        </Link>
+      </li>
+      <li>
+        <Link href='/signin'>
+          <a>Sign In</a>
+        </Link>
+      </li>
     </ul>
   </StyledNav>
 );
