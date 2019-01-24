@@ -14,7 +14,13 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
-        <Head>{this.props.styleTags}</Head>
+        <Head>
+          {this.props.styleTags}
+          <link
+            href='https://fonts.googleapis.com/css?family=Aleo:400,700|Open+Sans:300,400,700&amp;subset=latin-ext'
+            rel='stylesheet'
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
