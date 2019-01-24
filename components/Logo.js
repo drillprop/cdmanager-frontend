@@ -7,7 +7,8 @@ const StyledH1 = styled.h1`
   margin-left: 2rem;
   align-self: center;
   font-family: ${serif};
-  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: 700;
 `;
 
 const Logo = () => <StyledH1>Cd Manager</StyledH1>;

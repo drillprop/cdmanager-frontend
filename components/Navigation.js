@@ -14,6 +14,8 @@ const StyledNav = styled.nav`
   }
   li {
     list-style: none;
+    font-weight: 700;
+    text-transform: uppercase;
     margin-right: 2rem;
   }
   a {

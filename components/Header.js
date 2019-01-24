@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   width: 100%;
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 2fr 3fr;
   padding: 1rem;
 `;
 
