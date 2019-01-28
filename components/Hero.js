@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { mont, robo } from '../utils/fonts';
 
 const HeroContainer = styled.div`
-  width: 1000px;
   margin: 0 auto;
   display: grid;
+  grid-gap: 50px;
   grid-template-columns: 1fr 1fr;
 `;
 
@@ -40,6 +40,13 @@ const Hero = () => (
         magni!{' '}
       </h3>
     </StyledHeroHeader>
+    <div>
+      <img
+        src='/static/radio.png'
+        alt='radio'
+        style={{ maxWidth: '700px', display: 'block', margin: '0 auto' }}
+      />
+    </div>
   </HeroContainer>
 );
 
