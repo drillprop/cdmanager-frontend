@@ -1,2 +1,2 @@
-export const serif = `'Aleo', serif`;
-export const sansSerif = `'Open Sans', sans-serif`;
+export const robo = `'Roboto', sans-serif`;
+export const mont = `'Montserrat', sans-serif`;

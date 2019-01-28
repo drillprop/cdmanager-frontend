@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
         <Head>
           {this.props.styleTags}
           <link
-            href='https://fonts.googleapis.com/css?family=Aleo:400,700|Open+Sans:300,400,700&amp;subset=latin-ext'
+            href='https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Roboto:400,700'
             rel='stylesheet'
           />
         </Head>
