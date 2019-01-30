@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mont } from '../utils/fonts';
+import { black } from '../utils/colors';
+import Link from 'next/link';
 
 const StyledH1 = styled.h1`
   margin: 0;
@@ -8,10 +10,21 @@ const StyledH1 = styled.h1`
   align-self: center;
   letter-spacing: -3px;
   font-family: ${mont};
-  text-transform: uppercase;
+  color: ${black};
+  text-transform: lowercase;
   font-weight: 700;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
-const Logo = () => <StyledH1>Cd Manager</StyledH1>;
+const Logo = () => (
+  <StyledH1>
+    <Link href='/'>
+      <a>Cd Manager</a>
+    </Link>
+  </StyledH1>
+);
 
 export default Logo;
