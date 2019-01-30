@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { mont, robo } from '../utils/fonts';
 import { black, lightblack } from '../utils/colors';
 import HeroImage from './HeroImage';
+import Button from '../elements/Button';
+import Link from 'next/link';
 
 const HeroContainer = styled.div`
   margin: 0 auto;
-  margin-top: 7rem;
+  margin-top: 6rem;
   display: grid;
   grid-gap: 60px;
   grid-template-columns: 1fr 1fr;
@@ -16,11 +18,11 @@ const StyledHeroHeader = styled.header`
   h1 {
     color: ${black};
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-family: ${robo};
     letter-spacing: -2px;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
   }
   h3 {
@@ -40,8 +42,13 @@ const Hero = () => (
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
         distinctio quos sequi laudantium ipsum corporis odit! Omnis iste aliquid
         libero ab asperiores cum, porro suscipit quaerat, facere delectus odio
-        magni!{' '}
+        magni!
       </h3>
+      <Button>
+        <Link href='/signup'>
+          <a>try it now</a>
+        </Link>
+      </Button>
     </StyledHeroHeader>
     <HeroImage />
   </HeroContainer>
