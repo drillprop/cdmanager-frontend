@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { mont, robo } from '../utils/fonts';
 import { black, lightblack } from '../utils/colors';
+import HeroImage from './HeroImage';
 
 const HeroContainer = styled.div`
   margin: 0 auto;
@@ -42,19 +43,7 @@ const Hero = () => (
         magni!{' '}
       </h3>
     </StyledHeroHeader>
-    <div>
-      <img
-        src='/static/radio.png'
-        alt='radio'
-        style={{
-          maxWidth: '700px',
-          display: 'block',
-          margin: '0 auto',
-          position: 'relative',
-          top: '-75px'
-        }}
-      />
-    </div>
+    <HeroImage />
   </HeroContainer>
 );
 
