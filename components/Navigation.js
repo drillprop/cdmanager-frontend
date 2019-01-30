@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { lightblack } from '../utils/colors';
+import { black, lightblack, background } from '../utils/colors';
 import { mont } from '../utils/fonts';
 
 const StyledNav = styled.nav`
@@ -20,12 +20,13 @@ const StyledNav = styled.nav`
     font-style: ${mont};
     color: ${lightblack};
     text-transform: lowercase;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     margin-right: 2rem;
   }
-  li:first-child {
-    border: solid 1px ${lightblack};
+  li:last-child {
+    color: ${background};
+    background-color: ${black};
   }
 `;
 
@@ -33,13 +34,13 @@ const Navigation = () => (
   <StyledNav>
     <ul>
       <li>
-        <Link href='/signup'>
-          <a>Register</a>
+        <Link href='/signin'>
+          <a>Login</a>
         </Link>
       </li>
       <li>
-        <Link href='/signin'>
-          <a>Login</a>
+        <Link href='/signup'>
+          <a>Register</a>
         </Link>
       </li>
     </ul>
