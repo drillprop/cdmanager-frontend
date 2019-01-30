@@ -11,4 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     background: #f9f9f9;
     font-family: ${mont}
   }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
