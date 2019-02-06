@@ -1,3 +1,9 @@
-const SignUp = () => <div>Sign Up</div>;
+import RegisterForm from "../components/RegisterForm";
+
+const SignUp = () => (
+  <>
+    <RegisterForm />
+  </>
+);
 
 export default SignUp;
