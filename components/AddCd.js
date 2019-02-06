@@ -80,7 +80,7 @@ export default class AddCd extends Component {
     return (
       <StyledMain>
         <StyledH1>add an album</StyledH1>
-        <img src="/static/cdinboxlarge.png" alt="cd in box" />
+        <img src="/static/cdinbox.png" alt="cd in box" />
         <StyledForm>
           <input type="text" placeholder="search..." />
         </StyledForm>
