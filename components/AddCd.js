@@ -39,7 +39,15 @@ const StyledForm = styled.form`
     font-family: ${mont};
     font-size: 1rem;
     box-shadow: ${theme.bs};
+    transform: ${({ displayRecent }) =>
+      displayRecent ? "scale(1)" : "scale(1.5)"};
+    transition: all 300ms;
   }
+`;
+
+const RecentCds = styled.div`
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: all 300ms;
 `;
 
 const StyledH2 = styled.h2`
@@ -79,21 +87,38 @@ const CdContainer = styled.section`
 `;
 
 export default class AddCd extends Component {
+  state = {
+    displayRecent: true
+  };
+  handleFocus = () => {
+    this.setState({ displayRecent: false });
+  };
+  handleBlur = () => {
+    this.setState({ displayRecent: true });
+  };
   render() {
+    const { displayRecent } = this.state;
     return (
       <StyledMain>
         <StyledH1>add an album</StyledH1>
         <img src="/static/cdinbox.png" alt="cd in box" />
-        <StyledForm>
-          <input type="text" placeholder="search..." />
+        <StyledForm displayRecent={displayRecent}>
+          <input
+            type="text"
+            placeholder="search..."
+            onChange={this.handleFocus}
+            onBlur={this.handleBlur}
+          />
         </StyledForm>
-        <StyledH2>recently added</StyledH2>
-        <CdContainer>
-          <Cd />
-          <Cd />
-          <Cd />
-          <Cd />
-        </CdContainer>
+        <RecentCds show={displayRecent}>
+          <StyledH2>recently added</StyledH2>
+          <CdContainer>
+            <Cd />
+            <Cd />
+            <Cd />
+            <Cd />
+          </CdContainer>
+        </RecentCds>
       </StyledMain>
     );
   }
