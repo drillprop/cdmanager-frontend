@@ -1,6 +1,6 @@
 import AddCd from "../components/AddCd";
 
-const AddSite = () => {
+const Dashboard = () => {
   return (
     <div>
       <AddCd />
@@ -8,4 +8,4 @@ const AddSite = () => {
   );
 };
 
-export default AddSite;
+export default Dashboard;
