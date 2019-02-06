@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { robo, mont } from "../utils/fonts";
+import { theme } from "../utils/theme";
 
 const ImgWrapper = styled.div`
   width: 120px;
@@ -9,6 +10,7 @@ const ImgWrapper = styled.div`
   border-radius: 5px;
   background-color: white;
   margin-bottom: 0.5rem;
+  box-shadow: ${theme.bs};
 `;
 
 const ArtistName = styled.h3`

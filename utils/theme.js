@@ -1,3 +1,3 @@
 export const theme = {
-  bh: "0 3px 6px rgba(0,0,0,0.5)"
+  bs: "2px 3px 5px rgba(0, 0, 0, 0.1)"
 };

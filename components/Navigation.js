@@ -1,8 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { black, lightblack, background } from '../utils/colors';
-import { mont } from '../utils/fonts';
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
+import { black, lightblack, background } from "../utils/colors";
+import { mont } from "../utils/fonts";
+import { theme } from "../utils/theme";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -27,6 +28,7 @@ const StyledNav = styled.nav`
   li:last-child {
     color: ${background};
     background-color: ${black};
+    box-shadow: ${theme.bs};
   }
 `;
 
@@ -34,12 +36,12 @@ const Navigation = () => (
   <StyledNav>
     <ul>
       <li>
-        <Link href='/signin'>
+        <Link href="/signin">
           <a>Login</a>
         </Link>
       </li>
       <li>
-        <Link href='/signup'>
+        <Link href="/signup">
           <a>Register</a>
         </Link>
       </li>

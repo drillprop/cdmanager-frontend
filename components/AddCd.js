@@ -3,6 +3,7 @@ import Cd from "./Cd";
 import styled from "styled-components";
 import { robo, mont } from "../utils/fonts";
 import { black, lightblack, lighterblack } from "../utils/colors";
+import { theme } from "../utils/theme";
 
 const StyledMain = styled.div`
   img {
@@ -37,6 +38,7 @@ const StyledForm = styled.form`
     border-radius: 3px;
     font-family: ${mont};
     font-size: 1rem;
+    box-shadow: ${theme.bs};
   }
 `;
 
