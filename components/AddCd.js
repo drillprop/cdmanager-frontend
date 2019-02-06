@@ -15,9 +15,9 @@ const StyledMain = styled.div`
 const StyledH1 = styled.h1`
   text-align: center;
   font-family: ${robo};
-  font-weight: 800;
+  font-weight: 900;
   font-size: 3rem;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
   color: ${lightblack};
   margin-bottom: 0;
   margin-top: 0;
