@@ -72,7 +72,8 @@ const StyledH2 = styled.h2`
 
 const CdContainer = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
 `;
 
 export default class AddCd extends Component {
@@ -86,7 +87,6 @@ export default class AddCd extends Component {
         </StyledForm>
         <StyledH2>recently added</StyledH2>
         <CdContainer>
-          <Cd />
           <Cd />
           <Cd />
           <Cd />

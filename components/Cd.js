@@ -1,12 +1,47 @@
 import React from "react";
+import styled from "styled-components";
+import { robo, mont } from "../utils/fonts";
 
+const ImgWrapper = styled.div`
+  width: 120px;
+  height: 120px;
+  border: 1px solid #909090;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 0.5rem;
+`;
+
+const ArtistName = styled.h3`
+  font-family: ${robo};
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+`;
+
+const Title = styled.h4`
+  font-family: ${mont};
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+`;
+
+const Year = styled.h5`
+  margin: 0;
+  font-family: ${mont};
+  font-weight: 700;
+  font-size: 0.8rem;
+`;
 const Cd = () => (
   <figure>
-    <img src="" alt="" />
+    <ImgWrapper>
+      <img src="" alt="" />
+    </ImgWrapper>
     <figcaption>
-      <h3>Black Sabbath </h3>
-      <h4> Paranoid</h4>
-      <h5>1969</h5>
+      <ArtistName>Black Sabbath </ArtistName>
+      <Title>Paranoid</Title>
+      <Year>1969</Year>
     </figcaption>
   </figure>
 );
