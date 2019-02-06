@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import { mont } from './fonts';
+import { createGlobalStyle } from "styled-components";
+import { mont } from "./fonts";
+import { lighterblack } from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -9,7 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     margin: 0;
     background: #f9f9f9;
-    font-family: ${mont}
+    font-family: ${mont};
+    color: ${lighterblack}
   }
   a {
     color: inherit;

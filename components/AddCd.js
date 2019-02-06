@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Cd from "./Cd";
 import styled from "styled-components";
 import { robo, mont } from "../utils/fonts";
-import { black, lightblack } from "../utils/colors";
+import { black, lightblack, lighterblack } from "../utils/colors";
 
 const StyledMain = styled.div`
   img {
@@ -32,7 +32,7 @@ const StyledForm = styled.form`
     height: 50px;
     outline: none;
     background: white;
-    border: 1px solid ${lightblack};
+    border: 1px solid #909090;
     padding: 0 28px;
     border-radius: 3px;
     font-family: ${mont};
@@ -96,7 +96,3 @@ export default class AddCd extends Component {
     );
   }
 }
-
-// TODO
-// change colors to lighter
-//
