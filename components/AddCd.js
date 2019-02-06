@@ -18,7 +18,7 @@ const StyledH1 = styled.h1`
   font-weight: 800;
   font-size: 3rem;
   letter-spacing: -3px;
-  color: ${black};
+  color: ${lightblack};
   margin-bottom: 1rem;
   margin-top: 0;
 `;
