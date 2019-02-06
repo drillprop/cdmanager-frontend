@@ -19,7 +19,7 @@ const StyledH1 = styled.h1`
   font-size: 3rem;
   letter-spacing: -3px;
   color: ${lightblack};
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   margin-top: 0;
 `;
 const StyledForm = styled.form`
@@ -29,7 +29,7 @@ const StyledForm = styled.form`
     margin: 0 auto;
     display: block;
     width: 500px;
-    height: 50px;
+    height: 45px;
     outline: none;
     background: white;
     border: 1px solid #909090;
