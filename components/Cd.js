@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { robo, mont } from "../utils/fonts";
 import { theme } from "../utils/theme";
 
+const StyledFigure = styled.figure`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const ImgWrapper = styled.div`
   width: 120px;
   height: 120px;
@@ -36,7 +42,7 @@ const Year = styled.h5`
   font-size: 0.8rem;
 `;
 const Cd = () => (
-  <figure>
+  <StyledFigure>
     <ImgWrapper>
       <img src="" alt="" />
     </ImgWrapper>
@@ -45,7 +51,7 @@ const Cd = () => (
       <Title>Paranoid</Title>
       <Year>1969</Year>
     </figcaption>
-  </figure>
+  </StyledFigure>
 );
 
 export default Cd;
