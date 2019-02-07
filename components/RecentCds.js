@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { black, lightblack, lighterblack } from "../utils/colors";
 import { robo, mont } from "../utils/fonts";
-
+import { albums } from "../utils/sampledata";
 import Cd from "./Cd";
 
 const Container = styled.div`
@@ -53,10 +53,9 @@ class RecentCds extends Component {
       <Container show={show}>
         <StyledH2>recently added</StyledH2>
         <CdContainer>
-          <Cd />
-          <Cd />
-          <Cd />
-          <Cd />
+          {albums.slice(0, 4).map(({ artist, title, year, image }) => (
+            <Cd artist={artist} title={title} year={year} image={image} />
+          ))}
         </CdContainer>
       </Container>
     );

@@ -41,15 +41,13 @@ const Year = styled.h5`
   font-weight: 700;
   font-size: 0.8rem;
 `;
-const Cd = () => (
+const Cd = ({ artist, title, year, image }) => (
   <StyledFigure>
-    <ImgWrapper>
-      <img src="" alt="" />
-    </ImgWrapper>
+    <ImgWrapper>{image && <img src={image} alt={title} />}</ImgWrapper>
     <figcaption>
-      <ArtistName>Black Sabbath </ArtistName>
-      <Title>Paranoid</Title>
-      <Year>1969</Year>
+      <ArtistName>{artist} </ArtistName>
+      <Title>{title}</Title>
+      <Year>{year}</Year>
     </figcaption>
   </StyledFigure>
 );
