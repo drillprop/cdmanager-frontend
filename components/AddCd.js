@@ -47,13 +47,14 @@ const StyledForm = styled.form`
 
 export default class AddCd extends Component {
   state = {
-    displayRecent: true
+    displayRecent: true,
+    result: ""
   };
-  handleFocus = () => {
-    this.setState({ displayRecent: false });
-  };
-  handleBlur = () => {
-    this.setState({ displayRecent: true });
+  handleChange = e => {
+    const { value: result } = e.currentTarget;
+    result
+      ? this.setState({ displayRecent: false, result })
+      : this.setState({ displayRecent: true });
   };
   render() {
     const { displayRecent } = this.state;
@@ -64,8 +65,7 @@ export default class AddCd extends Component {
           <input
             type="text"
             placeholder="search..."
-            onChange={this.handleFocus}
-            onBlur={this.handleBlur}
+            onChange={this.handleChange}
           />
         </StyledForm>
         <RecentCds show={displayRecent} />
