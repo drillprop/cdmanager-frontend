@@ -54,7 +54,13 @@ class RecentCds extends Component {
         <StyledH2>recently added</StyledH2>
         <CdContainer>
           {albums.slice(0, 4).map(({ artist, title, year, image }) => (
-            <Cd artist={artist} title={title} year={year} image={image} />
+            <Cd
+              key={title + artist}
+              artist={artist}
+              title={title}
+              year={year}
+              image={image}
+            />
           ))}
         </CdContainer>
       </Container>
