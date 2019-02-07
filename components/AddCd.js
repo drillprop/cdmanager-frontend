@@ -20,8 +20,8 @@ const StyledH1 = styled.h1`
   font-size: 3rem;
   letter-spacing: -1px;
   color: ${lightblack};
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
 `;
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -60,7 +60,6 @@ export default class AddCd extends Component {
     return (
       <StyledMain>
         <StyledH1>add an album</StyledH1>
-        <img src="/static/cdinbox.png" alt="cd in box" />
         <StyledForm displayRecent={displayRecent}>
           <input
             type="text"
