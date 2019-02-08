@@ -4,11 +4,9 @@ import { black, lightblack, lighterblack } from "../utils/colors";
 import { robo, mont } from "../utils/fonts";
 import { albums } from "../utils/sampledata";
 import Cd from "./Cd";
+import { useSpring, animated, config } from "react-spring";
 
-const Container = styled.div`
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: all 300ms;
-`;
+const Container = styled.div``;
 
 const StyledH2 = styled.h2`
   position: relative;
@@ -45,27 +43,28 @@ const CdContainer = styled.section`
   justify-content: center;
 `;
 
-class RecentCds extends Component {
-  state = {};
-  render() {
-    const { show } = this.props;
-    return (
-      <Container show={show}>
-        <StyledH2>recently added</StyledH2>
-        <CdContainer>
-          {albums.slice(0, 4).map(({ artist, title, year, image }) => (
-            <Cd
-              key={title + artist}
-              artist={artist}
-              title={title}
-              year={year}
-              image={image}
-            />
-          ))}
-        </CdContainer>
-      </Container>
-    );
-  }
-}
+const RecentCds = () => {
+  const props = useSpring({
+    opacity: 1,
+    transform: "scale(1)",
+    from: { opacity: 0, transform: "scale(0.7)" }
+  });
+  return (
+    <animated.div style={props}>
+      <StyledH2>recently added</StyledH2>
+      <CdContainer>
+        {albums.slice(0, 4).map(({ artist, title, year, image }) => (
+          <Cd
+            key={title + artist}
+            artist={artist}
+            title={title}
+            year={year}
+            image={image}
+          />
+        ))}
+      </CdContainer>
+    </animated.div>
+  );
+};
 
 export default RecentCds;
