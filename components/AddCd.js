@@ -51,16 +51,36 @@ const StyledForm = styled.form`
 export default class AddCd extends Component {
   state = {
     displayRecent: true,
-    result: ""
+    result: "",
+    searchResult: []
   };
+
+  filterSearch = result => {
+    let resultStr = result
+      .toString()
+      .toLowerCase()
+      .trim();
+    let searchResult = albums.filter(({ title, artist }) => {
+      let titleStr = title.toString().toLowerCase();
+      let artistStr = artist.toString().toLowerCase();
+      if (titleStr.includes(resultStr) || artistStr.includes(resultStr))
+        return true;
+    });
+    resultStr
+      ? this.setState({ searchResult })
+      : this.setState({ searchResult: [] });
+  };
+
   handleChange = e => {
     const { value: result } = e.currentTarget;
     result
       ? this.setState({ displayRecent: false, result })
-      : this.setState({ displayRecent: true });
+      : this.setState({ displayRecent: true, result: "" });
+    this.filterSearch(result);
   };
+
   render() {
-    const { displayRecent } = this.state;
+    const { displayRecent, searchResult } = this.state;
     return (
       <StyledMain>
         <StyledH1>add an album</StyledH1>
@@ -71,7 +91,7 @@ export default class AddCd extends Component {
             onChange={this.handleChange}
           />
         </StyledForm>
-        {!displayRecent && <SearchList />}
+        {!displayRecent && <SearchList searchResult={searchResult} />}
         {displayRecent && <RecentCds />}
       </StyledMain>
     );
