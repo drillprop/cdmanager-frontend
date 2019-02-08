@@ -4,6 +4,8 @@ import { robo, mont } from "../utils/fonts";
 import { black, lightblack, lighterblack } from "../utils/colors";
 import { theme } from "../utils/theme";
 import RecentCds from "./RecentCds";
+import { albums } from "../utils/sampledata";
+import SearchList from "./SearchList";
 
 const StyledMain = styled.div`
   img {
@@ -27,10 +29,12 @@ const StyledForm = styled.form`
   margin: 0 auto;
   width: 700px;
   input {
+    position: relative;
+    z-index: 1;
     margin: 0 auto;
     display: block;
     width: 500px;
-    height: 45px;
+    height: 50px;
     outline: none;
     background: white;
     border: 1px solid #909090;
@@ -39,8 +43,7 @@ const StyledForm = styled.form`
     font-family: ${mont};
     font-size: 1rem;
     box-shadow: ${theme.bs};
-    transform: ${({ displayRecent }) =>
-      displayRecent ? "scale(1)" : "scale(1.5)"};
+    transform: ${({ displayRecent }) => (displayRecent ? "" : "scale(1.3)")};
     transition: all 300ms;
   }
 `;
@@ -68,7 +71,8 @@ export default class AddCd extends Component {
             onChange={this.handleChange}
           />
         </StyledForm>
-        <RecentCds show={displayRecent} />
+        {!displayRecent && <SearchList />}
+        {displayRecent && <RecentCds />}
       </StyledMain>
     );
   }
