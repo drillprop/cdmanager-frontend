@@ -10,9 +10,11 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const GET_ALBUMS = gql`
-  query GET_ALBUMS {
-    albums {
+  query GET_ALBUMS($search: String!) {
+    albums(search: $search) {
       title
+      artist
+      image
     }
   }
 `;
@@ -90,12 +92,12 @@ export default class AddCd extends Component {
   };
 
   render() {
-    const { displayRecent, searchResult } = this.state;
+    const { displayRecent, searchResult, result } = this.state;
     return (
       <StyledMain>
-        <Query query={GET_ALBUMS}>
-          {({ data: { albums }, loading, error }) => {
-            console.log(albums);
+        <Query query={GET_ALBUMS} variables={{ search: result }}>
+          {({ data, loading, error }) => {
+            console.log(data);
             return null;
           }}
         </Query>
