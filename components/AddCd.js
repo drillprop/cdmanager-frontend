@@ -1,11 +1,21 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { robo, mont } from "../utils/fonts";
-import { black, lightblack, lighterblack } from "../utils/colors";
-import { theme } from "../utils/theme";
-import RecentCds from "./RecentCds";
-import { albums } from "../utils/sampledata";
-import SearchList from "./SearchList";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { robo, mont } from '../utils/fonts';
+import { black, lightblack, lighterblack } from '../utils/colors';
+import { theme } from '../utils/theme';
+import RecentCds from './RecentCds';
+import { albums } from '../utils/sampledata';
+import SearchList from './SearchList';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const GET_ALBUMS = gql`
+  query GET_ALBUMS {
+    albums {
+      title
+    }
+  }
+`;
 
 const StyledMain = styled.div`
   img {
@@ -43,7 +53,7 @@ const StyledForm = styled.form`
     font-family: ${mont};
     font-size: 1rem;
     box-shadow: ${theme.bs};
-    transform: ${({ displayRecent }) => (displayRecent ? "" : "scale(1.3)")};
+    transform: ${({ displayRecent }) => (displayRecent ? '' : 'scale(1.3)')};
     transition: all 300ms;
   }
 `;
@@ -51,7 +61,7 @@ const StyledForm = styled.form`
 export default class AddCd extends Component {
   state = {
     displayRecent: true,
-    result: "",
+    result: '',
     searchResult: []
   };
 
@@ -75,7 +85,7 @@ export default class AddCd extends Component {
     const { value: result } = e.currentTarget;
     result
       ? this.setState({ displayRecent: false, result })
-      : this.setState({ displayRecent: true, result: "" });
+      : this.setState({ displayRecent: true, result: '' });
     this.filterSearch(result);
   };
 
@@ -83,11 +93,17 @@ export default class AddCd extends Component {
     const { displayRecent, searchResult } = this.state;
     return (
       <StyledMain>
+        <Query query={GET_ALBUMS}>
+          {data => {
+            console.log(data);
+            return null;
+          }}
+        </Query>
         <StyledH1>add an album</StyledH1>
         <StyledForm displayRecent={displayRecent}>
           <input
-            type="text"
-            placeholder="search..."
+            type='text'
+            placeholder='search...'
             onChange={this.handleChange}
           />
         </StyledForm>
