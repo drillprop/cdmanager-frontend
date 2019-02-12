@@ -94,8 +94,8 @@ export default class AddCd extends Component {
     return (
       <StyledMain>
         <Query query={GET_ALBUMS}>
-          {data => {
-            console.log(data);
+          {({ data: { albums }, loading, error }) => {
+            console.log(albums);
             return null;
           }}
         </Query>
