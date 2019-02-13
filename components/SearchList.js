@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import { useSpring, animated } from 'react-spring';
+import CdResult from './CdResult';
 
 const List = styled(animated.ul)`
   position: relative;
@@ -14,21 +15,6 @@ const List = styled(animated.ul)`
   box-shadow: ${theme.bs};
   list-style: none;
 `;
-const Item = styled.li`
-  display: flex;
-`;
-
-const ImageWrapper = styled.div`
-  width: 70px;
-  height: 70px;
-  border: 1px solid #909090;
-  border-radius: 3px;
-  img {
-    object-fit: cover;
-    max-width: 70px;
-    max-height: 70px;
-  }
-`;
 
 const SearchList = ({ searchResult }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -37,15 +23,12 @@ const SearchList = ({ searchResult }) => {
       {searchResult &&
         searchResult.map(({ artist, title, image }) => {
           return (
-            <Item key={artist + title}>
-              <ImageWrapper>
-                <img src={image} alt='title' />
-              </ImageWrapper>
-              <div>
-                <div>{artist}</div>
-                <div>{title}</div>
-              </div>
-            </Item>
+            <CdResult
+              artist={artist}
+              title={title}
+              image={image}
+              key={artist + title}
+            />
           );
         })}
     </List>
