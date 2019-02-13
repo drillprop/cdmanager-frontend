@@ -95,12 +95,6 @@ export default class AddCd extends Component {
     const { displayRecent, searchResult, result } = this.state;
     return (
       <StyledMain>
-        <Query query={GET_ALBUMS} variables={{ search: result }}>
-          {({ data, loading, error }) => {
-            console.log(data);
-            return null;
-          }}
-        </Query>
         <StyledH1>add an album</StyledH1>
         <StyledForm displayRecent={displayRecent}>
           <input
@@ -109,7 +103,16 @@ export default class AddCd extends Component {
             onChange={this.handleChange}
           />
         </StyledForm>
-        {!displayRecent && <SearchList searchResult={searchResult} />}
+        {result && (
+          <Query query={GET_ALBUMS} variables={{ search: result }}>
+            {({ loading, error, data }) => {
+              if (loading) return null;
+              if (error) return `Error!: ${error}`;
+              return <SearchList searchResult={data.albums} />;
+            }}
+          </Query>
+        )}
+
         {displayRecent && <RecentCds />}
       </StyledMain>
     );
