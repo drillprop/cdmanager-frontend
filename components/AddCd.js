@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
-import { black, lightblack, lighterblack } from '../utils/colors';
+import { lightblack } from '../utils/colors';
 import { theme } from '../utils/theme';
 import RecentCds from './RecentCds';
-import { albums } from '../utils/sampledata';
 import SearchList from './SearchList';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -63,24 +62,7 @@ const StyledForm = styled.form`
 export default class AddCd extends Component {
   state = {
     displayRecent: true,
-    result: '',
-    searchResult: []
-  };
-
-  filterSearch = result => {
-    let resultStr = result
-      .toString()
-      .toLowerCase()
-      .trim();
-    let searchResult = albums.filter(({ title, artist }) => {
-      let titleStr = title.toString().toLowerCase();
-      let artistStr = artist.toString().toLowerCase();
-      if (titleStr.includes(resultStr) || artistStr.includes(resultStr))
-        return true;
-    });
-    resultStr
-      ? this.setState({ searchResult })
-      : this.setState({ searchResult: [] });
+    result: ''
   };
 
   handleChange = e => {
@@ -88,7 +70,6 @@ export default class AddCd extends Component {
     result
       ? this.setState({ displayRecent: false, result })
       : this.setState({ displayRecent: true, result: '' });
-    this.filterSearch(result);
   };
 
   render() {
