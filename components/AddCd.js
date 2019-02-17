@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { lightblack } from '../utils/colors';
@@ -60,47 +60,36 @@ const StyledForm = styled.form`
   }
 `;
 
-export default class AddCd extends Component {
-  state = {
-    displayRecent: true,
-    result: ''
-  };
+const AddCd = () => {
+  const [result, setResult] = useState('');
 
-  handleChange = e => {
+  const handleChange = e => {
     const { value: result } = e.currentTarget;
-    result
-      ? this.setState({ displayRecent: false, result })
-      : this.setState({ displayRecent: true, result: '' });
+    result ? setResult(result) : setResult('');
   };
+  return (
+    <StyledMain>
+      <StyledH1>add an album</StyledH1>
+      <StyledForm displayRecent={!result}>
+        <input type='text' placeholder='search...' onChange={handleChange} />
+      </StyledForm>
+      {result && (
+        <Query query={GET_ALBUMS} variables={{ search: result }}>
+          {({ loading, error, data }) => {
+            return (
+              <SearchList
+                searchResult={data.albums}
+                loading={loading}
+                error={error}
+              />
+            );
+          }}
+        </Query>
+      )}
 
-  render() {
-    const { displayRecent, searchResult, result } = this.state;
-    return (
-      <StyledMain>
-        <StyledH1>add an album</StyledH1>
-        <StyledForm displayRecent={displayRecent}>
-          <input
-            type='text'
-            placeholder='search...'
-            onChange={this.handleChange}
-          />
-        </StyledForm>
-        {result && (
-          <Query query={GET_ALBUMS} variables={{ search: result }}>
-            {({ loading, error, data }) => {
-              return (
-                <SearchList
-                  searchResult={data.albums}
-                  loading={loading}
-                  error={error}
-                />
-              );
-            }}
-          </Query>
-        )}
+      {!result && <RecentCds />}
+    </StyledMain>
+  );
+};
 
-        {displayRecent && <RecentCds />}
-      </StyledMain>
-    );
-  }
-}
+export default AddCd;
