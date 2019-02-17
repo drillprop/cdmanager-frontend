@@ -14,6 +14,7 @@ const GET_ALBUMS = gql`
       title
       artist
       image
+      id
     }
   }
 `;
