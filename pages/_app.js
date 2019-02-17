@@ -13,7 +13,6 @@ class MyApp extends App {
       <Container>
         <GlobalStyle />
         <ApolloProvider client={apollo}>
-          {console.log(apollo)}
           <Header />
           <Wrapper>
             <Component {...pageProps} />
