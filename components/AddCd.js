@@ -62,16 +62,23 @@ const StyledForm = styled.form`
 
 const AddCd = () => {
   const [result, setResult] = useState('');
+  let timeout = 0;
 
-  const handleChange = e => {
+  const handleSearch = e => {
     const { value: result } = e.currentTarget;
-    result ? setResult(result) : setResult('');
+    if (timeout) clearTimeout(timeout);
+    timeout =
+      result &&
+      setTimeout(() => {
+        setResult(result);
+      }, 300);
+    !result && setResult('');
   };
   return (
     <StyledMain>
       <StyledH1>add an album</StyledH1>
       <StyledForm displayRecent={!result}>
-        <input type='text' placeholder='search...' onChange={handleChange} />
+        <input type='text' placeholder='search...' onKeyUp={handleSearch} />
       </StyledForm>
       {result && (
         <Query query={GET_ALBUMS} variables={{ search: result }}>
