@@ -18,6 +18,7 @@ const List = styled(animated.ul)`
 
 const SearchList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
+  const uniqueSearchResult = Array.from(new Set(searchResult));
   if (loading) {
     return (
       <List>
@@ -34,14 +35,15 @@ const SearchList = ({ searchResult, loading, error }) => {
   }
   return (
     <List style={smth}>
-      {searchResult &&
-        searchResult.map(({ artist, title, image }) => {
+      {uniqueSearchResult &&
+        uniqueSearchResult.map(({ artist, title, image, id }) => {
           return (
             <CdResult
               artist={artist}
               title={title}
               image={image}
-              key={artist + title}
+              id={id}
+              key={title + artist}
             />
           );
         })}
