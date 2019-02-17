@@ -16,8 +16,22 @@ const List = styled(animated.ul)`
   list-style: none;
 `;
 
-const SearchList = ({ searchResult }) => {
+const SearchList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
+  if (loading) {
+    return (
+      <List>
+        <p>Loading...</p>
+      </List>
+    );
+  }
+  if (error) {
+    return (
+      <List>
+        <p>{error.message}</p>
+      </List>
+    );
+  }
   return (
     <List style={smth}>
       {searchResult &&

@@ -87,9 +87,13 @@ export default class AddCd extends Component {
         {result && (
           <Query query={GET_ALBUMS} variables={{ search: result }}>
             {({ loading, error, data }) => {
-              if (loading) return null;
-              if (error) return `Error!: ${error}`;
-              return <SearchList searchResult={data.albums} />;
+              return (
+                <SearchList
+                  searchResult={data.albums}
+                  loading={loading}
+                  error={error}
+                />
+              );
             }}
           </Query>
         )}
