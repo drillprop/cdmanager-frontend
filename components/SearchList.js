@@ -18,7 +18,6 @@ const List = styled(animated.ul)`
 
 const SearchList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
-  const uniqueSearchResult = Array.from(new Set(searchResult));
   if (loading) {
     return (
       <List>
@@ -29,10 +28,12 @@ const SearchList = ({ searchResult, loading, error }) => {
   if (error) {
     return (
       <List>
-        <p>{error.message}</p>
+        <p>Failed to fetch data</p>
       </List>
     );
   }
+  const { albums } = searchResult;
+  const uniqueSearchResult = Array.from(new Set(albums));
   return (
     <List style={smth}>
       {uniqueSearchResult &&

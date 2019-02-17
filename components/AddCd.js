@@ -84,11 +84,7 @@ const AddCd = () => {
         <Query query={GET_ALBUMS} variables={{ search: result }}>
           {({ loading, error, data }) => {
             return (
-              <SearchList
-                searchResult={data.albums}
-                loading={loading}
-                error={error}
-              />
+              <SearchList searchResult={data} loading={loading} error={error} />
             );
           }}
         </Query>
