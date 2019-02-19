@@ -32,8 +32,8 @@ const SearchList = ({ searchResult, loading, error }) => {
       </List>
     );
   }
-  const { albums } = searchResult;
-  const uniqueSearchResult = Array.from(new Set(albums));
+  const { albumslastfm } = searchResult;
+  const uniqueSearchResult = Array.from(new Set(albumslastfm));
   return (
     <List style={smth}>
       {uniqueSearchResult &&

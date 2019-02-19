@@ -8,9 +8,9 @@ import SearchList from './SearchList';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-const GET_ALBUMS = gql`
-  query GET_ALBUMS($search: String!) {
-    albums(search: $search) {
+const GET_ALBUMS_FROM_LASTFM = gql`
+  query GET_ALBUMS_FROM_LASTFM($search: String!) {
+    albumslastfm(search: $search) {
       title
       artist
       image
@@ -81,7 +81,7 @@ const AddCd = () => {
         <input type='text' placeholder='search...' onKeyUp={handleSearch} />
       </StyledForm>
       {result && (
-        <Query query={GET_ALBUMS} variables={{ search: result }}>
+        <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
           {({ loading, error, data }) => {
             return (
               <SearchList searchResult={data} loading={loading} error={error} />
