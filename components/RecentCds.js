@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { black, lightblack, lighterblack } from "../utils/colors";
-import { robo, mont } from "../utils/fonts";
-import { albums } from "../utils/sampledata";
-import Cd from "./Cd";
-import { useSpring, animated, config } from "react-spring";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { lightblack } from '../utils/colors';
+import { robo } from '../utils/fonts';
+import { albums } from '../utils/sampledata';
+import Cd from './Cd';
+import { useSpring, animated } from 'react-spring';
 
 const Container = styled.div``;
 
@@ -18,7 +18,7 @@ const StyledH2 = styled.h2`
   ::after {
     position: absolute;
     margin-left: 1rem;
-    content: "";
+    content: '';
     top: 50%;
     transform: translateY(-50%);
     width: 10rem;
@@ -27,7 +27,7 @@ const StyledH2 = styled.h2`
   }
   ::before {
     position: absolute;
-    content: "";
+    content: '';
     margin-left: -11rem;
     top: 50%;
     border-radius: 4px;
@@ -46,8 +46,8 @@ const CdContainer = styled.section`
 const RecentCds = () => {
   const props = useSpring({
     opacity: 1,
-    transform: "scale(1)",
-    from: { opacity: 0, transform: "scale(0.7)" }
+    transform: 'scale(1)',
+    from: { opacity: 0, transform: 'scale(0.7)' }
   });
   return (
     <animated.div style={props}>
