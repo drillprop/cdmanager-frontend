@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const CREATE_CD = gql`
+  mutation CREATE_CD($title: String!, $artist: String!, $image: String) {
+    createCd(title: $title, artist: $artist, image: $image) {
+      title
+      artist
+      image
+      id
+    }
+  }
+`;
 
 const Item = styled.li`
   display: flex;
@@ -34,6 +47,15 @@ const CdResult = ({ artist, title, image }) => {
         <div>{artist}</div>
         <div>{title}</div>
       </div>
+      <Mutation mutation={CREATE_CD} variables={{ artist, title, image }}>
+        {(createCd, payload) => {
+          return (
+            <button disabled={payload.called} onClick={() => createCd()}>
+              add
+            </button>
+          );
+        }}
+      </Mutation>
     </Item>
   );
 };
