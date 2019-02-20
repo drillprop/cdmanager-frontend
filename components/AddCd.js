@@ -14,7 +14,6 @@ const GET_ALBUMS_FROM_LASTFM = gql`
       title
       artist
       image
-      id
     }
   }
 `;

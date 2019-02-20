@@ -37,13 +37,12 @@ const SearchList = ({ searchResult, loading, error }) => {
   return (
     <List style={smth}>
       {uniqueSearchResult &&
-        uniqueSearchResult.map(({ artist, title, image, id }) => {
+        uniqueSearchResult.map(({ artist, title, image }) => {
           return (
             <CdResult
               artist={artist}
               title={title}
               image={image}
-              id={id}
               key={title + artist}
             />
           );

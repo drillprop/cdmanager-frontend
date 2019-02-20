@@ -2,11 +2,21 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { lightblack } from '../utils/colors';
 import { robo } from '../utils/fonts';
-import { albums } from '../utils/sampledata';
 import Cd from './Cd';
 import { useSpring, animated } from 'react-spring';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
-const Container = styled.div``;
+const SHOW_RECENTLY_ADDED = gql`
+  query SHOW_RECENTLY_ADDED($last: Int) {
+    albums(last: $last) {
+      title
+      artist
+      image
+      id
+    }
+  }
+`;
 
 const StyledH2 = styled.h2`
   position: relative;
@@ -53,15 +63,17 @@ const RecentCds = () => {
     <animated.div style={props}>
       <StyledH2>recently added</StyledH2>
       <CdContainer>
-        {albums.slice(0, 4).map(({ artist, title, year, image }) => (
-          <Cd
-            key={title + artist}
-            artist={artist}
-            title={title}
-            year={year}
-            image={image}
-          />
-        ))}
+        <Query query={SHOW_RECENTLY_ADDED} variables={{ last: 4 }}>
+          {({ data, error, loading }) => {
+            console.log(data.albums);
+            if (error) return <div>{error.message}</div>;
+            if (loading) return <div>Loading...</div>;
+            const { albums } = data;
+            return albums.map(({ artist, title, image, id }) => (
+              <Cd artist={artist} title={title} image={image} key={id} />
+            ));
+          }}
+        </Query>
       </CdContainer>
     </animated.div>
   );
