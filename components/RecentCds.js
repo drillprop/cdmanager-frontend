@@ -64,8 +64,8 @@ const RecentCds = () => {
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query query={SHOW_RECENTLY_ADDED} variables={{ last: 4 }}>
-          {({ data, error, loading }) => {
-            console.log(data.albums);
+          {({ data, error, loading, refetch }) => {
+            refetch();
             if (error) return <div>{error.message}</div>;
             if (loading) return <div>Loading...</div>;
             const { albums } = data;
