@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
+import { QUERY_ME, SIGNOUT } from './User';
 
 const SIGNUP = gql`
   mutation SIGNUP($name: String!, $email: String!, $password: String!) {
@@ -23,7 +24,15 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Mutation mutation={SIGNUP} variables={user}>
+      <Mutation
+        mutation={SIGNUP}
+        variables={user}
+        refetchQueries={[
+          {
+            query: QUERY_ME
+          }
+        ]}
+      >
         {(signup, { error, loading }) => (
           <>
             <h1>Sign up for new account</h1>

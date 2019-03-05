@@ -26,7 +26,14 @@ const User = props => {
         if (error) return <div>error.message</div>;
         if (loading) return <div>loading</div>;
         return (
-          <Mutation mutation={SIGNOUT}>
+          <Mutation
+            mutation={SIGNOUT}
+            refetchQueries={[
+              {
+                query: QUERY_ME
+              }
+            ]}
+          >
             {signout => props.children(data, signout)}
           </Mutation>
         );
@@ -36,4 +43,4 @@ const User = props => {
 };
 
 export default User;
-export { QUERY_ME };
+export { QUERY_ME, SIGNOUT };
