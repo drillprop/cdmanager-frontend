@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import { black, lightblack, background } from "../utils/colors";
-import { mont } from "../utils/fonts";
-import { theme } from "../utils/theme";
+import Link from 'next/link';
+import React from 'react';
+import styled from 'styled-components';
+import { background, black, lightblack } from '../utils/colors';
+import { mont } from '../utils/fonts';
+import { theme } from '../utils/theme';
+import User from './User';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -34,18 +35,34 @@ const StyledNav = styled.nav`
 
 const Navigation = () => (
   <StyledNav>
-    <ul>
-      <li>
-        <Link href="/signin">
-          <a>Login</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/signup">
-          <a>Register</a>
-        </Link>
-      </li>
-    </ul>
+    <User>
+      {({ me }) => (
+        <ul>
+          <li>
+            {me ? (
+              <Link href='/signin'>
+                <a>logout</a>
+              </Link>
+            ) : (
+              <Link href='/signin'>
+                <a>login</a>
+              </Link>
+            )}
+          </li>
+          <li>
+            {me ? (
+              <Link href='/dashboard'>
+                <a>{me.name}</a>
+              </Link>
+            ) : (
+              <Link href='/signup'>
+                <a>Register</a>
+              </Link>
+            )}
+          </li>
+        </ul>
+      )}
+    </User>
   </StyledNav>
 );
 
