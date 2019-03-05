@@ -31,6 +31,11 @@ const RegisterForm = () => {
               onSubmit={async e => {
                 e.preventDefault();
                 await signup();
+                setUser({
+                  name: '',
+                  password: '',
+                  email: ''
+                });
               }}
               method='post'
             >
