@@ -36,12 +36,12 @@ const StyledNav = styled.nav`
 const Navigation = () => (
   <StyledNav>
     <User>
-      {({ me }) => (
+      {({ me }, signout) => (
         <ul>
           <li>
             {me ? (
               <Link href='/signin'>
-                <a>logout</a>
+                <a onClick={signout}>logout</a>
               </Link>
             ) : (
               <Link href='/signin'>
