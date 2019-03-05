@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 
 const QUERY_ME = gql`
   query QUERY_ME {
@@ -8,7 +8,14 @@ const QUERY_ME = gql`
       name
       email
       avatar
-      _id
+    }
+  }
+`;
+
+const SIGNOUT = gql`
+  mutation SIGNOUT {
+    signout {
+      message
     }
   }
 `;
@@ -18,10 +25,15 @@ const User = props => {
       {({ data, loading, error }) => {
         if (error) return <div>error.message</div>;
         if (loading) return <div>loading</div>;
-        return props.children(data);
+        return (
+          <Mutation mutation={SIGNOUT}>
+            {signout => props.children(data, signout)}
+          </Mutation>
+        );
       }}
     </Query>
   );
 };
 
 export default User;
+export { QUERY_ME };
