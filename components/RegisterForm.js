@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
-import { QUERY_ME, SIGNOUT } from './User';
+import { QUERY_ME } from './User';
 
 const SIGNUP = gql`
   mutation SIGNUP($name: String!, $email: String!, $password: String!) {
@@ -26,6 +26,7 @@ const RegisterForm = () => {
     <>
       <Mutation
         mutation={SIGNUP}
+        errorPolicy='all'
         variables={user}
         refetchQueries={[
           {
@@ -51,6 +52,7 @@ const RegisterForm = () => {
               <label htmlFor='name'>
                 <p>Name:</p>
                 <input
+                  value={user.name}
                   placeholder='your name'
                   required
                   name='name'
@@ -62,6 +64,7 @@ const RegisterForm = () => {
               <label htmlFor='email'>
                 <p>Email:</p>
                 <input
+                  value={user.email}
                   required
                   placeholder='your email'
                   name='email'
@@ -73,6 +76,7 @@ const RegisterForm = () => {
               <label htmlFor='password'>
                 <p>Password</p>
                 <input
+                  value={user.password}
                   required
                   placeholder='your password'
                   name='password'
