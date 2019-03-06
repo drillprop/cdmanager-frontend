@@ -69,9 +69,12 @@ const RecentCds = () => {
             if (error) return <div>{error.message}</div>;
             if (loading) return <div>Loading...</div>;
             const { albums } = data;
-            return albums.map(({ artist, title, image, id }) => (
-              <Cd artist={artist} title={title} image={image} key={id} />
-            ));
+            if (albums) {
+              return albums.map(({ artist, title, image, id }) => (
+                <Cd artist={artist} title={title} image={image} key={id} />
+              ));
+            }
+            return <p>no albums added</p>;
           }}
         </Query>
       </CdContainer>
