@@ -4,7 +4,8 @@ import Navigation from './Navigation';
 import Logo from './Logo';
 
 const StyledHeader = styled.header`
-  width: 100%;
+  width: 1330px;
+  margin: 0 auto;
   margin-top: 1rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
