@@ -12,6 +12,7 @@ const Form = styled.form`
   width: 480px;
   height: 480px;
   margin: 0 auto;
+  margin-top: 6rem;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
 `;
