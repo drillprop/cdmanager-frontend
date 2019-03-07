@@ -9,8 +9,8 @@ const Form = styled.form`
   justify-content: center;
   position: relative;
   z-index: 2;
-  width: 500px;
-  height: 500px;
+  width: 480px;
+  height: 480px;
   margin: 0 auto;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
@@ -43,7 +43,8 @@ const Label = styled.label`
 const Input = styled.input`
   width: 15rem;
   font-family: ${mont};
-  padding: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
   border: 1px solid ${lighterblack};
   outline: none;
   border-radius: 2px;
