@@ -4,6 +4,7 @@ import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
 import { QUERY_ME } from './User';
 import { Form, FormHeader, Input, Label } from '../elements/Form';
+import CdShape from '../elements/CdShape';
 
 const SIGNUP = gql`
   mutation SIGNUP($name: String!, $email: String!, $password: String!) {
@@ -91,6 +92,7 @@ const RegisterForm = () => {
               <br />
               <Button>Register</Button>
             </Form>
+            <CdShape />
           </>
         )}
       </Mutation>

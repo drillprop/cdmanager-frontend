@@ -7,14 +7,15 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  left: calc(50% - 240px);
   z-index: 2;
   width: 480px;
   height: 480px;
   margin: 0 auto;
-  margin-top: 6rem;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
+  background-color: white;
 `;
 
 const FormHeader = styled.h1`
@@ -52,3 +53,7 @@ const Input = styled.input`
 `;
 
 export { Form, FormHeader, Label, Input };
+
+// todo
+// wrap cd and form in one div, set margin 0 auto for this div
+// use only position relative to this div
