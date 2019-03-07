@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
 import { QUERY_ME } from './User';
+import { Form, FormHeader, Input, Label } from '../elements/Form';
 
 const SIGNUP = gql`
   mutation SIGNUP($name: String!, $email: String!, $password: String!) {
@@ -36,8 +37,7 @@ const RegisterForm = () => {
       >
         {(signup, { error, loading }) => (
           <>
-            <h1>Sign up for new account</h1>
-            <form
+            <Form
               onSubmit={async e => {
                 e.preventDefault();
                 await signup();
@@ -49,9 +49,10 @@ const RegisterForm = () => {
               }}
               method='post'
             >
-              <label htmlFor='name'>
+              <FormHeader>Create account</FormHeader>
+              <Label htmlFor='name'>
                 <p>Name:</p>
-                <input
+                <Input
                   value={user.name}
                   placeholder='your name'
                   required
@@ -60,10 +61,10 @@ const RegisterForm = () => {
                   type='text'
                   onChange={handleChange}
                 />
-              </label>
-              <label htmlFor='email'>
+              </Label>
+              <Label htmlFor='email'>
                 <p>Email:</p>
-                <input
+                <Input
                   value={user.email}
                   required
                   placeholder='your email'
@@ -72,10 +73,10 @@ const RegisterForm = () => {
                   type='email'
                   onChange={handleChange}
                 />
-              </label>
-              <label htmlFor='password'>
+              </Label>
+              <Label htmlFor='password'>
                 <p>Password</p>
-                <input
+                <Input
                   value={user.password}
                   required
                   placeholder='your password'
@@ -86,10 +87,10 @@ const RegisterForm = () => {
                   autoComplete='new-password'
                   onChange={handleChange}
                 />
-              </label>
+              </Label>
               <br />
               <Button>Register</Button>
-            </form>
+            </Form>
           </>
         )}
       </Mutation>
