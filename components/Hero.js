@@ -28,6 +28,7 @@ const StyledHeroHeader = styled.header`
   h3 {
     color: ${lightblack};
     margin: 0;
+    margin-bottom: 2rem;
     font-weight: 400;
     font-size: 1rem;
     line-height: 2;

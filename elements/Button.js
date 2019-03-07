@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   padding: 1rem 2rem;
   border-radius: 5px;
   text-transform: uppercase;
-  margin-top: 2rem;
   background: ${black || 'black'};
   color: ${background};
 `;
