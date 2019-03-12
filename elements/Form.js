@@ -9,7 +9,6 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   z-index: 2;
   width: 480px;
   height: 480px;
@@ -22,12 +21,13 @@ const FormHeader = styled.h1`
   font-family: ${robo};
   text-transform: uppercase;
   position: relative;
-  margin-bottom: 60px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   ::after {
     content: '';
     position: absolute;
     left: 0;
-    top: 65px;
+    top: 3rem;
     width: 100%;
     height: 1px;
     background-color: #e1e1e1;
