@@ -89,7 +89,6 @@ const RegisterForm = () => {
                   onChange={handleChange}
                 />
               </Label>
-              <br />
               <Button>Register</Button>
             </Form>
             <CdShape />
