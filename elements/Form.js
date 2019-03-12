@@ -53,6 +53,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   width: 15rem;
+  margin-bottom: 1.5rem;
   font-family: ${mont};
   font-size: 0.8rem;
   padding: 0.4rem 0.8rem;
