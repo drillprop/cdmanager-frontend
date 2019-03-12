@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ImageContainer = styled.div`
+  position: relative;
+  margin: 0 auto;
+`;
+
 const StyledImg = styled.img`
-  max-width: 700px;
   display: block;
   margin: 0 auto;
-  position: relative;
-  top: -75px;
+  transform: translateY(-40px);
 `;
 
 const Shadow = styled.div`
@@ -14,19 +17,19 @@ const Shadow = styled.div`
   width: 100px;
   height: 30px;
   border-radius: 100%;
-  position: relative;
+  position: absolute;
   opacity: 0.5;
   margin: 0;
   z-index: -2;
-  left: 200px;
-  bottom: 220px;
+  bottom: 150px;
+  left: 110px;
   transform: scale(7);
 `;
 const HeroImage = () => (
-  <div>
+  <ImageContainer>
     <StyledImg src='/static/radio.png' alt='radio' />
     <Shadow />
-  </div>
+  </ImageContainer>
 );
 
 export default HeroImage;

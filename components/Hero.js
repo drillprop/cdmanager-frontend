@@ -10,7 +10,7 @@ const HeroContainer = styled.div`
   margin: 0 auto;
   margin-top: 6rem;
   display: grid;
-  grid-gap: 60px;
+  grid-gap: 11rem;
   grid-template-columns: 1fr 1fr;
 `;
 
