@@ -5,6 +5,7 @@ import { GlobalStyle } from '../utils/GlobalStyles';
 import { Wrapper } from '../elements/Wrapper';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
+import Meta from '../components/Meta';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -21,6 +22,7 @@ class MyApp extends App {
       <Container>
         <GlobalStyle />
         <ApolloProvider client={apollo}>
+          <Meta />
           <Header />
           <Wrapper>
             <Component {...pageProps} />
