@@ -21,7 +21,7 @@ const Shape = styled.div`
 const Text = styled.span`
   position: relative;
   top: 45%;
-  left: 70%;
+  left: 76%;
   color: white;
 `;
 
