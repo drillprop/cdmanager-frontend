@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
 import { QUERY_ME } from './User';
+import { FormWrapper, Form, FormHeader, Label, Input } from '../elements/Form';
+import CdShape from '../elements/CdShape';
 
 const SIGNIN = gql`
   mutation SIGNIN($email: String!, $password: String!) {
@@ -35,9 +37,8 @@ const LoginForm = () => {
         ]}
       >
         {(signin, { error, loading }) => (
-          <>
-            <h1>Login into your account</h1>
-            <form
+          <FormWrapper>
+            <Form
               onSubmit={async e => {
                 e.preventDefault();
                 await signin();
@@ -49,9 +50,10 @@ const LoginForm = () => {
               }}
               method='post'
             >
-              <label htmlFor='email'>
+              <FormHeader>Login into your account</FormHeader>
+              <Label htmlFor='email'>
                 <p>Email:</p>
-                <input
+                <Input
                   value={user.email}
                   required
                   placeholder='your email'
@@ -60,10 +62,10 @@ const LoginForm = () => {
                   type='email'
                   onChange={handleChange}
                 />
-              </label>
-              <label htmlFor='password'>
+              </Label>
+              <Label htmlFor='password'>
                 <p>Password</p>
-                <input
+                <Input
                   value={user.password}
                   required
                   placeholder='your password'
@@ -74,15 +76,17 @@ const LoginForm = () => {
                   autoComplete='new-password'
                   onChange={handleChange}
                 />
-              </label>
-              <br />
+              </Label>
               <Button>Login</Button>
-            </form>
-          </>
+            </Form>
+            <CdShape />
+          </FormWrapper>
         )}
       </Mutation>
     </>
   );
+  Input;
 };
 
 export default LoginForm;
+Label;
