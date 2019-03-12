@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 import Logo from './Logo';
+import Router from 'next/router';
+import Nprogress from 'nprogress';
+
+Router.onRouteChangeStart = () => Nprogress.start();
+Router.onRouteChangeComplete = () => Nprogress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 const StyledHeader = styled.header`
   max-width: 1330px;
