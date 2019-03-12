@@ -77,7 +77,7 @@ const LoginForm = () => {
                   onChange={handleChange}
                 />
               </Label>
-              <Button>Login</Button>
+              <Button type='submit'>Login</Button>
             </Form>
             <CdShape />
           </FormWrapper>

@@ -89,7 +89,7 @@ const RegisterForm = () => {
                   onChange={handleChange}
                 />
               </Label>
-              <Button>Register</Button>
+              <Button type='submit'>Register</Button>
             </Form>
             <CdShape />
           </FormWrapper>
