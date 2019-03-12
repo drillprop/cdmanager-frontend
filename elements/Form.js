@@ -31,6 +31,8 @@ const Form = styled.form`
   @media (max-width: 900px) {
     width: 300px;
     left: 0;
+    background: none;
+    border: none;
   }
 `;
 
