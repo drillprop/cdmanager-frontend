@@ -8,6 +8,10 @@ const FormWrapper = styled.section`
   position: relative;
   margin-top: 5rem;
   width: 480px;
+  @media (max-width: 900px) {
+    width: 300px;
+    left: 0;
+  }
 `;
 
 const Form = styled.form`
@@ -24,6 +28,10 @@ const Form = styled.form`
   border: 1px solid ${lighterblack};
   border-radius: 5px;
   background-color: white;
+  @media (max-width: 900px) {
+    width: 300px;
+    left: 0;
+  }
 `;
 
 const FormHeader = styled.h1`

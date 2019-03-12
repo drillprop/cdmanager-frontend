@@ -17,6 +17,9 @@ const Shape = styled.div`
     transition: all 5000ms;
     transform: rotate(1000deg);
   }
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 const Text = styled.span`
   position: relative;
