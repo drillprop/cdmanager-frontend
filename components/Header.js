@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import Logo from './Logo';
 
 const StyledHeader = styled.header`
-  width: 1330px;
+  max-width: 1330px;
   margin: 0 auto;
   margin-top: 1rem;
   display: grid;
