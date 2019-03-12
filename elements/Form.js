@@ -61,10 +61,14 @@ const Input = styled.input`
   outline: none;
   border-radius: 2px;
 `;
-
-const FormButton = styled(Button)`
-  margin-bottom: 3rem;
-  position: relative;
+const ButtonGroup = styled.div`
+  margin-bottom: 1.5rem;
 `;
 
-export { FormWrapper, FormButton, Form, FormHeader, Label, Input };
+const FormButton = styled(Button)`
+  position: relative;
+  display: block;
+  margin: 0 auto;
+`;
+
+export { FormWrapper, ButtonGroup, FormButton, Form, FormHeader, Label, Input };
