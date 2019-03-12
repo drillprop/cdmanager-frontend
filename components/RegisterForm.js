@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
 import { QUERY_ME } from './User';
-import { Form, FormHeader, Input, Label } from '../elements/Form';
+import { Form, FormHeader, Input, Label, FormWrapper } from '../elements/Form';
 import CdShape from '../elements/CdShape';
 
 const SIGNUP = gql`
@@ -37,7 +37,7 @@ const RegisterForm = () => {
         ]}
       >
         {(signup, { error, loading }) => (
-          <>
+          <FormWrapper>
             <Form
               onSubmit={async e => {
                 e.preventDefault();
@@ -93,7 +93,7 @@ const RegisterForm = () => {
               <Button>Register</Button>
             </Form>
             <CdShape />
-          </>
+          </FormWrapper>
         )}
       </Mutation>
     </>

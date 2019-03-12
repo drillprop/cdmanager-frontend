@@ -52,7 +52,12 @@ const Input = styled.input`
   border-radius: 2px;
 `;
 
-export { Form, FormHeader, Label, Input };
+const FormWrapper = styled.section`
+  margin: 0 auto;
+  position: relative;
+`;
+
+export { FormWrapper, Form, FormHeader, Label, Input };
 
 // todo
 // wrap cd and form in one div, set margin 0 auto for this div
