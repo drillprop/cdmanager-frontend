@@ -3,7 +3,14 @@ import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Button from '../elements/Button';
 import { QUERY_ME } from './User';
-import { FormWrapper, Form, FormHeader, Label, Input } from '../elements/Form';
+import {
+  FormWrapper,
+  Form,
+  FormHeader,
+  Label,
+  Input,
+  FormButton
+} from '../elements/Form';
 import CdShape from '../elements/CdShape';
 
 const SIGNIN = gql`
@@ -77,7 +84,7 @@ const LoginForm = () => {
                   onChange={handleChange}
                 />
               </Label>
-              <Button type='submit'>Login</Button>
+              <FormButton type='submit'>Login</FormButton>
             </Form>
             <CdShape />
           </FormWrapper>
