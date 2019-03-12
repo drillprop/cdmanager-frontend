@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
-import Button from '../elements/Button';
+import Link from 'next/link';
 import { QUERY_ME } from './User';
 import {
   Form,
@@ -10,7 +10,6 @@ import {
   Label,
   FormWrapper,
   FormButton,
-  FormLink,
   ButtonGroup
 } from '../elements/Form';
 import CdShape from '../elements/CdShape';
@@ -102,7 +101,12 @@ const RegisterForm = () => {
               </div>
               <ButtonGroup>
                 <FormButton type='submit'>Register</FormButton>
-                <p>Already have account? Sign in!</p>
+                <p>
+                  Already have account?{' '}
+                  <Link href={'/signin'}>
+                    <a> Sign in!</a>
+                  </Link>
+                </p>
               </ButtonGroup>
             </Form>
             <CdShape />

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
-import Button from '../elements/Button';
+import Link from 'next/link';
 import { QUERY_ME } from './User';
 import {
   FormWrapper,
@@ -89,7 +89,12 @@ const LoginForm = () => {
               </div>
               <ButtonGroup>
                 <FormButton type='submit'>Login</FormButton>
-                <p>Dont have account? Join us!</p>
+                <p>
+                  Dont have account?
+                  <Link href={'/signup'}>
+                    <a> Join us!</a>
+                  </Link>
+                </p>
               </ButtonGroup>
             </Form>
             <CdShape />
