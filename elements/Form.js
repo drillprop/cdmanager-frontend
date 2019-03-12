@@ -3,16 +3,16 @@ import { black, lightblack, lighterblack } from '../utils/colors';
 import { robo, mont } from '../utils/fonts';
 
 const Form = styled.form`
+  position: absolute;
+  top: 0;
+  left: -120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  left: calc(50% - 240px);
   z-index: 2;
   width: 480px;
   height: 480px;
-  margin: 0 auto;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
   background-color: white;
@@ -55,6 +55,8 @@ const Input = styled.input`
 const FormWrapper = styled.section`
   margin: 0 auto;
   position: relative;
+  margin-top: 5rem;
+  width: 480px;
 `;
 
 export { FormWrapper, Form, FormHeader, Label, Input };

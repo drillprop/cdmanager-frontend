@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 const Shape = styled.div`
   position: absolute;
-  left: calc(50% - 20px);
-  width: 470px;
-  height: 470px;
+  top: 0;
+  left: 120px;
+  width: 480px;
+  height: 480px;
   border: 1px solid #333;
   background: white;
   box-shadow: inset 0 0 0 10px white, inset 0 0 0 165px #333,
