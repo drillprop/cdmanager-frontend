@@ -9,7 +9,9 @@ import {
   Input,
   Label,
   FormWrapper,
-  FormButton
+  FormButton,
+  FormLink,
+  ButtonGroup
 } from '../elements/Form';
 import CdShape from '../elements/CdShape';
 
@@ -98,7 +100,10 @@ const RegisterForm = () => {
                   />
                 </Label>
               </div>
-              <FormButton type='submit'>Register</FormButton>
+              <ButtonGroup>
+                <FormButton type='submit'>Register</FormButton>
+                <p>Already have account? Sign in!</p>
+              </ButtonGroup>
             </Form>
             <CdShape />
           </FormWrapper>

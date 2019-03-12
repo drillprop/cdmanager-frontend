@@ -9,7 +9,8 @@ import {
   FormHeader,
   Label,
   Input,
-  FormButton
+  FormButton,
+  ButtonGroup
 } from '../elements/Form';
 import CdShape from '../elements/CdShape';
 
@@ -86,7 +87,10 @@ const LoginForm = () => {
                   />
                 </Label>
               </div>
-              <FormButton type='submit'>Login</FormButton>
+              <ButtonGroup>
+                <FormButton type='submit'>Login</FormButton>
+                <p>Dont have account? Join us!</p>
+              </ButtonGroup>
             </Form>
             <CdShape />
           </FormWrapper>
