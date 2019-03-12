@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { black, lightblack, lighterblack } from '../utils/colors';
 import { robo, mont } from '../utils/fonts';
+import Button from './Button';
 
 const Form = styled.form`
   position: absolute;
@@ -8,6 +9,7 @@ const Form = styled.form`
   left: -120px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   z-index: 2;
   width: 480px;
@@ -59,4 +61,9 @@ const FormWrapper = styled.section`
   width: 480px;
 `;
 
-export { FormWrapper, Form, FormHeader, Label, Input };
+const FormButton = styled(Button)`
+  margin-bottom: 3rem;
+  position: relative;
+`;
+
+export { FormWrapper, FormButton, Form, FormHeader, Label, Input };
