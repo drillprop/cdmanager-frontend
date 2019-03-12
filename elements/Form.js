@@ -60,7 +60,3 @@ const FormWrapper = styled.section`
 `;
 
 export { FormWrapper, Form, FormHeader, Label, Input };
-
-// todo
-// wrap cd and form in one div, set margin 0 auto for this div
-// use only position relative to this div
