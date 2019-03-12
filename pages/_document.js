@@ -1,5 +1,5 @@
-import Document, { Main, Head, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Document, { Main, Head, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -14,13 +14,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
-        <Head>
-          {this.props.styleTags}
-          <link
-            href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Roboto:400,700,900"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head>{this.props.styleTags}</Head>
         <body>
           <Main />
           <NextScript />
