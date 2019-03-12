@@ -58,44 +58,46 @@ const RegisterForm = () => {
               method='post'
             >
               <FormHeader>Create account</FormHeader>
-              <Label htmlFor='name'>
-                <p>Name:</p>
-                <Input
-                  value={user.name}
-                  placeholder='your name'
-                  required
-                  name='name'
-                  id='name'
-                  type='text'
-                  onChange={handleChange}
-                />
-              </Label>
-              <Label htmlFor='email'>
-                <p>Email:</p>
-                <Input
-                  value={user.email}
-                  required
-                  placeholder='your email'
-                  name='email'
-                  id='email'
-                  type='email'
-                  onChange={handleChange}
-                />
-              </Label>
-              <Label htmlFor='password'>
-                <p>Password</p>
-                <Input
-                  value={user.password}
-                  required
-                  placeholder='your password'
-                  name='password'
-                  id='password'
-                  type='password'
-                  aria-autocomplete={'list'}
-                  autoComplete='new-password'
-                  onChange={handleChange}
-                />
-              </Label>
+              <div>
+                <Label htmlFor='name'>
+                  <p>Name:</p>
+                  <Input
+                    value={user.name}
+                    placeholder='your name'
+                    required
+                    name='name'
+                    id='name'
+                    type='text'
+                    onChange={handleChange}
+                  />
+                </Label>
+                <Label htmlFor='email'>
+                  <p>Email:</p>
+                  <Input
+                    value={user.email}
+                    required
+                    placeholder='your email'
+                    name='email'
+                    id='email'
+                    type='email'
+                    onChange={handleChange}
+                  />
+                </Label>
+                <Label htmlFor='password'>
+                  <p>Password</p>
+                  <Input
+                    value={user.password}
+                    required
+                    placeholder='your password'
+                    name='password'
+                    id='password'
+                    type='password'
+                    aria-autocomplete={'list'}
+                    autoComplete='new-password'
+                    onChange={handleChange}
+                  />
+                </Label>
+              </div>
               <FormButton type='submit'>Register</FormButton>
             </Form>
             <CdShape />
