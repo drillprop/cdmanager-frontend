@@ -3,6 +3,13 @@ import { black, lightblack, lighterblack } from '../utils/colors';
 import { robo, mont } from '../utils/fonts';
 import Button from './Button';
 
+const FormWrapper = styled.section`
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5rem;
+  width: 480px;
+`;
+
 const Form = styled.form`
   position: absolute;
   top: 0;
@@ -52,13 +59,6 @@ const Input = styled.input`
   border: 1px solid ${lighterblack};
   outline: none;
   border-radius: 2px;
-`;
-
-const FormWrapper = styled.section`
-  margin: 0 auto;
-  position: relative;
-  margin-top: 5rem;
-  width: 480px;
 `;
 
 const FormButton = styled(Button)`
