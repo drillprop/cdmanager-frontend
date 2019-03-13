@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { lightblack } from '../utils/colors';
@@ -7,6 +7,7 @@ import RecentCds from './RecentCds';
 import SearchList from './SearchList';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import debounce from 'lodash.debounce';
 
 const GET_ALBUMS_FROM_LASTFM = gql`
   query GET_ALBUMS_FROM_LASTFM($search: String!) {
@@ -61,23 +62,25 @@ const StyledForm = styled.form`
 
 const AddCd = () => {
   const [result, setResult] = useState('');
-  let timeout = 0;
 
-  const handleSearch = e => {
-    const { value: result } = e.currentTarget;
-    if (timeout) clearTimeout(timeout);
-    timeout =
-      result &&
-      setTimeout(() => {
-        setResult(result);
-      }, 300);
-    !result && setResult('');
-  };
+  useEffect(() => {
+    return () => handleSearch.cancel();
+  }, []);
+
+  const handleSearch = debounce(text => {
+    setResult(text);
+    !text && setResult('');
+  }, 300);
+
   return (
     <StyledMain>
       <StyledH1>add an album</StyledH1>
       <StyledForm displayRecent={!result}>
-        <input type='text' placeholder='search...' onKeyUp={handleSearch} />
+        <input
+          type='text'
+          placeholder='search...'
+          onChange={e => handleSearch(e.currentTarget.value)}
+        />
       </StyledForm>
       {result && (
         <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
