@@ -18,7 +18,8 @@ const FormWrapper = styled.section`
 const Form = styled.form`
   position: absolute;
   top: 0;
-  left: 230px;
+  left: 50%;
+  margin-left: -220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

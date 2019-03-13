@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const Shape = styled.div`
   position: absolute;
   top: 0;
-  left: 300px;
+  left: 50%;
+  margin-left: -100px;
   width: 430px;
   height: 430px;
   border: 1px solid #333;
@@ -16,7 +17,7 @@ const Shape = styled.div`
   transition: all 1500ms;
   :hover {
     transition: all 1500ms;
-    transform: translateX(170px) rotate(360deg);
+    transform: translateX(120px) rotate(360deg);
   }
   @media (max-width: 900px) {
     display: none;
