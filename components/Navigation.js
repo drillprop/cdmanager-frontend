@@ -40,11 +40,11 @@ const Navigation = () => (
         <ul>
           <li>
             {me ? (
-              <Link href='/signin'>
+              <Link href='/login'>
                 <a onClick={signout}>logout</a>
               </Link>
             ) : (
-              <Link href='/signin'>
+              <Link href='/login'>
                 <a>login</a>
               </Link>
             )}
@@ -55,7 +55,7 @@ const Navigation = () => (
                 <a>{me.name}</a>
               </Link>
             ) : (
-              <Link href='/signup'>
+              <Link href='/register'>
                 <a>Register</a>
               </Link>
             )}
