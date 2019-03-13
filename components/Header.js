@@ -7,7 +7,6 @@ import Nprogress from 'nprogress';
 
 Router.onRouteChangeStart = () => Nprogress.start();
 Router.onRouteChangeComplete = () => Nprogress.done();
-Router.onRouteChangeError = () => NProgress.done();
 
 const StyledHeader = styled.header`
   max-width: 1330px;
