@@ -5,6 +5,7 @@ import { GlobalStyle } from '../utils/GlobalStyles';
 import { Wrapper } from '../elements/Wrapper';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
+import { PageTransition } from 'next-page-transitions';
 import Meta from '../components/Meta';
 
 class MyApp extends App {
@@ -25,7 +26,9 @@ class MyApp extends App {
           <Meta />
           <Header />
           <Wrapper>
-            <Component {...pageProps} />
+            <PageTransition timeout={300} classNames='page-transition'>
+              <Component {...pageProps} />
+            </PageTransition>
           </Wrapper>
         </ApolloProvider>
       </Container>
