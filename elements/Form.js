@@ -6,8 +6,9 @@ import Button from './Button';
 const FormWrapper = styled.section`
   margin: 0 auto;
   position: relative;
-  margin-top: 5rem;
-  width: 480px;
+  margin-top: 3.5rem;
+  height: 450px;
+  overflow-y: hidden;
   @media (max-width: 900px) {
     width: 300px;
     left: 0;
@@ -17,14 +18,14 @@ const FormWrapper = styled.section`
 const Form = styled.form`
   position: absolute;
   top: 0;
-  left: -120px;
+  left: 230px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  width: 480px;
-  height: 480px;
+  width: 430px;
+  height: 430px;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
   background-color: white;
@@ -38,15 +39,16 @@ const Form = styled.form`
 
 const FormHeader = styled.h1`
   font-family: ${robo};
+  font-size: 1.5rem;
   text-transform: uppercase;
   position: relative;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   ::after {
     content: '';
     position: absolute;
     left: 0;
-    top: 3rem;
+    top: 2rem;
     width: 100%;
     height: 1px;
     background-color: #e1e1e1;
@@ -62,7 +64,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  width: 15rem;
+  width: 13rem;
   margin-bottom: 1.5rem;
   font-family: ${mont};
   font-size: 0.8rem;
@@ -72,11 +74,12 @@ const Input = styled.input`
   border-radius: 2px;
 `;
 const ButtonGroup = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 const FormButton = styled(Button)`
   position: relative;
+  padding: 1rem 2rem;
   display: block;
   margin: 0 auto;
 `;

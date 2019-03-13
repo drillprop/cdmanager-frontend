@@ -4,18 +4,19 @@ import styled from 'styled-components';
 const Shape = styled.div`
   position: absolute;
   top: 0;
-  left: 120px;
-  width: 480px;
-  height: 480px;
+  left: 300px;
+  width: 430px;
+  height: 430px;
   border: 1px solid #333;
   background: white;
   box-shadow: inset 0 0 0 10px white, inset 0 0 0 165px #333,
-    inset 0 0 0 175px white, inset 0 0 0 176px #333, inset 0 0 0 205px white,
-    inset 0 0 0 206px black;
+    inset 0 0 0 175px white, inset 0 0 0 176px #333, inset 0 0 0 200px white,
+    inset 0 0 0 201px black;
   border-radius: 50%;
+  transition: all 1500ms;
   :hover {
-    transition: all 5000ms;
-    transform: rotate(1000deg);
+    transition: all 1500ms;
+    transform: translateX(170px) rotate(360deg);
   }
   @media (max-width: 900px) {
     display: none;
@@ -23,6 +24,7 @@ const Shape = styled.div`
 `;
 const Text = styled.span`
   position: relative;
+  overflow: hidden;
   top: 45%;
   left: 76%;
   color: white;
