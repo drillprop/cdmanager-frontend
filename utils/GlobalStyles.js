@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import { mont } from "./fonts";
-import { lighterblack } from "./colors";
+import { createGlobalStyle } from 'styled-components';
+import { mont } from './fonts';
+import { lighterblack } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
 * {
