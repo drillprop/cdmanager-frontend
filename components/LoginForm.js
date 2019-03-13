@@ -12,7 +12,7 @@ import {
   FormButton,
   ButtonGroup
 } from '../elements/Form';
-import CdShape from '../elements/CdShape';
+import CdShape from './CdShape';
 
 const SIGNIN = gql`
   mutation SIGNIN($email: String!, $password: String!) {

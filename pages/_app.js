@@ -2,7 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Header from '../components/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
-import { Wrapper } from '../elements/Wrapper';
+import { Wrapper } from '../components/Wrapper';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
 import { PageTransition } from 'next-page-transitions';
