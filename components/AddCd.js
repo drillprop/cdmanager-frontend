@@ -33,8 +33,8 @@ const StyledH1 = styled.h1`
   font-size: 3rem;
   letter-spacing: -1px;
   color: ${lightblack};
+  margin: 0;
   margin-bottom: 2rem;
-  margin-top: 3rem;
 `;
 const StyledForm = styled.form`
   margin: 0 auto;
