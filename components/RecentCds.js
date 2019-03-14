@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { lightblack } from '../utils/colors';
 import { robo } from '../utils/fonts';
 import Cd from './Cd';
-import { useSpring, animated } from 'react-spring';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loading from '../elements/Loading';
@@ -27,13 +26,8 @@ const CdContainer = styled.section`
 `;
 
 const RecentCds = () => {
-  const props = useSpring({
-    opacity: 1,
-    transform: 'scale(1)',
-    from: { opacity: 0, transform: 'scale(0.7)' }
-  });
   return (
-    <animated.div style={props}>
+    <>
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
@@ -54,7 +48,7 @@ const RecentCds = () => {
           }}
         </Query>
       </CdContainer>
-    </animated.div>
+    </>
   );
 };
 
