@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-const SHOW_RECENTLY_ADDED = gql`
+export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
     albums(last: $last) {
       title
@@ -35,9 +35,12 @@ const RecentCds = () => {
     <animated.div style={props}>
       <StyledH2>recently added</StyledH2>
       <CdContainer>
-        <Query query={SHOW_RECENTLY_ADDED} variables={{ last: 20 }}>
-          {({ data, error, loading, refetch }) => {
-            refetch();
+        <Query
+          query={SHOW_RECENTLY_ADDED}
+          variables={{ last: 20 }}
+          fetchPolicy='cache-and-network'
+        >
+          {({ data, error, loading }) => {
             if (error) return <div>{error.message}</div>;
             if (loading) return <div>Loading...</div>;
             const { albums } = data;
