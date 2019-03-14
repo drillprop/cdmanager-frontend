@@ -21,7 +21,7 @@ const SHOW_RECENTLY_ADDED = gql`
 const StyledH2 = styled.h2``;
 const CdContainer = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
 `;
 
@@ -35,7 +35,7 @@ const RecentCds = () => {
     <animated.div style={props}>
       <StyledH2>recently added</StyledH2>
       <CdContainer>
-        <Query query={SHOW_RECENTLY_ADDED} variables={{ last: 4 }}>
+        <Query query={SHOW_RECENTLY_ADDED} variables={{ last: 20 }}>
           {({ data, error, loading, refetch }) => {
             refetch();
             if (error) return <div>{error.message}</div>;
