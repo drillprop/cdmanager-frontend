@@ -31,9 +31,10 @@ const Form = styled.form`
   border-radius: 5px;
   background-color: white;
   @media (max-width: 900px) {
-    width: 300px;
-    left: 0;
     background: none;
+    margin-left: 0;
+    left: 0;
+    width: 100%;
     border: none;
   }
 `;
@@ -54,11 +55,15 @@ const FormHeader = styled.h1`
     height: 1px;
     background-color: #e1e1e1;
   }
+  @media (max-width: 900px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Label = styled.label`
   margin-bottom: 1.5rem;
   p {
+    font-size: 0.9rem;
     margin: 0;
     margin-bottom: 0.4rem;
   }
