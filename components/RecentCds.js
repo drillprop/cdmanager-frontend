@@ -18,35 +18,7 @@ const SHOW_RECENTLY_ADDED = gql`
   }
 `;
 
-const StyledH2 = styled.h2`
-  position: relative;
-  text-align: center;
-  margin: 2rem 1rem;
-  color: ${lightblack};
-  font-family: ${robo};
-  font-size: 1.2rem;
-  ::after {
-    position: absolute;
-    margin-left: 1rem;
-    content: '';
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10rem;
-    height: 1px;
-    background: black;
-  }
-  ::before {
-    position: absolute;
-    content: '';
-    margin-left: -11rem;
-    top: 50%;
-    border-radius: 4px;
-    transform: translateY(-50%);
-    width: 10rem;
-    height: 1px;
-    background: black;
-  }
-`;
+const StyledH2 = styled.h2``;
 const CdContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
