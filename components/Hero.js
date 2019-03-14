@@ -46,7 +46,7 @@ const Hero = () => (
         magni!
       </h3>
       <Button>
-        <Link href='/signup'>
+        <Link href='/register'>
           <a>try it now</a>
         </Link>
       </Button>
