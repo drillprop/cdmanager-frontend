@@ -41,7 +41,13 @@ const RecentAlbums = () => {
             const { albums } = data;
             if (albums) {
               return albums.map(({ artist, title, image, id }) => (
-                <Album artist={artist} title={title} image={image} key={id} />
+                <Album
+                  artist={artist}
+                  title={title}
+                  image={image}
+                  key={id}
+                  id={id}
+                />
               ));
             }
             return <p>no albums added</p>;
