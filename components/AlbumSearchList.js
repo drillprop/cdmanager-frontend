@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../utils/theme';
 import { useSpring, animated } from 'react-spring';
-import CdResult from './CdResult';
+import AlbumSearchResult from './AlbumSearchResult';
 
 const List = styled(animated.ul)`
   position: relative;
@@ -16,7 +16,7 @@ const List = styled(animated.ul)`
   list-style: none;
 `;
 
-const SearchList = ({ searchResult, loading, error }) => {
+const AlbumSearchList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
   if (loading) {
     return (
@@ -39,7 +39,7 @@ const SearchList = ({ searchResult, loading, error }) => {
       {uniqueSearchResult &&
         uniqueSearchResult.map(({ artist, title, image }) => {
           return (
-            <CdResult
+            <AlbumSearchResult
               artist={artist}
               title={title}
               image={image}
@@ -51,4 +51,4 @@ const SearchList = ({ searchResult, loading, error }) => {
   );
 };
 
-export default SearchList;
+export default AlbumSearchList;

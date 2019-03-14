@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { lightblack } from '../utils/colors';
 import { theme } from '../utils/theme';
-import RecentCds from './RecentCds';
-import SearchList from './SearchList';
+import RecentAlbums from './RecentAlbums';
+import AlbumSearchList from './AlbumSearchList';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
@@ -60,7 +60,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const AddCd = () => {
+const AddAlbum = () => {
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -86,15 +86,19 @@ const AddCd = () => {
         <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
           {({ loading, error, data }) => {
             return (
-              <SearchList searchResult={data} loading={loading} error={error} />
+              <AlbumSearchList
+                searchResult={data}
+                loading={loading}
+                error={error}
+              />
             );
           }}
         </Query>
       )}
 
-      {!result && <RecentCds />}
+      {!result && <RecentAlbums />}
     </StyledMain>
   );
 };
 
-export default AddCd;
+export default AddAlbum;

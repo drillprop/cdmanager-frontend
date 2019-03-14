@@ -1,9 +1,9 @@
-import AddCd from "../components/AddCd";
+import AddAlbum from '../components/AddAlbum';
 
 const Dashboard = () => {
   return (
     <div>
-      <AddCd />
+      <AddAlbum />
     </div>
   );
 };

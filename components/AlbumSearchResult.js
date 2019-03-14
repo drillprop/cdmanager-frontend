@@ -30,7 +30,7 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const CdResult = ({ artist, title, image }) => {
+const AlbumSearchResult = ({ artist, title, image }) => {
   const [imageLoaded, setAsLoaded] = useState(false);
   return (
     <Item>
@@ -60,4 +60,4 @@ const CdResult = ({ artist, title, image }) => {
   );
 };
 
-export default CdResult;
+export default AlbumSearchResult;

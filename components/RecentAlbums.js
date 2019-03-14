@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { lightblack } from '../utils/colors';
 import { robo } from '../utils/fonts';
-import Cd from './Cd';
+import Album from './Album';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loading from '../elements/Loading';
@@ -25,7 +25,7 @@ const CdContainer = styled.section`
   justify-content: center;
 `;
 
-const RecentCds = () => {
+const RecentAlbums = () => {
   return (
     <>
       <StyledH2>recently added</StyledH2>
@@ -41,7 +41,7 @@ const RecentCds = () => {
             const { albums } = data;
             if (albums) {
               return albums.map(({ artist, title, image, id }) => (
-                <Cd artist={artist} title={title} image={image} key={id} />
+                <Album artist={artist} title={title} image={image} key={id} />
               ));
             }
             return <p>no albums added</p>;
@@ -52,4 +52,4 @@ const RecentCds = () => {
   );
 };
 
-export default RecentCds;
+export default RecentAlbums;

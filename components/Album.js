@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { robo, mont } from "../utils/fonts";
-import { theme } from "../utils/theme";
+import React from 'react';
+import styled from 'styled-components';
+import { robo, mont } from '../utils/fonts';
+import { theme } from '../utils/theme';
 
 const StyledFigure = styled.figure`
   display: flex;
@@ -41,7 +41,7 @@ const Year = styled.h5`
   font-weight: 700;
   font-size: 0.8rem;
 `;
-const Cd = ({ artist, title, year, image }) => (
+const Album = ({ artist, title, year, image }) => (
   <StyledFigure>
     <ImgWrapper>{image && <img src={image} alt={title} />}</ImgWrapper>
     <figcaption>
@@ -52,4 +52,4 @@ const Cd = ({ artist, title, year, image }) => (
   </StyledFigure>
 );
 
-export default Cd;
+export default Album;
