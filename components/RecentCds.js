@@ -6,6 +6,7 @@ import Cd from './Cd';
 import { useSpring, animated } from 'react-spring';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import Loading from '../elements/Loading';
 
 export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
@@ -42,7 +43,7 @@ const RecentCds = () => {
         >
           {({ data, error, loading }) => {
             if (error) return <div>{error.message}</div>;
-            if (loading) return <div>Loading...</div>;
+            if (loading) return <Loading loading={loading} />;
             const { albums } = data;
             if (albums) {
               return albums.map(({ artist, title, image, id }) => (
