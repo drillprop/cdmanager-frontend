@@ -8,7 +8,7 @@ const FormWrapper = styled.section`
   position: relative;
   margin-top: 3.5rem;
   height: 450px;
-  overflow-y: hidden;
+  overflow: hidden;
   @media (max-width: 900px) {
     width: 300px;
     left: 0;
