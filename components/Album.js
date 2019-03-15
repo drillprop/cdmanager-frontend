@@ -11,6 +11,9 @@ const StyledFigure = styled.figure`
 `;
 
 const ImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 120px;
   height: 120px;
   border: 1px solid #909090;
@@ -38,7 +41,9 @@ const Title = styled.h4`
 
 const Album = ({ artist, title, image, id }) => (
   <StyledFigure>
-    <ImgWrapper>{image && <img src={image} alt={title} />}</ImgWrapper>
+    <ImgWrapper>
+      {image ? <img src={image} alt={title} /> : <div>No image</div>}
+    </ImgWrapper>
     <figcaption>
       <ArtistName>{artist} </ArtistName>
       <Title>{title}</Title>
