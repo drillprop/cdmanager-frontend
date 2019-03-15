@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { theme } from '../utils/theme';
+import DeleteButton from './DeleteButton';
 
 const StyledFigure = styled.figure`
   display: flex;
@@ -35,19 +36,13 @@ const Title = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
-const Year = styled.h5`
-  margin: 0;
-  font-family: ${mont};
-  font-weight: 700;
-  font-size: 0.8rem;
-`;
-const Album = ({ artist, title, year, image }) => (
+const Album = ({ artist, title, image, id }) => (
   <StyledFigure>
     <ImgWrapper>{image && <img src={image} alt={title} />}</ImgWrapper>
     <figcaption>
       <ArtistName>{artist} </ArtistName>
       <Title>{title}</Title>
-      <Year>{year}</Year>
+      <DeleteButton id={id} />
     </figcaption>
   </StyledFigure>
 );
