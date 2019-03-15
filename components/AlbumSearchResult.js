@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import LoadedImage from '../elements/LoadedImage';
 
 const CREATE_CD = gql`
   mutation CREATE_CD($title: String!, $artist: String!, $image: String) {
@@ -31,17 +32,10 @@ const ImageWrapper = styled.div`
 `;
 
 const AlbumSearchResult = ({ artist, title, image }) => {
-  const [imageLoaded, setAsLoaded] = useState(false);
   return (
     <Item>
       <ImageWrapper>
-        <img
-          onLoad={() => setAsLoaded(true)}
-          style={imageLoaded ? {} : { display: 'none' }}
-          src={image}
-          alt={title}
-        />
-        {!imageLoaded && 'Loading...'}
+        <LoadedImage title={title} image={image} />
       </ImageWrapper>
       <div>
         <div>{artist}</div>

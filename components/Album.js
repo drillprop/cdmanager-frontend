@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { theme } from '../utils/theme';
 import DeleteButton from './DeleteButton';
+import LoadedImage from '../elements/LoadedImage';
 
 const StyledFigure = styled.figure`
   display: flex;
@@ -42,7 +43,11 @@ const Title = styled.h4`
 const Album = ({ artist, title, image, id }) => (
   <StyledFigure>
     <ImgWrapper>
-      {image ? <img src={image} alt={title} /> : <div>No image</div>}
+      {image ? (
+        <LoadedImage title={title} image={image} />
+      ) : (
+        <div>No image</div>
+      )}
     </ImgWrapper>
     <figcaption>
       <ArtistName>{artist} </ArtistName>
