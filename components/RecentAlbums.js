@@ -6,6 +6,7 @@ import Album from './Album';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loading from '../elements/Loading';
+import Pagination from './Pagination';
 
 export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
@@ -28,6 +29,7 @@ const CdContainer = styled.section`
 const RecentAlbums = () => {
   return (
     <>
+      <Pagination />
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
