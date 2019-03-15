@@ -5,7 +5,7 @@ import { Mutation } from 'react-apollo';
 
 const DELETE_ALBUM = gql`
   mutation DELETE_ALBUM($id: String!) {
-    deleteCd(id: $id) {
+    deleteAlbum(id: $id) {
       message
     }
   }
@@ -13,7 +13,7 @@ const DELETE_ALBUM = gql`
 
 const DeleteButton = ({ id }) => (
   <Mutation mutation={DELETE_ALBUM} variables={{ id }}>
-    {deleteCd => <button onClick={deleteCd}>Delete</button>}
+    {deleteAlbum => <button onClick={deleteAlbum}>Delete</button>}
   </Mutation>
 );
 

@@ -14,9 +14,9 @@ import {
 } from '../elements/Form';
 import CdShape from './CdShape';
 
-const SIGNIN = gql`
-  mutation SIGNIN($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
+const LOGIN = gql`
+  mutation LOGIN($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
       name
       email
       id
@@ -35,7 +35,7 @@ const LoginForm = () => {
   return (
     <>
       <Mutation
-        mutation={SIGNIN}
+        mutation={LOGIN}
         errorPolicy='all'
         variables={user}
         refetchQueries={[
@@ -44,12 +44,12 @@ const LoginForm = () => {
           }
         ]}
       >
-        {(signin, { error, loading }) => (
+        {(login, { error, loading }) => (
           <FormWrapper>
             <Form
               onSubmit={async e => {
                 e.preventDefault();
-                await signin();
+                await login();
                 setUser({
                   name: '',
                   password: '',

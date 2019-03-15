@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import LoadedImage from '../elements/LoadedImage';
 
-const CREATE_CD = gql`
-  mutation CREATE_CD($title: String!, $artist: String!, $image: String) {
-    createCd(title: $title, artist: $artist, image: $image) {
+const CREATE_ALBUM = gql`
+  mutation CREATE_ALBUM($title: String!, $artist: String!, $image: String) {
+    createAlbum(title: $title, artist: $artist, image: $image) {
       title
       artist
       image
@@ -41,10 +41,10 @@ const AlbumSearchResult = ({ artist, title, image }) => {
         <div>{artist}</div>
         <div>{title}</div>
       </div>
-      <Mutation mutation={CREATE_CD} variables={{ artist, title, image }}>
-        {(createCd, payload) => {
+      <Mutation mutation={CREATE_ALBUM} variables={{ artist, title, image }}>
+        {(createAlbum, payload) => {
           return (
-            <button disabled={payload.called} onClick={() => createCd()}>
+            <button disabled={payload.called} onClick={() => createAlbum()}>
               add
             </button>
           );
