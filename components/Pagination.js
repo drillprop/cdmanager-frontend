@@ -10,8 +10,7 @@ const StyledPagination = styled.div`
   grid-gap: 20px;
 `;
 
-const Pagination = props => {
-  console.log(props);
+const Pagination = () => {
   return (
     <StyledPagination>
       <div> &lt; Prev </div>
