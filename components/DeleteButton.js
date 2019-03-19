@@ -12,18 +12,19 @@ const DELETE_ALBUM = gql`
 `;
 
 const DeleteButton = ({ id }) => {
+  const query = {
+    query: SHOW_RECENTLY_ADDED,
+    variables: { last: 20 }
+  };
+  const filterAlbums = albums => albums.filter(album => album.id !== id);
   return (
     <Mutation
       mutation={DELETE_ALBUM}
       variables={{ id }}
-      update={(cache, data) => {
-        const query = {
-          query: SHOW_RECENTLY_ADDED,
-          variables: { last: 20 }
-        };
+      refetchQueries={[query]}
+      update={cache => {
         const { albums } = cache.readQuery(query);
-        const updatedCollection = albums.filter(album => album.id !== id);
-        console.log(updatedCollection);
+        const updatedCollection = filterAlbums(albums);
         cache.writeQuery({
           ...query,
           data: {
