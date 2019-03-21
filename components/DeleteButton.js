@@ -11,10 +11,10 @@ const DELETE_ALBUM = gql`
   }
 `;
 
-const DeleteButton = ({ id }) => {
+const DeleteButton = ({ id, page }) => {
   const query = {
     query: SHOW_RECENTLY_ADDED,
-    variables: { last: 20 }
+    variables: { last: 10 * page }
   };
   const filterAlbums = albums => albums.filter(album => album.id !== id);
   return (

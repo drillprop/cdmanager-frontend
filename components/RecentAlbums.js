@@ -8,6 +8,7 @@ import { Query } from 'react-apollo';
 import Loading from '../elements/Loading';
 import Pagination from './Pagination';
 import { QueryContext } from '../pages/dashboard';
+import DeleteButton from './DeleteButton';
 
 export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
@@ -36,7 +37,7 @@ const RecentAlbums = () => {
       <CdContainer>
         <Query
           query={SHOW_RECENTLY_ADDED}
-          variables={{ last: 10 * page }}
+          variables={{ last: 10 * (page || 1) }}
           fetchPolicy='cache-and-network'
         >
           {({ data, error, loading }) => {
@@ -51,7 +52,9 @@ const RecentAlbums = () => {
                   image={image}
                   key={id}
                   id={id}
-                />
+                >
+                  <DeleteButton id={id} page={page} />
+                </Album>
               ));
             }
             return <p>no albums added</p>;

@@ -40,7 +40,7 @@ const Title = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
-const Album = ({ artist, title, image, id }) => (
+const Album = ({ artist, title, image, id, children }) => (
   <StyledFigure>
     <ImgWrapper>
       {image ? (
@@ -52,7 +52,7 @@ const Album = ({ artist, title, image, id }) => (
     <figcaption>
       <ArtistName>{artist} </ArtistName>
       <Title>{title}</Title>
-      <DeleteButton id={id} />
+      {children}
     </figcaption>
   </StyledFigure>
 );
