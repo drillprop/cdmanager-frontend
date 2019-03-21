@@ -36,7 +36,7 @@ const RecentAlbums = () => {
       <CdContainer>
         <Query
           query={SHOW_RECENTLY_ADDED}
-          variables={{ last: 20 }}
+          variables={{ last: 10 * page }}
           fetchPolicy='cache-and-network'
         >
           {({ data, error, loading }) => {
