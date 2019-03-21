@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const StyledPagination = styled.div`
   max-width: 300px;
@@ -10,12 +11,30 @@ const StyledPagination = styled.div`
   grid-gap: 20px;
 `;
 
-const Pagination = () => {
+const Pagination = ({ page }) => {
   return (
     <StyledPagination>
-      <div> &lt; Prev </div>
-      <div>Page 1 of 1</div>
-      <div>Next &gt;</div>
+      <Link
+        href={{
+          pathname: 'dashboard',
+          query: {
+            page: page - 1
+          }
+        }}
+      >
+        <a> &lt; Prev </a>
+      </Link>
+      <div>Page {page} of 1</div>
+      <Link
+        href={{
+          pathname: 'dashboard',
+          query: {
+            page: page + 1
+          }
+        }}
+      >
+        <a> Next &gt; </a>
+      </Link>
     </StyledPagination>
   );
 };

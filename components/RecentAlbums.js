@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { lightblack } from '../utils/colors';
 import { robo } from '../utils/fonts';
@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loading from '../elements/Loading';
 import Pagination from './Pagination';
+import { QueryContext } from '../pages/dashboard';
 
 export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
@@ -27,9 +28,10 @@ const CdContainer = styled.section`
 `;
 
 const RecentAlbums = () => {
+  const page = useContext(QueryContext);
   return (
     <>
-      <Pagination />
+      <Pagination page={parseFloat(page) || 1} />
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
