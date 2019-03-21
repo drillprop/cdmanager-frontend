@@ -1,10 +1,12 @@
 import AddAlbum from '../components/AddAlbum';
+import { createContext } from 'react';
 
-const Dashboard = () => {
+export const QueryContext = createContext();
+const Dashboard = ({ query }) => {
   return (
-    <div>
+    <QueryContext.Provider value={query.page}>
       <AddAlbum />
-    </div>
+    </QueryContext.Provider>
   );
 };
 
