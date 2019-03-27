@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import LoadedImage from '../elements/LoadedImage';
+import { GET_ALBUMS_LENGTH } from './RecentAlbums';
 
 const CREATE_ALBUM = gql`
   mutation CREATE_ALBUM($title: String!, $artist: String!, $image: String) {
@@ -41,7 +42,11 @@ const AlbumSearchResult = ({ artist, title, image }) => {
         <div>{artist}</div>
         <div>{title}</div>
       </div>
-      <Mutation mutation={CREATE_ALBUM} variables={{ artist, title, image }}>
+      <Mutation
+        mutation={CREATE_ALBUM}
+        variables={{ artist, title, image }}
+        refetchQueries={[{ query: GET_ALBUMS_LENGTH }]}
+      >
         {(createAlbum, payload) => {
           return (
             <button disabled={payload.called} onClick={() => createAlbum()}>
