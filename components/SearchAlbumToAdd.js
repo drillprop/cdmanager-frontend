@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { robo, mont } from '../utils/fonts';
 import { lightblack } from '../utils/colors';
 import { theme } from '../utils/theme';
-import RecentAlbums from './RecentAlbums';
 import AlbumSearchList from './AlbumSearchList';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -52,7 +51,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const SearchAlbumToAdd = () => {
+const SearchAlbumToAdd = ({ setToVisible }) => {
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -63,7 +62,6 @@ const SearchAlbumToAdd = () => {
     setResult(text);
     !text && setResult('');
   }, 300);
-
   return (
     <>
       <StyledH1>add an album</StyledH1>
@@ -71,7 +69,11 @@ const SearchAlbumToAdd = () => {
         <input
           type='text'
           placeholder='search...'
-          onChange={e => handleSearch(e.currentTarget.value)}
+          onChange={e => {
+            const { value } = e.currentTarget;
+            value ? setToVisible(false) : setToVisible(true);
+            handleSearch(value);
+          }}
         />
       </StyledForm>
       {result && (
@@ -87,8 +89,6 @@ const SearchAlbumToAdd = () => {
           }}
         </Query>
       )}
-
-      {!result && <RecentAlbums />}
     </>
   );
 };

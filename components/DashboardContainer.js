@@ -4,11 +4,16 @@ import RecentAlbums from './RecentAlbums';
 import FilterCollection from './FilterCollection';
 
 const DashboardContainer = () => {
+  const [visible, setToVisible] = useState(true);
   return (
     <>
-      <SearchAlbumToAdd />
-      <RecentAlbums />
-      <FilterCollection />
+      <SearchAlbumToAdd setToVisible={setToVisible} />
+      {visible && (
+        <>
+          <RecentAlbums />
+          <FilterCollection />
+        </>
+      )}
     </>
   );
 };
