@@ -20,7 +20,7 @@ const DeleteButton = ({ id, page }) => {
     <Mutation
       mutation={DELETE_ALBUM}
       variables={{ id }}
-      refetchQueries={([query], { query: GET_ALBUMS_LENGTH })}
+      refetchQueries={[query, { query: GET_ALBUMS_LENGTH }]}
     >
       {deleteAlbum => (
         <button
