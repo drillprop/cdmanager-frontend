@@ -9,9 +9,13 @@ const StyledPagination = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  a[aria-disabled='true'] {
+    pointer-events: none;
+  }
 `;
 
-const Pagination = ({ page }) => {
+const Pagination = ({ page, albumsLength }) => {
+  const pages = Math.ceil(albumsLength / 10);
   return (
     <StyledPagination>
       <Link
@@ -22,9 +26,11 @@ const Pagination = ({ page }) => {
           }
         }}
       >
-        <a> &lt; Prev </a>
+        <a aria-disabled={page < 2}> &lt; Prev </a>
       </Link>
-      <div>Page {page} of 1</div>
+      <div>
+        Page {page} of {pages}
+      </div>
       <Link
         href={{
           pathname: 'dashboard',
@@ -33,7 +39,7 @@ const Pagination = ({ page }) => {
           }
         }}
       >
-        <a> Next &gt; </a>
+        <a aria-disabled={page >= pages}> Next &gt; </a>
       </Link>
     </StyledPagination>
   );
