@@ -22,6 +22,11 @@ const ImgWrapper = styled.div`
   background-color: white;
   margin-bottom: 0.5rem;
   box-shadow: ${theme.bs};
+  img {
+    display: block;
+    max-height: 90px;
+    margin: 0 auto;
+  }
 `;
 
 const ArtistName = styled.h3`

@@ -19,14 +19,6 @@ const GET_ALBUMS_FROM_LASTFM = gql`
   }
 `;
 
-const StyledMain = styled.div`
-  img {
-    display: block;
-    max-height: 90px;
-    margin: 0 auto;
-  }
-`;
-
 const StyledH1 = styled.h1`
   text-align: center;
   font-family: ${robo};
@@ -73,7 +65,7 @@ const SearchAlbumToAdd = () => {
   }, 300);
 
   return (
-    <StyledMain>
+    <>
       <StyledH1>add an album</StyledH1>
       <StyledForm displayRecent={!result}>
         <input
@@ -97,7 +89,7 @@ const SearchAlbumToAdd = () => {
       )}
 
       {!result && <RecentAlbums />}
-    </StyledMain>
+    </>
   );
 };
 
