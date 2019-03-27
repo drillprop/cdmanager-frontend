@@ -21,7 +21,7 @@ export const SHOW_RECENTLY_ADDED = gql`
   }
 `;
 
-const GET_ALBUMS_LENGTH = gql`
+export const GET_ALBUMS_LENGTH = gql`
   query GET_ALBUMS_LENGTH {
     albumsLength
   }
