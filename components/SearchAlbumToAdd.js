@@ -60,7 +60,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const AddAlbum = () => {
+const SearchAlbumToAdd = () => {
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -101,4 +101,4 @@ const AddAlbum = () => {
   );
 };
 
-export default AddAlbum;
+export default SearchAlbumToAdd;

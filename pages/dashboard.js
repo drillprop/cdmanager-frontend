@@ -1,11 +1,11 @@
-import AddAlbum from '../components/AddAlbum';
+import SearchAlbumToAdd from '../components/SearchAlbumToAdd';
 import { createContext } from 'react';
 
 export const QueryContext = createContext();
 const Dashboard = ({ query }) => {
   return (
     <QueryContext.Provider value={query.page}>
-      <AddAlbum />
+      <SearchAlbumToAdd />
     </QueryContext.Provider>
   );
 };
