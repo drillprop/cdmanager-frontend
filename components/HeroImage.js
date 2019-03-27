@@ -14,16 +14,15 @@ const StyledImg = styled.img`
 
 const Shadow = styled.div`
   background: radial-gradient(#7777 1%, transparent 60%);
-  width: 100px;
-  height: 30px;
+  width: 700px;
+  height: 210px;
   border-radius: 100%;
   position: absolute;
   opacity: 0.5;
   margin: 0;
   z-index: -2;
-  bottom: 150px;
-  left: 110px;
-  transform: scale(7);
+  bottom: 50px;
+  left: -150px;
 `;
 const HeroImage = () => (
   <ImageContainer>
