@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { QueryContext } from '../pages/dashboard';
+
+export const GET_ALBUMS_LENGTH = gql`
+  query GET_ALBUMS_LENGTH {
+    albumsLength
+  }
+`;
 
 const StyledPagination = styled.div`
   max-width: 300px;
@@ -14,34 +23,43 @@ const StyledPagination = styled.div`
   }
 `;
 
-const Pagination = ({ page, albumsLength }) => {
-  const pages = Math.ceil(albumsLength / 10);
+const Pagination = () => {
+  const pageContext = useContext(QueryContext);
+  const page = parseInt(pageContext) || 1;
   return (
-    <StyledPagination>
-      <Link
-        href={{
-          pathname: 'dashboard',
-          query: {
-            page: page - 1
-          }
-        }}
-      >
-        <a aria-disabled={page < 2}> &lt; Prev </a>
-      </Link>
-      <div>
-        Page {page} of {pages}
-      </div>
-      <Link
-        href={{
-          pathname: 'dashboard',
-          query: {
-            page: page + 1
-          }
-        }}
-      >
-        <a aria-disabled={page >= pages}> Next &gt; </a>
-      </Link>
-    </StyledPagination>
+    <Query query={GET_ALBUMS_LENGTH}>
+      {({ data, loading, error }) => {
+        const { albumsLength } = data;
+        const pages = Math.ceil(albumsLength / 10);
+        return (
+          <StyledPagination>
+            <Link
+              href={{
+                pathname: 'dashboard',
+                query: {
+                  page: page - 1
+                }
+              }}
+            >
+              <a aria-disabled={page < 2}> &lt; Prev </a>
+            </Link>
+            <div>
+              Page {page} of {pages}
+            </div>
+            <Link
+              href={{
+                pathname: 'dashboard',
+                query: {
+                  page: page + 1
+                }
+              }}
+            >
+              <a aria-disabled={page >= pages}> Next &gt; </a>
+            </Link>
+          </StyledPagination>
+        );
+      }}
+    </Query>
   );
 };
 export default Pagination;
