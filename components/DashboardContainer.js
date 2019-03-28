@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchAlbumToAdd from './SearchAlbumToAdd';
 import RecentAlbums from './RecentAlbums';
 import FilterCollection from './FilterCollection';
+import Pagination from './Pagination';
 
 const DashboardContainer = () => {
   const [visible, setToVisible] = useState(true);
@@ -10,8 +11,9 @@ const DashboardContainer = () => {
       <SearchAlbumToAdd setToVisible={setToVisible} />
       {visible && (
         <>
-          <RecentAlbums />
+          <Pagination />
           <FilterCollection />
+          <RecentAlbums />
         </>
       )}
     </>
