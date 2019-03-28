@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
-import { SHOW_RECENTLY_ADDED, GET_ALBUMS_LENGTH } from './RecentAlbums';
+import { SHOW_RECENTLY_ADDED } from './RecentAlbums';
 import { QueryContext } from '../pages/dashboard';
+import { GET_ALBUMS_LENGTH } from './Pagination';
 
 const DELETE_ALBUM = gql`
   mutation DELETE_ALBUM($id: String!) {
