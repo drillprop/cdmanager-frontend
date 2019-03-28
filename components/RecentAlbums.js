@@ -21,12 +21,6 @@ export const SHOW_RECENTLY_ADDED = gql`
   }
 `;
 
-export const GET_ALBUMS_LENGTH = gql`
-  query GET_ALBUMS_LENGTH {
-    albumsLength
-  }
-`;
-
 const StyledH2 = styled.h2``;
 const CdContainer = styled.section`
   display: grid;
@@ -38,16 +32,6 @@ const RecentAlbums = () => {
   const page = useContext(QueryContext);
   return (
     <>
-      <Query query={GET_ALBUMS_LENGTH}>
-        {({ data: { albumsLength } }) => {
-          return (
-            <Pagination
-              page={parseFloat(page) || 1}
-              albumsLength={albumsLength ? albumsLength : 0}
-            />
-          );
-        }}
-      </Query>
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
@@ -68,7 +52,7 @@ const RecentAlbums = () => {
                   key={id}
                   id={id}
                 >
-                  <DeleteButton id={id} page={page} />
+                  <DeleteButton id={id} />
                 </Album>
               ));
             }
