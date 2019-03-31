@@ -14,11 +14,12 @@ const FILTER_ALBUMS = gql`
   }
 `;
 
-const FilterCollection = () => {
+const FilterCollection = ({ showRecentAlbums }) => {
   const [value, setValue] = useState('');
   const filter = e => {
     const value = e.currentTarget.value;
     setValue(value);
+    value ? showRecentAlbums(false) : showRecentAlbums(true);
   };
   return (
     <>

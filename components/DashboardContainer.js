@@ -6,14 +6,15 @@ import Pagination from './Pagination';
 
 const DashboardContainer = () => {
   const [visible, setToVisible] = useState(true);
+  const [recentAlbumsVisible, showRecentAlbums] = useState(true);
   return (
     <>
       <SearchAlbumToAdd setToVisible={setToVisible} />
       {visible && (
         <>
           <Pagination />
-          <FilterCollection />
-          <RecentAlbums />
+          <FilterCollection showRecentAlbums={showRecentAlbums} />
+          {recentAlbumsVisible && <RecentAlbums />}
         </>
       )}
     </>
