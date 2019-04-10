@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { robo, mont } from "../../utils/fonts";
-import { theme } from "../../utils/theme";
-import DeleteButton from "./DeleteButton";
-import LoadedImage from "../../elements/LoadedImage";
+import { robo, mont } from "../utils/fonts";
+import { theme } from "../utils/theme";
+import DeleteButton from "./Collection/DeleteButton";
+import LoadedImage from "../elements/LoadedImage";
 
 const StyledFigure = styled.figure`
   display: flex;
