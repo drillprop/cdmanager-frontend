@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FilterCollection from "./FilterCollection";
 import Pagination from "./Pagination";
-import RecentAlbums from "./RecentAlbums";
+import Albums from "./Albums";
 
 const CollectionContainer = () => {
   const [recentAlbumsVisible, showRecentAlbums] = useState(true);
@@ -9,7 +9,7 @@ const CollectionContainer = () => {
     <>
       <Pagination />
       <FilterCollection showRecentAlbums={showRecentAlbums} />
-      {recentAlbumsVisible && <RecentAlbums />}
+      {recentAlbumsVisible && <Albums />}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import { SHOW_RECENTLY_ADDED } from "./RecentAlbums";
+import { SHOW_RECENTLY_ADDED } from "./Albums";
 import { QueryContext } from "../../pages/collection";
 import { GET_ALBUMS_LENGTH } from "./Pagination";
 

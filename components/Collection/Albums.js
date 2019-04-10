@@ -25,7 +25,7 @@ const CdContainer = styled.section`
   justify-content: center;
 `;
 
-const RecentAlbums = () => {
+const Albums = () => {
   const page = useContext(QueryContext);
   return (
     <>
@@ -61,4 +61,4 @@ const RecentAlbums = () => {
   );
 };
 
-export default RecentAlbums;
+export default Albums;
