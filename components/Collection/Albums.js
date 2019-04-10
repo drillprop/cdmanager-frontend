@@ -1,22 +1,11 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
-import Album from "./Album";
-import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import styled from "styled-components";
 import Loading from "../../elements/Loading";
 import { QueryContext } from "../../pages/collection";
+import { SHOW_RECENTLY_ADDED } from "../../utils/queries";
+import Album from "./Album";
 import DeleteButton from "./DeleteButton";
-
-export const SHOW_RECENTLY_ADDED = gql`
-  query SHOW_RECENTLY_ADDED($last: Int) {
-    albums(last: $last) {
-      title
-      artist
-      image
-      id
-    }
-  }
-`;
 
 const StyledH2 = styled.h2``;
 const CdContainer = styled.section`

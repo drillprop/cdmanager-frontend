@@ -1,15 +1,9 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
 import Link from "next/link";
-import gql from "graphql-tag";
+import React, { useContext } from "react";
 import { Query } from "react-apollo";
+import styled from "styled-components";
 import { QueryContext } from "../../pages/collection";
-
-export const GET_ALBUMS_LENGTH = gql`
-  query GET_ALBUMS_LENGTH {
-    albumsLength
-  }
-`;
+import { GET_ALBUMS_LENGTH } from "../../utils/queries";
 
 const StyledPagination = styled.div`
   max-width: 300px;

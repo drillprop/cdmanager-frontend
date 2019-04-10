@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Input } from "../../elements/Form";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
 import debounce from "lodash.debounce";
-
-const FILTER_ALBUMS = gql`
-  query FILTER_ALBUMS($search: String!) {
-    albumsCollection(search: $search) {
-      title
-      artist
-      image
-      id
-    }
-  }
-`;
+import React, { useState } from "react";
+import { Query } from "react-apollo";
+import { Input } from "../../elements/Form";
+import { FILTER_ALBUMS } from "../../utils/queries";
 
 const FilterCollection = ({ showRecentAlbums }) => {
   const [result, setValue] = useState("");

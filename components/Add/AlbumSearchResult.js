@@ -1,20 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
+import styled from "styled-components";
 import LoadedImage from "../../elements/LoadedImage";
-import { GET_ALBUMS_LENGTH } from "../Collection/Pagination";
-
-const CREATE_ALBUM = gql`
-  mutation CREATE_ALBUM($title: String!, $artist: String!, $image: String) {
-    createAlbum(title: $title, artist: $artist, image: $image) {
-      title
-      artist
-      image
-      id
-    }
-  }
-`;
+import { CREATE_ALBUM } from "../../utils/mutations";
+import { GET_ALBUMS_LENGTH } from "../../utils/queries";
 
 const Item = styled.li`
   display: flex;

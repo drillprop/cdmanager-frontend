@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from "react";
+import debounce from "lodash.debounce";
+import React, { useEffect, useState } from "react";
+import { Query } from "react-apollo";
 import styled from "styled-components";
-import { robo, mont } from "../../utils/fonts";
 import { lightblack } from "../../utils/colors";
+import { mont, robo } from "../../utils/fonts";
+import { GET_ALBUMS_FROM_LASTFM } from "../../utils/queries";
 import { theme } from "../../utils/theme";
 import AlbumSearchList from "./AlbumSearchList";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
-import debounce from "lodash.debounce";
-
-const GET_ALBUMS_FROM_LASTFM = gql`
-  query GET_ALBUMS_FROM_LASTFM($search: String!) {
-    albumslastfm(search: $search) {
-      title
-      artist
-      image
-    }
-  }
-`;
 
 const StyledH1 = styled.h1`
   text-align: center;
