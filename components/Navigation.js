@@ -49,6 +49,13 @@ const Navigation = () => (
               </Link>
             )}
           </li>
+          {me && (
+            <li>
+              <Link href='/add'>
+                <a>add</a>
+              </Link>
+            </li>
+          )}
           <li>
             {me ? (
               <Link href='/collection'>
