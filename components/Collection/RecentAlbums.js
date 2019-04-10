@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Album from "../Album";
+import Album from "./Album";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import Loading from "../../elements/Loading";
 import { QueryContext } from "../../pages/collection";
-import DeleteButton from "../DeleteButton";
+import DeleteButton from "./DeleteButton";
 
 export const SHOW_RECENTLY_ADDED = gql`
   query SHOW_RECENTLY_ADDED($last: Int) {
