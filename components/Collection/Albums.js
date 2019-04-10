@@ -7,8 +7,12 @@ import { SHOW_RECENTLY_ADDED } from "../../utils/queries";
 import Album from "../Album";
 import DeleteButton from "./DeleteButton";
 
-const StyledH2 = styled.h2``;
+const StyledH2 = styled.h2`
+  text-align: center;
+`;
 const CdContainer = styled.section`
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
