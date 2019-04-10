@@ -2,12 +2,11 @@ import debounce from "lodash.debounce";
 import React, { useEffect, useState } from "react";
 import { Query } from "react-apollo";
 import styled from "styled-components";
-import { lightblack } from "../../utils/colors";
-import { mont, robo } from "../../utils/fonts";
+import { PageTitle } from "../../elements/Titles";
+import { mont } from "../../utils/fonts";
 import { GET_ALBUMS_FROM_LASTFM } from "../../utils/queries";
 import { theme } from "../../utils/theme";
 import AlbumSearchList from "./AlbumSearchList";
-import { PageTitle } from "../../elements/PageTitle";
 
 const StyledForm = styled.form`
   margin: 0 auto;
