@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import React from 'react';
-import styled from 'styled-components';
-import { background, black, lightblack } from '../utils/colors';
-import { mont } from '../utils/fonts';
-import { theme } from '../utils/theme';
-import User from './User';
+import Link from "next/link";
+import React from "react";
+import styled from "styled-components";
+import { background, black, lightblack } from "../utils/colors";
+import { mont } from "../utils/fonts";
+import { theme } from "../utils/theme";
+import User from "./User";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -51,7 +51,7 @@ const Navigation = () => (
           </li>
           <li>
             {me ? (
-              <Link href='/dashboard'>
+              <Link href='/collection'>
                 <a>{me.name}</a>
               </Link>
             ) : (
