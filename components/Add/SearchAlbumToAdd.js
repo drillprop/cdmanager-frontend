@@ -7,17 +7,8 @@ import { mont, robo } from "../../utils/fonts";
 import { GET_ALBUMS_FROM_LASTFM } from "../../utils/queries";
 import { theme } from "../../utils/theme";
 import AlbumSearchList from "./AlbumSearchList";
+import { PageTitle } from "../../elements/PageTitle";
 
-const StyledH1 = styled.h1`
-  text-align: center;
-  font-family: ${robo};
-  font-weight: 900;
-  font-size: 3rem;
-  letter-spacing: -1px;
-  color: ${lightblack};
-  margin: 0;
-  margin-bottom: 2rem;
-`;
 const StyledForm = styled.form`
   margin: 0 auto;
   width: 700px;
@@ -54,7 +45,7 @@ const SearchAlbumToAdd = ({ setToVisible }) => {
   }, 300);
   return (
     <>
-      <StyledH1>add an album</StyledH1>
+      <PageTitle>add an album</PageTitle>
       <StyledForm displayRecent={!result}>
         <input
           type='text'
