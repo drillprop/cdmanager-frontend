@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 export const GET_ALBUMS_FROM_LASTFM = gql`
   query GET_ALBUMS_FROM_LASTFM($search: String!) {

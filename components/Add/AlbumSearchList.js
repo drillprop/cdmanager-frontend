@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { theme } from "../../utils/theme";
-import { useSpring, animated } from "react-spring";
-import AlbumSearchResult from "./AlbumSearchResult";
+import React from 'react';
+import styled from 'styled-components';
+import { theme } from '../../utils/theme';
+import { useSpring, animated } from 'react-spring';
+import AlbumSearchResult from './AlbumSearchResult';
 
 const List = styled(animated.ul)`
   position: relative;

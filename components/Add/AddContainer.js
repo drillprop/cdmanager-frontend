@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import SearchAlbumToAdd from "./SearchAlbumToAdd";
-import RecentAlbums from "./RecentAlbums";
+import React, { useState } from 'react';
+import SearchAlbumToAdd from './SearchAlbumToAdd';
+import RecentAlbums from './RecentAlbums';
 
 const AddContainer = () => {
   const [visible, setToVisible] = useState(true);

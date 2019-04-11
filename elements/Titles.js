@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { robo } from "../utils/fonts";
-import { lightblack } from "../utils/colors";
+import styled from 'styled-components';
+import { robo } from '../utils/fonts';
+import { lightblack } from '../utils/colors';
 
 export const PageTitle = styled.h1`
   text-align: center;

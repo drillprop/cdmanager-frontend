@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import CollectionContainer from "../components/Collection/CollectionContainer";
+import { createContext } from 'react';
+import CollectionContainer from '../components/Collection/CollectionContainer';
 
 export const QueryContext = createContext();
 const Collection = ({ query }) => {

@@ -1,9 +1,9 @@
-import React from "react";
-import { Mutation } from "react-apollo";
-import styled from "styled-components";
-import LoadedImage from "../../elements/LoadedImage";
-import { CREATE_ALBUM } from "../../utils/mutations";
-import { GET_ALBUMS_LENGTH } from "../../utils/queries";
+import React from 'react';
+import { Mutation } from 'react-apollo';
+import styled from 'styled-components';
+import LoadedImage from '../../elements/LoadedImage';
+import { CREATE_ALBUM } from '../../utils/mutations';
+import { GET_ALBUMS_LENGTH } from '../../utils/queries';
 
 const Item = styled.li`
   display: flex;

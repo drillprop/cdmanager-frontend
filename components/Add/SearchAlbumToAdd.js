@@ -1,12 +1,12 @@
-import debounce from "lodash.debounce";
-import React, { useEffect, useState } from "react";
-import { Query } from "react-apollo";
-import styled from "styled-components";
-import { PageTitle } from "../../elements/Titles";
-import { mont } from "../../utils/fonts";
-import { GET_ALBUMS_FROM_LASTFM } from "../../utils/queries";
-import { theme } from "../../utils/theme";
-import AlbumSearchList from "./AlbumSearchList";
+import debounce from 'lodash.debounce';
+import React, { useEffect, useState } from 'react';
+import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import { PageTitle } from '../../elements/Titles';
+import { mont } from '../../utils/fonts';
+import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
+import { theme } from '../../utils/theme';
+import AlbumSearchList from './AlbumSearchList';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -26,13 +26,13 @@ const StyledForm = styled.form`
     font-family: ${mont};
     font-size: 1rem;
     box-shadow: ${theme.bs};
-    transform: ${({ displayRecent }) => (displayRecent ? "" : "scale(1.3)")};
+    transform: ${({ displayRecent }) => (displayRecent ? '' : 'scale(1.3)')};
     transition: all 300ms;
   }
 `;
 
 const SearchAlbumToAdd = ({ setToVisible }) => {
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState('');
 
   useEffect(() => {
     return () => handleSearch.cancel();
@@ -40,7 +40,7 @@ const SearchAlbumToAdd = ({ setToVisible }) => {
 
   const handleSearch = debounce(text => {
     setResult(text);
-    !text && setResult("");
+    !text && setResult('');
   }, 300);
   return (
     <>

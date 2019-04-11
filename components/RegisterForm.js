@@ -1,8 +1,8 @@
-import gql from "graphql-tag";
-import React, { useState } from "react";
-import { Mutation } from "react-apollo";
-import Link from "next/link";
-import { QUERY_ME } from "./User";
+import gql from 'graphql-tag';
+import React, { useState } from 'react';
+import { Mutation } from 'react-apollo';
+import Link from 'next/link';
+import { QUERY_ME } from './User';
 import {
   Form,
   FormHeader,
@@ -11,8 +11,8 @@ import {
   FormWrapper,
   FormButton,
   ButtonGroup
-} from "../elements/Form";
-import CdShape from "./CdShape";
+} from '../elements/Form';
+import CdShape from './CdShape';
 
 const REGISTER = gql`
   mutation REGISTER($name: String!, $email: String!, $password: String!) {
@@ -25,7 +25,7 @@ const REGISTER = gql`
 `;
 
 const RegisterForm = () => {
-  const [user, setUser] = useState({ name: "", password: "", email: "" });
+  const [user, setUser] = useState({ name: '', password: '', email: '' });
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -51,9 +51,9 @@ const RegisterForm = () => {
                 e.preventDefault();
                 await register();
                 setUser({
-                  name: "",
-                  password: "",
-                  email: ""
+                  name: '',
+                  password: '',
+                  email: ''
                 });
               }}
               method='post'
@@ -93,7 +93,7 @@ const RegisterForm = () => {
                     name='password'
                     id='password'
                     type='password'
-                    aria-autocomplete={"list"}
+                    aria-autocomplete={'list'}
                     autoComplete='new-password'
                     onChange={handleChange}
                   />
@@ -102,8 +102,8 @@ const RegisterForm = () => {
               <ButtonGroup>
                 <FormButton type='submit'>Register</FormButton>
                 <p>
-                  Already have account?{" "}
-                  <Link href={"/login"}>
+                  Already have account?{' '}
+                  <Link href={'/login'}>
                     <a> Sign in!</a>
                   </Link>
                 </p>

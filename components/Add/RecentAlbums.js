@@ -1,9 +1,9 @@
-import React from "react";
-import { Query } from "react-apollo";
-import styled from "styled-components";
-import Loading from "../../elements/Loading";
-import { SHOW_RECENTLY_ADDED } from "../../utils/queries";
-import Album from "../Album";
+import React from 'react';
+import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import Loading from '../../elements/Loading';
+import { SHOW_RECENTLY_ADDED } from '../../utils/queries';
+import Album from '../Album';
 
 const StyledH2 = styled.h2`
   margin: 2rem 0;

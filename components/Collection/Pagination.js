@@ -1,9 +1,9 @@
-import Link from "next/link";
-import React, { useContext } from "react";
-import { Query } from "react-apollo";
-import styled from "styled-components";
-import { QueryContext } from "../../pages/collection";
-import { GET_ALBUMS_LENGTH } from "../../utils/queries";
+import Link from 'next/link';
+import React, { useContext } from 'react';
+import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import { QueryContext } from '../../pages/collection';
+import { GET_ALBUMS_LENGTH } from '../../utils/queries';
 
 const StyledPagination = styled.div`
   max-width: 300px;
@@ -12,7 +12,7 @@ const StyledPagination = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-  a[aria-disabled="true"] {
+  a[aria-disabled='true'] {
     pointer-events: none;
   }
 `;
@@ -29,7 +29,7 @@ const Pagination = () => {
           <StyledPagination>
             <Link
               href={{
-                pathname: "collection",
+                pathname: 'collection',
                 query: {
                   page: page - 1
                 }
@@ -42,7 +42,7 @@ const Pagination = () => {
             </div>
             <Link
               href={{
-                pathname: "collection",
+                pathname: 'collection',
                 query: {
                   page: page + 1
                 }

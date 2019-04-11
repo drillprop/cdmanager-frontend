@@ -1,8 +1,8 @@
-import gql from "graphql-tag";
-import React, { useContext } from "react";
-import { Mutation } from "react-apollo";
-import { QueryContext } from "../../pages/collection";
-import { GET_ALBUMS_LENGTH, SHOW_RECENTLY_ADDED } from "../../utils/queries";
+import gql from 'graphql-tag';
+import React, { useContext } from 'react';
+import { Mutation } from 'react-apollo';
+import { QueryContext } from '../../pages/collection';
+import { GET_ALBUMS_LENGTH, SHOW_RECENTLY_ADDED } from '../../utils/queries';
 
 const DELETE_ALBUM = gql`
   mutation DELETE_ALBUM($id: String!) {

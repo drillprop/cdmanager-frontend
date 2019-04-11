@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { Query } from "react-apollo";
-import styled from "styled-components";
-import Loading from "../../elements/Loading";
-import { QueryContext } from "../../pages/collection";
-import { SHOW_RECENTLY_ADDED } from "../../utils/queries";
-import Album from "../Album";
-import DeleteButton from "./DeleteButton";
+import React, { useContext } from 'react';
+import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import Loading from '../../elements/Loading';
+import { QueryContext } from '../../pages/collection';
+import { SHOW_RECENTLY_ADDED } from '../../utils/queries';
+import Album from '../Album';
+import DeleteButton from './DeleteButton';
 
 const StyledH2 = styled.h2`
   text-align: center;

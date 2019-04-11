@@ -1,9 +1,9 @@
-import debounce from "lodash.debounce";
-import styled from "styled-components";
-import React, { useState } from "react";
-import { Query } from "react-apollo";
-import { Input } from "../../elements/Form";
-import { FILTER_ALBUMS } from "../../utils/queries";
+import debounce from 'lodash.debounce';
+import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Query } from 'react-apollo';
+import { Input } from '../../elements/Form';
+import { FILTER_ALBUMS } from '../../utils/queries';
 
 const Container = styled.section`
   max-width: 1000px;
@@ -11,10 +11,10 @@ const Container = styled.section`
 `;
 
 const FilterCollection = ({ showRecentAlbums }) => {
-  const [result, setValue] = useState("");
+  const [result, setValue] = useState('');
   const filter = debounce(text => {
     text ? showRecentAlbums(false) : showRecentAlbums(true);
-    !text && setValue("");
+    !text && setValue('');
     return setValue(text);
   }, 300);
 
