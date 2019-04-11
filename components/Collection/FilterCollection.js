@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Query } from 'react-apollo';
 import { Input } from '../../elements/Form';
-import { FILTER_ALBUMS } from '../../utils/queries';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 
 const Container = styled.section`
   max-width: 1000px;
@@ -28,7 +28,10 @@ const FilterCollection = ({ showRecentAlbums }) => {
           onChange={e => filter(e.target.value)}
         />
         {result && (
-          <Query query={FILTER_ALBUMS} variables={{ search: result }}>
+          <Query
+            query={GET_ALBUMS_FROM_COLLECTION}
+            variables={{ search: result }}
+          >
             {({ data, error, loading }) => {
               if (error) return <p>{error.message}</p>;
               if (loading) return <p>Loading...</p>;
