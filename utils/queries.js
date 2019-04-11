@@ -23,7 +23,7 @@ export const SHOW_RECENTLY_ADDED = gql`
 
 export const FILTER_ALBUMS = gql`
   query FILTER_ALBUMS($search: String!) {
-    albumsCollection(search: $search) {
+    filterCollection(search: $search) {
       title
       artist
       image
