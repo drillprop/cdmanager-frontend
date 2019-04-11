@@ -10,20 +10,9 @@ export const GET_ALBUMS_FROM_LASTFM = gql`
   }
 `;
 
-export const SHOW_RECENTLY_ADDED = gql`
-  query SHOW_RECENTLY_ADDED($last: Int) {
-    albums(last: $last) {
-      title
-      artist
-      image
-      id
-    }
-  }
-`;
-
-export const FILTER_ALBUMS = gql`
-  query FILTER_ALBUMS($search: String!) {
-    filterCollection(search: $search) {
+export const GET_ALBUMS_FROM_COLLECTION = gql`
+  query GET_ALBUMS_FROM_COLLECTION($last: Int, $search: String) {
+    albums(last: $last, search: $search) {
       title
       artist
       image
