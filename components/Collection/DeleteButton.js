@@ -2,7 +2,10 @@ import gql from 'graphql-tag';
 import React, { useContext } from 'react';
 import { Mutation } from 'react-apollo';
 import { QueryContext } from '../../pages/collection';
-import { GET_ALBUMS_LENGTH, SHOW_RECENTLY_ADDED } from '../../utils/queries';
+import {
+  GET_ALBUMS_LENGTH,
+  GET_ALBUMS_FROM_COLLECTION
+} from '../../utils/queries';
 
 const DELETE_ALBUM = gql`
   mutation DELETE_ALBUM($id: String!) {
@@ -15,7 +18,7 @@ const DELETE_ALBUM = gql`
 const DeleteButton = ({ id }) => {
   const page = useContext(QueryContext);
   const query = {
-    query: SHOW_RECENTLY_ADDED,
+    query: GET_ALBUMS_FROM_COLLECTION,
     variables: { last: 10 * (page || 1) }
   };
   return (

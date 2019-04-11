@@ -3,7 +3,7 @@ import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import Loading from '../../elements/Loading';
 import { QueryContext } from '../../pages/collection';
-import { SHOW_RECENTLY_ADDED } from '../../utils/queries';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Album from '../Album';
 import DeleteButton from './DeleteButton';
 
@@ -25,7 +25,7 @@ const Albums = () => {
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
-          query={SHOW_RECENTLY_ADDED}
+          query={GET_ALBUMS_FROM_COLLECTION}
           variables={{ last: 10 * (page || 1) }}
           fetchPolicy='cache-and-network'
         >
