@@ -1,8 +1,8 @@
-import gql from 'graphql-tag';
-import React, { useState } from 'react';
-import { Mutation } from 'react-apollo';
-import Link from 'next/link';
-import { QUERY_ME } from './User';
+import gql from "graphql-tag";
+import React, { useState } from "react";
+import { Mutation } from "react-apollo";
+import Link from "next/link";
+import { QUERY_ME } from "./User";
 import {
   FormWrapper,
   Form,
@@ -11,8 +11,8 @@ import {
   Input,
   FormButton,
   ButtonGroup
-} from '../elements/Form';
-import CdShape from './CdShape';
+} from "../elements/Form";
+import CdShape from "./CdShape";
 
 const LOGIN = gql`
   mutation LOGIN($email: String!, $password: String!) {
@@ -25,7 +25,7 @@ const LOGIN = gql`
 `;
 
 const LoginForm = () => {
-  const [user, setUser] = useState({ password: '', email: '' });
+  const [user, setUser] = useState({ password: "", email: "" });
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -51,9 +51,9 @@ const LoginForm = () => {
                 e.preventDefault();
                 await login();
                 setUser({
-                  name: '',
-                  password: '',
-                  email: ''
+                  name: "",
+                  password: "",
+                  email: ""
                 });
               }}
               method='post'
@@ -81,7 +81,7 @@ const LoginForm = () => {
                     name='password'
                     id='password'
                     type='password'
-                    aria-autocomplete={'list'}
+                    aria-autocomplete={"list"}
                     autoComplete='new-password'
                     onChange={handleChange}
                   />
@@ -91,7 +91,7 @@ const LoginForm = () => {
                 <FormButton type='submit'>Login</FormButton>
                 <p>
                   Dont have account?
-                  <Link href={'/signup'}>
+                  <Link href={"/register"}>
                     <a> Join us!</a>
                   </Link>
                 </p>
