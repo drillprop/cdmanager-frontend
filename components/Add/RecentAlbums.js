@@ -2,7 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import Loading from '../../elements/Loading';
-import { SHOW_RECENTLY_ADDED } from '../../utils/queries';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Album from '../Album';
 
 const StyledH2 = styled.h2`
@@ -23,7 +23,7 @@ const RecentAlbums = () => {
       <StyledH2>recently added</StyledH2>
       <CdContainer>
         <Query
-          query={SHOW_RECENTLY_ADDED}
+          query={GET_ALBUMS_FROM_COLLECTION}
           variables={{ last: 4 }}
           fetchPolicy='cache-and-network'
         >
