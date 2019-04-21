@@ -2,21 +2,21 @@ import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
-import { QUERY_ME } from './User';
+import { QUERY_ME } from '../../utils/User';
 import {
-  FormWrapper,
   Form,
   FormHeader,
-  Label,
   Input,
+  Label,
+  FormWrapper,
   FormButton,
   ButtonGroup
-} from '../elements/Form';
-import CdShape from './CdShape';
+} from '../../elements/Form';
+import CdShape from '../../elements/CdShape';
 
-const LOGIN = gql`
-  mutation LOGIN($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+const REGISTER = gql`
+  mutation REGISTER($name: String!, $email: String!, $password: String!) {
+    register(name: $name, email: $email, password: $password) {
       name
       email
       id
@@ -24,8 +24,8 @@ const LOGIN = gql`
   }
 `;
 
-const LoginForm = () => {
-  const [user, setUser] = useState({ password: '', email: '' });
+const RegisterForm = () => {
+  const [user, setUser] = useState({ name: '', password: '', email: '' });
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -35,7 +35,7 @@ const LoginForm = () => {
   return (
     <>
       <Mutation
-        mutation={LOGIN}
+        mutation={REGISTER}
         errorPolicy='all'
         variables={user}
         refetchQueries={[
@@ -44,12 +44,12 @@ const LoginForm = () => {
           }
         ]}
       >
-        {(login, { error, loading }) => (
+        {(register, { error, loading }) => (
           <FormWrapper>
             <Form
               onSubmit={async e => {
                 e.preventDefault();
-                await login();
+                await register();
                 setUser({
                   name: '',
                   password: '',
@@ -58,8 +58,20 @@ const LoginForm = () => {
               }}
               method='post'
             >
-              <FormHeader>Login into your account</FormHeader>
+              <FormHeader>Create account</FormHeader>
               <div>
+                <Label htmlFor='name'>
+                  <p>Name:</p>
+                  <Input
+                    value={user.name}
+                    placeholder='your name'
+                    required
+                    name='name'
+                    id='name'
+                    type='text'
+                    onChange={handleChange}
+                  />
+                </Label>
                 <Label htmlFor='email'>
                   <p>Email:</p>
                   <Input
@@ -88,11 +100,11 @@ const LoginForm = () => {
                 </Label>
               </div>
               <ButtonGroup>
-                <FormButton type='submit'>Login</FormButton>
+                <FormButton type='submit'>Register</FormButton>
                 <p>
-                  Dont have account?
-                  <Link href={'/register'}>
-                    <a> Join us!</a>
+                  Already have account?{' '}
+                  <Link href={'/login'}>
+                    <a> Sign in!</a>
                   </Link>
                 </p>
               </ButtonGroup>
@@ -103,8 +115,6 @@ const LoginForm = () => {
       </Mutation>
     </>
   );
-  Input;
 };
 
-export default LoginForm;
-Label;
+export default RegisterForm;

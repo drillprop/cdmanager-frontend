@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import { background, black, lightblack } from '../utils/colors';
-import { mont } from '../utils/fonts';
-import { theme } from '../utils/theme';
-import User from './User';
+import { background, black, lightblack } from '../../utils/colors';
+import { mont } from '../../utils/fonts';
+import { theme } from '../../utils/theme';
+import User from '../../utils/User';
 
 const StyledNav = styled.nav`
   display: flex;

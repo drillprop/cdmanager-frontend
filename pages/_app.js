@@ -1,12 +1,11 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import Header from '../components/Header';
+import Header from '../components/Navigation/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
-import { Wrapper } from '../components/Wrapper';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
 import { PageTransition } from 'next-page-transitions';
-import Meta from '../components/Meta';
+import Meta from '../utils/Meta';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -25,11 +24,9 @@ class MyApp extends App {
         <ApolloProvider client={apollo}>
           <Meta />
           <Header />
-          <Wrapper>
-            <PageTransition timeout={300} classNames='page-transition'>
-              <Component {...pageProps} />
-            </PageTransition>
-          </Wrapper>
+          <PageTransition timeout={300} classNames='page-transition'>
+            <Component {...pageProps} />
+          </PageTransition>
         </ApolloProvider>
       </Container>
     );

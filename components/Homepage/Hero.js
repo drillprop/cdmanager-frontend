@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mont, robo } from '../utils/fonts';
-import { black, lightblack } from '../utils/colors';
+import { mont, robo } from '../../utils/fonts';
+import { black, lightblack } from '../../utils/colors';
 import HeroImage from './HeroImage';
-import Button from '../elements/Button';
+import Button from '../../elements/Button';
 import Link from 'next/link';
 
-const HeroContainer = styled.div`
+const HeroContainer = styled.main`
+  max-width: 1100px;
   margin: 0 auto;
   margin-top: 6rem;
   display: grid;
