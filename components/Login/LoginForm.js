@@ -103,8 +103,6 @@ const LoginForm = () => {
       </Mutation>
     </>
   );
-  Input;
 };
 
 export default LoginForm;
-Label;
