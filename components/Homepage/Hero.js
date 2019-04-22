@@ -12,12 +12,16 @@ const HeroContainer = styled.main`
   margin: 0 auto;
   margin-top: 6rem;
   display: grid;
-  grid-gap: 11rem;
+  grid-gap: 3rem;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 750px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const StyledHeroHeader = styled.header`
   margin-left: 3rem;
+  margin-right: 3rem;
   h1 {
     color: ${black};
     margin: 0;
@@ -35,6 +39,14 @@ const StyledHeroHeader = styled.header`
     font-weight: 400;
     font-size: 1rem;
     line-height: 2;
+  }
+  @media (max-width: 750px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 0.9rem;
+    }
   }
 `;
 

@@ -5,6 +5,12 @@ const ImageContainer = styled.div`
   position: relative;
   margin: 0 auto;
   max-width: 375px;
+  @media (max-width: 1000px) {
+    transform: scale(0.8);
+  }
+  @media (max-width: 750px) {
+    display: none;
+  }
 `;
 
 const StyledImg = styled.img`
