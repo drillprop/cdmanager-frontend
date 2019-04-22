@@ -7,6 +7,7 @@ import Button from '../../elements/Button';
 import Link from 'next/link';
 
 const HeroContainer = styled.main`
+  overflow-x: hidden;
   max-width: 1100px;
   margin: 0 auto;
   margin-top: 6rem;
