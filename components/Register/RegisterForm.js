@@ -13,6 +13,7 @@ import {
   ButtonGroup
 } from '../../elements/Form';
 import CdShape from '../../elements/CdShape';
+import redirect from '../../lib/redirect';
 
 const REGISTER = gql`
   mutation REGISTER($name: String!, $email: String!, $password: String!) {
@@ -43,6 +44,7 @@ const RegisterForm = () => {
             query: QUERY_ME
           }
         ]}
+        onCompleted={() => redirect({}, '/collection')}
       >
         {(register, { error, loading }) => (
           <FormWrapper>

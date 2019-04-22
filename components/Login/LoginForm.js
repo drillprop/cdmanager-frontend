@@ -13,6 +13,7 @@ import {
   ButtonGroup
 } from '../../elements/Form';
 import CdShape from '../../elements/CdShape';
+import redirect from '../../lib/redirect';
 
 const LOGIN = gql`
   mutation LOGIN($email: String!, $password: String!) {
@@ -43,6 +44,7 @@ const LoginForm = () => {
             query: QUERY_ME
           }
         ]}
+        onCompleted={() => redirect({}, '/collection')}
       >
         {(login, { error, loading }) => (
           <FormWrapper>
