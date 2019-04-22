@@ -12,10 +12,10 @@ const StyledH2 = styled.h2`
   text-align: center;
 `;
 const CdContainer = styled.section`
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
 `;
 

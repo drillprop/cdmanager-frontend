@@ -6,8 +6,12 @@ import { Input } from '../../elements/Form';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 
 const Container = styled.section`
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
+  input {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 const FilterCollection = ({ showRecentAlbums }) => {
@@ -21,7 +25,6 @@ const FilterCollection = ({ showRecentAlbums }) => {
   return (
     <>
       <Container>
-        <p>Show results for: {result}</p>
         <Input
           type='text'
           placeholder='filter'
