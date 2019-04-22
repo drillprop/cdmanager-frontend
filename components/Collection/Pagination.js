@@ -23,35 +23,39 @@ const Pagination = () => {
   return (
     <Query query={GET_ALBUMS_LENGTH}>
       {({ data, loading, error }) => {
-        const { albumsLength } = data;
-        const pages = Math.ceil(albumsLength / 10);
-        return (
-          <StyledPagination>
-            <Link
-              href={{
-                pathname: 'collection',
-                query: {
-                  page: page - 1
-                }
-              }}
-            >
-              <a aria-disabled={page < 2}> &lt; Prev </a>
-            </Link>
-            <div>
-              Page {page} of {pages}
-            </div>
-            <Link
-              href={{
-                pathname: 'collection',
-                query: {
-                  page: page + 1
-                }
-              }}
-            >
-              <a aria-disabled={page >= pages}> Next &gt; </a>
-            </Link>
-          </StyledPagination>
-        );
+        if (data) {
+          const { albumsLength } = data;
+          const pages = Math.ceil(albumsLength / 10);
+          return (
+            <StyledPagination>
+              <Link
+                href={{
+                  pathname: 'collection',
+                  query: {
+                    page: page - 1
+                  }
+                }}
+              >
+                <a aria-disabled={page < 2}> &lt; Prev </a>
+              </Link>
+              <div>
+                Page {page} of {pages}
+              </div>
+              <Link
+                href={{
+                  pathname: 'collection',
+                  query: {
+                    page: page + 1
+                  }
+                }}
+              >
+                <a aria-disabled={page >= pages}> Next &gt; </a>
+              </Link>
+            </StyledPagination>
+          );
+        } else {
+          return null;
+        }
       }}
     </Query>
   );
