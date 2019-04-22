@@ -39,11 +39,13 @@ const StyledDiv = styled.div`
   }
 `;
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ me, signout }) => {
   return (
-    <StyledDiv>
-      <div />
-    </StyledDiv>
+    <>
+      <StyledDiv>
+        <div />
+      </StyledDiv>
+    </>
   );
 };
 

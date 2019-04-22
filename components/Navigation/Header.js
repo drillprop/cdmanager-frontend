@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from './Navigation';
 import Logo from './Logo';
 import Router from 'next/router';
 import Nprogress from 'nprogress';
+import NavigationContainer from './NavigationContainer';
 
 Router.onRouteChangeStart = () => Nprogress.start();
 Router.onRouteChangeComplete = () => Nprogress.done();
@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
 const Header = () => (
   <StyledHeader>
     <Logo />
-    <Navigation />
+    <NavigationContainer />
   </StyledHeader>
 );
 

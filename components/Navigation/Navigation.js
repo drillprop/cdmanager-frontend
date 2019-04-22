@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import { background, black, lightblack } from '../../utils/colors';
 import { mont } from '../../utils/fonts';
 import { theme } from '../../utils/theme';
-import User from '../../utils/User';
-import HamburgerMenu from './HamburgerMenu';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -37,45 +35,40 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Navigation = () => (
+const Navigation = ({ me, signout }) => (
   <>
-    <HamburgerMenu />
     <StyledNav>
-      <User>
-        {({ me }, signout) => (
-          <ul>
-            <li>
-              {me ? (
-                <Link href='/login'>
-                  <a onClick={signout}>logout</a>
-                </Link>
-              ) : (
-                <Link href='/login'>
-                  <a>login</a>
-                </Link>
-              )}
-            </li>
-            {me && (
-              <li>
-                <Link href='/add'>
-                  <a>add</a>
-                </Link>
-              </li>
-            )}
-            <li>
-              {me ? (
-                <Link href='/collection'>
-                  <a>{me.name}</a>
-                </Link>
-              ) : (
-                <Link href='/register'>
-                  <a>Register</a>
-                </Link>
-              )}
-            </li>
-          </ul>
+      <ul>
+        <li>
+          {me ? (
+            <Link href='/login'>
+              <a onClick={signout}>logout</a>
+            </Link>
+          ) : (
+            <Link href='/login'>
+              <a>login</a>
+            </Link>
+          )}
+        </li>
+        {me && (
+          <li>
+            <Link href='/add'>
+              <a>add</a>
+            </Link>
+          </li>
         )}
-      </User>
+        <li>
+          {me ? (
+            <Link href='/collection'>
+              <a>{me.name}</a>
+            </Link>
+          ) : (
+            <Link href='/register'>
+              <a>Register</a>
+            </Link>
+          )}
+        </li>
+      </ul>
     </StyledNav>
   </>
 );
