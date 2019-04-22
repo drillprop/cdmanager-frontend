@@ -16,6 +16,7 @@ const HeroContainer = styled.main`
 `;
 
 const StyledHeroHeader = styled.header`
+  margin-left: 3rem;
   h1 {
     color: ${black};
     margin: 0;
