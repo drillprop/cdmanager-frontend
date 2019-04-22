@@ -5,6 +5,7 @@ import { background, black, lightblack } from '../../utils/colors';
 import { mont } from '../../utils/fonts';
 import { theme } from '../../utils/theme';
 import User from '../../utils/User';
+import HamburgerMenu from './HamburgerMenu';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -31,46 +32,52 @@ const StyledNav = styled.nav`
     background-color: ${black};
     box-shadow: ${theme.bs};
   }
+  @media (max-width: 510px) {
+    display: none;
+  }
 `;
 
 const Navigation = () => (
-  <StyledNav>
-    <User>
-      {({ me }, signout) => (
-        <ul>
-          <li>
-            {me ? (
-              <Link href='/login'>
-                <a onClick={signout}>logout</a>
-              </Link>
-            ) : (
-              <Link href='/login'>
-                <a>login</a>
-              </Link>
-            )}
-          </li>
-          {me && (
+  <>
+    <HamburgerMenu />
+    <StyledNav>
+      <User>
+        {({ me }, signout) => (
+          <ul>
             <li>
-              <Link href='/add'>
-                <a>add</a>
-              </Link>
+              {me ? (
+                <Link href='/login'>
+                  <a onClick={signout}>logout</a>
+                </Link>
+              ) : (
+                <Link href='/login'>
+                  <a>login</a>
+                </Link>
+              )}
             </li>
-          )}
-          <li>
-            {me ? (
-              <Link href='/collection'>
-                <a>{me.name}</a>
-              </Link>
-            ) : (
-              <Link href='/register'>
-                <a>Register</a>
-              </Link>
+            {me && (
+              <li>
+                <Link href='/add'>
+                  <a>add</a>
+                </Link>
+              </li>
             )}
-          </li>
-        </ul>
-      )}
-    </User>
-  </StyledNav>
+            <li>
+              {me ? (
+                <Link href='/collection'>
+                  <a>{me.name}</a>
+                </Link>
+              ) : (
+                <Link href='/register'>
+                  <a>Register</a>
+                </Link>
+              )}
+            </li>
+          </ul>
+        )}
+      </User>
+    </StyledNav>
+  </>
 );
 
 export default Navigation;
