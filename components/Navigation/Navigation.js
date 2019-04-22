@@ -24,7 +24,7 @@ const StyledNav = styled.nav`
     text-transform: lowercase;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    margin-right: 2rem;
+    margin-right: 3rem;
   }
   li:last-child {
     color: ${background};

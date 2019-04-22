@@ -15,7 +15,6 @@ const StyledHeader = styled.header`
   margin-bottom: 4rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  padding: 1rem;
 `;
 
 const Header = () => (
