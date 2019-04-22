@@ -14,6 +14,7 @@ import {
 } from '../../elements/Form';
 import CdShape from '../../elements/CdShape';
 import redirect from '../../lib/redirect';
+import Error from '../../elements/Error';
 
 const LOGIN = gql`
   mutation LOGIN($email: String!, $password: String!) {
@@ -61,6 +62,7 @@ const LoginForm = () => {
               method='post'
             >
               <FormHeader>Login into your account</FormHeader>
+              {error && <Error error={error} />}
               <div>
                 <Label htmlFor='email'>
                   <p>Email:</p>

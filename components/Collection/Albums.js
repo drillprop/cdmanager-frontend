@@ -6,6 +6,7 @@ import { QueryContext } from '../../pages/collection';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Album from '../../elements/Album';
 import DeleteButton from './DeleteButton';
+import Error from '../../elements/Error';
 
 const StyledH2 = styled.h2`
   text-align: center;
@@ -30,7 +31,7 @@ const Albums = () => {
           fetchPolicy='cache-and-network'
         >
           {({ data, error, loading }) => {
-            if (error) return <div>{error.message}</div>;
+            if (error) return <Error error={error} />;
             if (loading) return <Loading loading={loading} />;
             const { albums } = data;
             if (albums) {

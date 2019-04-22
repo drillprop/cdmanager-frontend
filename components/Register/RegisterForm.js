@@ -14,6 +14,7 @@ import {
 } from '../../elements/Form';
 import CdShape from '../../elements/CdShape';
 import redirect from '../../lib/redirect';
+import Error from '../../elements/Error';
 
 const REGISTER = gql`
   mutation REGISTER($name: String!, $email: String!, $password: String!) {
@@ -61,6 +62,7 @@ const RegisterForm = () => {
               method='post'
             >
               <FormHeader>Create account</FormHeader>
+              {error && <Error error={error} />}
               <div>
                 <Label htmlFor='name'>
                   <p>Name:</p>
