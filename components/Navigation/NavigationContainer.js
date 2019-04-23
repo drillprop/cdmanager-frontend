@@ -1,11 +1,11 @@
 import React from 'react';
 import Navigation from './Navigation';
-import HamburgerMenu from './HamburgerMenu';
+import HamburgerButton from './HamburgerButton';
 
 const NavigationContainer = () => {
   return (
     <>
-      <HamburgerMenu />
+      <HamburgerButton />
       <Navigation />
     </>
   );
