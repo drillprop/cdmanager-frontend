@@ -96,6 +96,7 @@ const HamburgerMenu = () => {
       <HamburgerButton>
         <input
           type='checkbox'
+          checked={toggled}
           onChange={() => setToggle(!toggled)}
           className='toggle'
         />
