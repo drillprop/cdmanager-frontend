@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import { background, black, lightblack } from '../../utils/colors';
 import { mont } from '../../utils/fonts';
 import { theme } from '../../utils/theme';
-import NavigationLinks from './NavigationLinks';
+import NavLinks from './NavLinks';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -39,7 +38,7 @@ const StyledNav = styled.nav`
 const Navigation = ({ me, signout }) => (
   <>
     <StyledNav>
-      <NavigationLinks />
+      <NavLinks />
     </StyledNav>
   </>
 );

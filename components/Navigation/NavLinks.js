@@ -3,7 +3,7 @@ import User from '../../utils/User';
 import NavLinksLogged from './NavLinksLogged';
 import NavLinksLoggedOut from './NavLinksLoggedOut';
 
-const NavigationLinks = () => {
+const NavLinks = () => {
   return (
     <User>
       {({ me }, signout) =>
@@ -17,4 +17,4 @@ const NavigationLinks = () => {
   );
 };
 
-export default NavigationLinks;
+export default NavLinks;

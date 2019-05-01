@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import NavigationLinks from './NavigationLinks';
+import NavLinks from './NavLinks';
 
 const StyledDiv = styled.div`
   position: fixed;
@@ -93,7 +93,7 @@ const HamburgerButton = ({ me, signout }) => {
       </StyledDiv>
       {toggled && (
         <StyledNavigation>
-          <NavigationLinks />
+          <NavLinks />
         </StyledNavigation>
       )}
     </>
