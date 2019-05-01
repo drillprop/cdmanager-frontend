@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { PageTitle } from '../../elements/Titles';
@@ -7,6 +7,7 @@ import { mont } from '../../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
 import { theme } from '../../utils/theme';
 import AlbumSearchList from './AlbumSearchList';
+import { addReducer } from './addReducer';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -32,31 +33,40 @@ const StyledForm = styled.form`
 `;
 
 const SearchAlbumToAdd = ({ setToVisible }) => {
+  const initialState = {
+    searchInput: '',
+    isListVisible: false
+  };
+
   const [result, setResult] = useState('');
+  const [state, dispatch] = useReducer(addReducer, initialState);
 
   useEffect(() => {
     return () => handleSearch.cancel();
   }, []);
 
   const handleSearch = debounce(text => {
-    setResult(text);
+    dispatch({ type: 'SEARCH_ALBUM', searchInput: text });
     !text && setResult('');
   }, 300);
+
   return (
     <>
       <PageTitle>add an album</PageTitle>
       <StyledForm displayRecent={!result}>
         <input
           type='text'
+          value={result}
           placeholder='search...'
           onChange={e => {
             const { value } = e.currentTarget;
+            setResult(value);
             value ? setToVisible(false) : setToVisible(true);
             handleSearch(value);
           }}
         />
       </StyledForm>
-      {result && (
+      {state.isListVisible && (
         <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
           {({ loading, error, data }) => {
             return (
