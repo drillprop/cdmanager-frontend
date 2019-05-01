@@ -9,11 +9,14 @@ const List = styled(animated.ul)`
   z-index: 2;
   margin: 0.4rem auto;
   background: white;
-  width: calc(1.3 * 500px);
+  width: calc(1.3 * 400px);
   border: 1px solid #909090;
   border-radius: 3px;
   box-shadow: ${theme.bs};
   list-style: none;
+  @media (max-width: 510px) {
+    width: calc(1.3 * 230px);
+  }
 `;
 
 const AlbumSearchList = ({ searchResult, loading, error }) => {

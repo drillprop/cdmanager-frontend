@@ -11,4 +11,7 @@ export const PageTitle = styled.h1`
   color: ${lightblack};
   margin: 0;
   margin-bottom: 2rem;
+  @media (max-width: 510px) {
+    font-size: 2.4rem;
+  }
 `;

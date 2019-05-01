@@ -15,6 +15,9 @@ const CdContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
+  @media (max-width: 510px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const RecentAlbums = () => {

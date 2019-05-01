@@ -11,13 +11,13 @@ import { AddContext } from './AddContainer';
 
 const StyledForm = styled.form`
   margin: 0 auto;
-  width: 700px;
+  max-width: 700px;
   input {
     position: relative;
     z-index: 1;
     margin: 0 auto;
     display: block;
-    width: 500px;
+    width: 400px;
     height: 50px;
     outline: none;
     background: white;
@@ -29,6 +29,10 @@ const StyledForm = styled.form`
     box-shadow: ${theme.bs};
     transform: ${({ displayRecent }) => (displayRecent ? '' : 'scale(1.3)')};
     transition: all 300ms;
+    @media (max-width: 510px) {
+      width: 230px;
+      height: 40px;
+    }
   }
 `;
 
