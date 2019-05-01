@@ -61,6 +61,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledNavigation = styled.nav`
+  display: none;
   top: 0;
   left: 0;
   margin: 0;
@@ -72,10 +73,12 @@ const StyledNavigation = styled.nav`
   width: 80%;
   height: 100%;
   font-size: 2rem;
-
   li {
     list-style: none;
     text-transform: lowercase;
+  }
+  @media (max-width: 510px) {
+    display: block;
   }
 `;
 
