@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import LoadedImage from '../../elements/LoadedImage';
 import { CREATE_ALBUM } from '../../utils/mutations';
 import { GET_ALBUMS_LENGTH } from '../../utils/queries';
+import { AddContext } from './AddContainer';
 
 const Item = styled.li`
   display: flex;
@@ -22,6 +23,7 @@ const ImageWrapper = styled.div`
 `;
 
 const AlbumSearchResult = ({ artist, title, image }) => {
+  const { state, dispatch } = useContext(AddContext);
   return (
     <Item>
       <ImageWrapper>
@@ -38,7 +40,13 @@ const AlbumSearchResult = ({ artist, title, image }) => {
       >
         {(createAlbum, payload) => {
           return (
-            <button disabled={payload.called} onClick={() => createAlbum()}>
+            <button
+              disabled={payload.called}
+              onClick={() => {
+                createAlbum();
+                dispatch({ type: 'CREATE_ALBUM' });
+              }}
+            >
               add
             </button>
           );
