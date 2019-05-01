@@ -79,7 +79,7 @@ const StyledNavigation = styled.nav`
   }
 `;
 
-const HamburgerMenu = ({ me, signout }) => {
+const HamburgerMenu = () => {
   const [toggled, setToggle] = useState(false);
   return (
     <>
@@ -93,7 +93,7 @@ const HamburgerMenu = ({ me, signout }) => {
       </StyledDiv>
       {toggled && (
         <StyledNavigation>
-          <NavLinks />
+          <NavLinks setToggle={setToggle} />
         </StyledNavigation>
       )}
     </>
