@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { black } from '../../utils/colors';
 import NavLinks from './NavLinks';
 
 const HamburgerButton = styled.div`
@@ -28,7 +29,7 @@ const HamburgerButton = styled.div`
     transition: all 0.5s ease;
     width: 25px;
     height: 3px;
-    background-color: red;
+    background-color: ${black};
     border-radius: 5px;
     ::after,
     ::before {
@@ -36,7 +37,7 @@ const HamburgerButton = styled.div`
       position: absolute;
       width: 25px;
       height: 3px;
-      background-color: red;
+      background-color: ${black};
     }
     ::before {
       top: -10px;
