@@ -79,7 +79,7 @@ const StyledNavigation = styled.nav`
   }
 `;
 
-const HamburgerButton = ({ me, signout }) => {
+const HamburgerMenu = ({ me, signout }) => {
   const [toggled, setToggle] = useState(false);
   return (
     <>
@@ -100,4 +100,4 @@ const HamburgerButton = ({ me, signout }) => {
   );
 };
 
-export default HamburgerButton;
+export default HamburgerMenu;
