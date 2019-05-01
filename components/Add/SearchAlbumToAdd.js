@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce';
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { PageTitle } from '../../elements/Titles';
@@ -7,7 +7,7 @@ import { mont } from '../../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
 import { theme } from '../../utils/theme';
 import AlbumSearchList from './AlbumSearchList';
-import { addReducer } from './addReducer';
+import { AddContext } from './AddContainer';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -33,13 +33,9 @@ const StyledForm = styled.form`
 `;
 
 const SearchAlbumToAdd = ({ setToVisible }) => {
-  const initialState = {
-    searchInput: '',
-    isListVisible: false
-  };
+  const { state, dispatch } = useContext(AddContext);
 
   const [result, setResult] = useState('');
-  const [state, dispatch] = useReducer(addReducer, initialState);
 
   useEffect(() => {
     return () => handleSearch.cancel();
