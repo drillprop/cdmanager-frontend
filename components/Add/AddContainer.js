@@ -1,23 +1,24 @@
-import React, { useState, useContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import SearchAlbumToAdd from './SearchAlbumToAdd';
 import RecentAlbums from './RecentAlbums';
 import { addReducer } from './addReducer';
 
 const initialState = {
   searchInput: '',
-  isListVisible: false
+  isListVisible: false,
+  isRecentAlbumsVisible: true
 };
 
 export const AddContext = React.createContext({});
 
 const AddContainer = () => {
   const [state, dispatch] = useReducer(addReducer, initialState);
-  const [visible, setToVisible] = useState(true);
+  const { isRecentAlbumsVisible } = state;
   return (
     <>
       <AddContext.Provider value={{ state, dispatch }}>
-        <SearchAlbumToAdd setToVisible={setToVisible} />
-        {visible && <RecentAlbums />}
+        <SearchAlbumToAdd />
+        {isRecentAlbumsVisible && <RecentAlbums />}
       </AddContext.Provider>
     </>
   );

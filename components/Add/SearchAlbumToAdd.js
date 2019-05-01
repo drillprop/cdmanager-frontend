@@ -32,7 +32,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const SearchAlbumToAdd = ({ setToVisible }) => {
+const SearchAlbumToAdd = () => {
   const { state, dispatch } = useContext(AddContext);
 
   const [result, setResult] = useState('');
@@ -57,7 +57,6 @@ const SearchAlbumToAdd = ({ setToVisible }) => {
           onChange={e => {
             const { value } = e.currentTarget;
             setResult(value);
-            value ? setToVisible(false) : setToVisible(true);
             handleSearch(value);
           }}
         />
