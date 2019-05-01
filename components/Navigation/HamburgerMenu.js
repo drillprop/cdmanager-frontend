@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import NavLinks from './NavLinks';
 
-const StyledDiv = styled.div`
+const HamburgerButton = styled.div`
   position: fixed;
   height: 25px;
   width: 25px;
@@ -86,14 +86,14 @@ const HamburgerMenu = () => {
   const [toggled, setToggle] = useState(false);
   return (
     <>
-      <StyledDiv>
+      <HamburgerButton>
         <input
           type='checkbox'
           onChange={() => setToggle(!toggled)}
           className='toggle'
         />
         <div />
-      </StyledDiv>
+      </HamburgerButton>
       {toggled && (
         <StyledNavigation>
           <NavLinks setToggle={setToggle} />
