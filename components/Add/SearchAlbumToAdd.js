@@ -49,7 +49,7 @@ const SearchAlbumToAdd = ({ setToVisible }) => {
   return (
     <>
       <PageTitle>add an album</PageTitle>
-      <StyledForm displayRecent={!result}>
+      <StyledForm displayRecent={!state.isListVisible}>
         <input
           type='text'
           value={result}
