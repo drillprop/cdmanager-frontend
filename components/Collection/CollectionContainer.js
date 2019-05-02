@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FilterCollection from './FilterCollection';
 import Pagination from './Pagination';
-import Albums from './Albums';
+import Albums from './AlbumsContainer';
 import { PageTitle } from '../../elements/Titles';
 
 const CollectionContainer = () => {
