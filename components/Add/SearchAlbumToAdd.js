@@ -56,9 +56,10 @@ const SearchAlbumToAdd = () => {
       <StyledForm displayRecent={!state.isListVisible}>
         <input
           type='text'
-          value={result}
           placeholder='search...'
+          value={state.clearInput ? '' : result}
           onChange={e => {
+            dispatch({ type: 'CLEAR_INPUT', clearInput: false });
             const { value } = e.currentTarget;
             setResult(value);
             handleSearch(value);

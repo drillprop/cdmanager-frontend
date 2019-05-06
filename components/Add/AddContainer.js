@@ -6,7 +6,8 @@ import { addReducer } from './addReducer';
 const initialState = {
   searchInput: '',
   isListVisible: false,
-  isRecentAlbumsVisible: true
+  isRecentAlbumsVisible: true,
+  clearInput: true
 };
 
 export const AddContext = React.createContext({});
