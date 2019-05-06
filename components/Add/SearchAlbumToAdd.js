@@ -29,7 +29,7 @@ const StyledForm = styled.form`
     box-shadow: ${theme.bs};
     transform: ${({ displayRecent }) => (displayRecent ? '' : 'scale(1.3)')};
     transition: all 300ms;
-    @media (max-width: 510px) {
+    @media (max-width: 600px) {
       width: 230px;
       height: 40px;
     }

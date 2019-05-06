@@ -9,6 +9,12 @@ const CdContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Albums = ({ albums, children }) => {

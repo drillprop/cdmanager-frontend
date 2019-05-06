@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
   margin-bottom: 4rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  @media (max-width: 510px) {
+  @media (max-width: 600px) {
     grid-template-columns: 3fr 1fr;
   }
 `;

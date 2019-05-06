@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
     background-color: ${black};
     box-shadow: ${theme.bs};
   }
-  @media (max-width: 510px) {
+  @media (max-width: 600px) {
     display: none;
   }
 `;

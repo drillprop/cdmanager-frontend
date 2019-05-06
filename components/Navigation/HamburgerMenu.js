@@ -55,7 +55,7 @@ const HamburgerButton = styled.div`
     top: 0;
     transform: rotate(90deg);
   }
-  @media (max-width: 510px) {
+  @media (max-width: 600px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ const StyledNavigation = styled(animated.nav)`
     list-style: none;
     text-transform: lowercase;
   }
-  @media (max-width: 510px) {
+  @media (max-width: 600px) {
     display: block;
   }
 `;

@@ -14,7 +14,7 @@ const List = styled(animated.ul)`
   border-radius: 3px;
   box-shadow: ${theme.bs};
   list-style: none;
-  @media (max-width: 510px) {
+  @media (max-width: 600px) {
     width: calc(1.3 * 230px);
   }
 `;
