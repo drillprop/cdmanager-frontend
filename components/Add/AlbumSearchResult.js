@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import LoadedImage from '../../elements/LoadedImage';
 import { CREATE_ALBUM } from '../../utils/mutations';
-import { GET_ALBUMS_LENGTH } from '../../utils/queries';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import { AddContext } from './AddContainer';
 
 const Item = styled.li`
@@ -36,7 +36,9 @@ const AlbumSearchResult = ({ artist, title, image }) => {
       <Mutation
         mutation={CREATE_ALBUM}
         variables={{ artist, title, image }}
-        refetchQueries={[{ query: GET_ALBUMS_LENGTH }]}
+        refetchQueries={[
+          { query: GET_ALBUMS_FROM_COLLECTION, variables: { last: 4 } }
+        ]}
       >
         {(createAlbum, payload) => {
           return (
