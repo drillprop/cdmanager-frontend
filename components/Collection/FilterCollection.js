@@ -15,6 +15,10 @@ const Container = styled.section`
   }
 `;
 
+const StyledH2 = styled.h2`
+  text-align: center;
+`;
+
 const FilterCollection = ({ showRecentAlbums }) => {
   const [result, setValue] = useState('');
   const filter = debounce(text => {
@@ -40,7 +44,12 @@ const FilterCollection = ({ showRecentAlbums }) => {
               if (error) return <p>{error.message}</p>;
               if (loading) return <p>Loading...</p>;
               if (data) {
-                return <Albums albums={data.albums} deleteButton={true} />;
+                return (
+                  <>
+                    <StyledH2>Searching for: {result}</StyledH2>{' '}
+                    <Albums albums={data.albums} deleteButton={true} />;
+                  </>
+                );
               }
             }}
           </Query>
