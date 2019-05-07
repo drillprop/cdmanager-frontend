@@ -20,11 +20,13 @@ const CdContainer = styled.section`
 const Albums = ({ albums, deleteButton }) => {
   return (
     <CdContainer>
-      {albums.map(({ artist, title, image, id }) => (
-        <Album artist={artist} title={title} image={image} key={id} id={id}>
-          {deleteButton && <DeleteButton id={id} />}
-        </Album>
-      ))}
+      {albums
+        ? albums.map(({ artist, title, image, id }) => (
+            <Album artist={artist} title={title} image={image} key={id} id={id}>
+              {deleteButton && <DeleteButton id={id} />}
+            </Album>
+          ))
+        : null}
     </CdContainer>
   );
 };

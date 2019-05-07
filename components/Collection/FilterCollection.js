@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Query } from 'react-apollo';
 import { Input } from '../../elements/Form';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
+import Albums from '../../elements/Albums';
 
 const Container = styled.section`
   max-width: 800px;
@@ -39,8 +40,7 @@ const FilterCollection = ({ showRecentAlbums }) => {
               if (error) return <p>{error.message}</p>;
               if (loading) return <p>Loading...</p>;
               if (data) {
-                console.log(data);
-                return null;
+                return <Albums albums={data.albums} deleteButton={true} />;
               }
             }}
           </Query>
