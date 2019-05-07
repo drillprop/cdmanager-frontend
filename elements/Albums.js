@@ -17,12 +17,12 @@ const CdContainer = styled.section`
   }
 `;
 
-const Albums = ({ albums, children }) => {
+const Albums = ({ albums, deleteButton }) => {
   return (
     <CdContainer>
       {albums.map(({ artist, title, image, id }) => (
         <Album artist={artist} title={title} image={image} key={id} id={id}>
-          <DeleteButton id={id} />
+          {deleteButton && <DeleteButton id={id} />}
         </Album>
       ))}
     </CdContainer>

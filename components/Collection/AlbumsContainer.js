@@ -26,7 +26,7 @@ const AlbumsContainer = () => {
           if (loading) return <Loading loading={loading} />;
           const { albums } = data;
           if (albums) {
-            return <Albums albums={albums} />;
+            return <Albums albums={albums} deleteButton={true} />;
           }
           return <p>no albums added</p>;
         }}
