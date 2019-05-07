@@ -1,11 +1,11 @@
 import debounce from 'lodash.debounce';
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Query } from 'react-apollo';
 import { Input } from '../../elements/Form';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Albums from '../../elements/Albums';
-
+import { CollectionContext } from './CollectionContainer';
 const Container = styled.section`
   max-width: 800px;
   margin: 0 auto;
@@ -20,8 +20,13 @@ const StyledH2 = styled.h2`
 `;
 
 const FilterCollection = ({ showRecentAlbums }) => {
+  const { state, dispatch } = useContext(CollectionContext);
   const [result, setValue] = useState('');
   const filter = debounce(text => {
+    dispatch({
+      type: 'CHANGE_QUERY_VARIABLES',
+      search: text
+    });
     text ? showRecentAlbums(false) : showRecentAlbums(true);
     !text && setValue('');
     return setValue(text);
@@ -38,7 +43,7 @@ const FilterCollection = ({ showRecentAlbums }) => {
         {result && (
           <Query
             query={GET_ALBUMS_FROM_COLLECTION}
-            variables={{ search: result }}
+            variables={{ ...state.queryVariables }}
           >
             {({ data, error, loading }) => {
               if (error) return <p>{error.message}</p>;
