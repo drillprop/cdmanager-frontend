@@ -2,13 +2,7 @@ import React from 'react';
 import User from '../../utils/User';
 import Link from 'next/link';
 
-const NavLinks = ({ setToggle }) => {
-  const toggle = () => {
-    if (!setToggle) {
-      return null;
-    }
-    setToggle(false);
-  };
+const NavLinks = () => {
   return (
     <User>
       {({ me }, signout) =>

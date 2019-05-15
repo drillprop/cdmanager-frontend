@@ -5,7 +5,7 @@ import User from '../../utils/User';
 import Link from 'next/link';
 import { lighterblack } from '../../utils/colors';
 
-const StyledNavigation = styled.nav`
+const StyledNavigation = styled(animated.nav)`
   display: none;
   top: 0;
   left: 0;
@@ -39,25 +39,24 @@ const StyledNavigation = styled.nav`
   }
 `;
 
-const HamburgerNavigation = () => {
-  const [toggled, toggle] = useState(false);
+const HamburgerNavigation = ({ style, setsetT }) => {
   return (
-    <StyledNavigation>
+    <StyledNavigation style={style}>
       <User>
         {({ me }, signout) =>
           me ? (
             <ul>
-              <li onClick={() => toggle()}>
+              <li onClick={() => setToggle(false)}>
                 <Link href='/collection'>
-                  <a>Hello {me.name}</a>
+                  <a> {me.name}</a>
                 </Link>
               </li>
-              <li onClick={() => toggle()}>
+              <li onClick={() => setToggle(false)}>
                 <Link href='/add'>
                   <a>add</a>
                 </Link>
               </li>
-              <li onClick={() => toggle()}>
+              <li onClick={() => setToggle(false)}>
                 <Link href='/login'>
                   <a onClick={signout}>logout</a>
                 </Link>
@@ -65,12 +64,12 @@ const HamburgerNavigation = () => {
             </ul>
           ) : (
             <ul>
-              <li onClick={() => toggle()}>
+              <li onClick={() => setToggle(false)}>
                 <Link href='/login'>
                   <a>login</a>
                 </Link>
               </li>
-              <li onClick={() => toggle()}>
+              <li onClick={() => setToggle(false)}>
                 <Link href='/register'>
                   <a>Register</a>
                 </Link>

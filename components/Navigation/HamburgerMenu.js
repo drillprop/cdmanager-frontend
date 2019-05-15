@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { black } from '../../utils/colors';
-import NavLinks from './NavLinks';
 import { useTransition, animated } from 'react-spring';
 import HamburgerNavigation from './HamburgerNavigation';
 
@@ -63,28 +62,6 @@ const HamburgerButton = styled.div`
   }
 `;
 
-const StyledNavigation = styled(animated.nav)`
-  display: none;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  z-index: 5;
-  position: fixed;
-  background: black;
-  opacity: 0.9;
-  width: 80%;
-  height: 100%;
-  font-size: 2rem;
-  li {
-    list-style: none;
-    text-transform: lowercase;
-  }
-  @media (max-width: 600px) {
-    display: block;
-  }
-`;
-
 const HamburgerMenu = () => {
   const [toggled, setToggle] = useState(false);
   const transitions = useTransition(toggled, null, {
@@ -106,10 +83,11 @@ const HamburgerMenu = () => {
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <HamburgerNavigation key={key} style={props} />
-            // <StyledNavigation key={key} style={props}>
-            //   <NavLinks setToggle={setToggle} />
-            // </StyledNavigation>
+            <HamburgerNavigation
+              key={key}
+              style={props}
+              setToggle={setToggle}
+            />
           )
       )}
     </>
