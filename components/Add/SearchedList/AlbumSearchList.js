@@ -13,8 +13,8 @@ const List = styled(animated.ul)`
   border: 1px solid #909090;
   border-radius: 3px;
   box-shadow: ${theme.bs};
-  padding: 1rem 60px 0 30px;
   list-style: none;
+  padding: 0;
   @media (max-width: 600px) {
     width: calc(1.3 * 230px);
   }
