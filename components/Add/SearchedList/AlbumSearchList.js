@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../utils/theme';
+import { theme } from '../../../utils/theme';
 import { useSpring, animated } from 'react-spring';
 import AlbumSearchResult from './AlbumSearchResult';
 

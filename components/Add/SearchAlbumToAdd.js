@@ -6,7 +6,7 @@ import { PageTitle } from '../../elements/Titles';
 import { mont } from '../../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
 import { theme } from '../../utils/theme';
-import AlbumSearchList from './AlbumSearchList';
+import AlbumSearchList from './SearchedList/AlbumSearchList';
 import { AddContext } from './AddContainer';
 
 const StyledForm = styled.form`

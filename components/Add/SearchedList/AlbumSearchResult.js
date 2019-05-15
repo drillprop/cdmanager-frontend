@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import LoadedImage from '../../elements/LoadedImage';
-import { CREATE_ALBUM } from '../../utils/mutations';
-import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
-import { AddContext } from './AddContainer';
+import LoadedImage from '../../../elements/LoadedImage';
+import { CREATE_ALBUM } from '../../../utils/mutations';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
+import { AddContext } from '../AddContainer';
 
 const Item = styled.li`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
 `;
 
 const ImageWrapper = styled.div`
