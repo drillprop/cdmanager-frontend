@@ -8,17 +8,17 @@ const NavLinks = () => {
       {({ me }, signout) =>
         me ? (
           <ul>
-            <li onClick={() => toggle()}>
+            <li>
               <Link href='/login'>
                 <a onClick={signout}>logout</a>
               </Link>
             </li>
-            <li onClick={() => toggle()}>
+            <li>
               <Link href='/add'>
                 <a>add</a>
               </Link>
             </li>
-            <li onClick={() => toggle()}>
+            <li>
               <Link href='/collection'>
                 <a>{me.name}</a>
               </Link>
@@ -26,12 +26,12 @@ const NavLinks = () => {
           </ul>
         ) : (
           <ul>
-            <li onClick={() => toggle()}>
+            <li>
               <Link href='/login'>
                 <a>login</a>
               </Link>
             </li>
-            <li onClick={() => toggle()}>
+            <li>
               <Link href='/register'>
                 <a>Register</a>
               </Link>
