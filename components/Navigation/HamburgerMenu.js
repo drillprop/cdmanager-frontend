@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { black } from '../../utils/colors';
 import NavLinks from './NavLinks';
 import { useTransition, animated } from 'react-spring';
+import HamburgerNavigation from './HamburgerNavigation';
 
 const HamburgerButton = styled.div`
   position: fixed;
@@ -105,9 +106,10 @@ const HamburgerMenu = () => {
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <StyledNavigation key={key} style={props}>
-              <NavLinks setToggle={setToggle} />
-            </StyledNavigation>
+            <HamburgerNavigation key={key} style={props} />
+            // <StyledNavigation key={key} style={props}>
+            //   <NavLinks setToggle={setToggle} />
+            // </StyledNavigation>
           )
       )}
     </>
