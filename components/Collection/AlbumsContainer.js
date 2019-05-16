@@ -18,7 +18,7 @@ const AlbumsContainer = () => {
       <StyledH2>recently added</StyledH2>
       <Query
         query={GET_ALBUMS_FROM_COLLECTION}
-        variables={{ last: 10 * (page || 1) - 10 }}
+        variables={{ skip: 10 * (page || 1) - 10 }}
         fetchPolicy='cache-and-network'
       >
         {({ data, error, loading }) => {

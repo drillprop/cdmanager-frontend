@@ -11,8 +11,8 @@ export const GET_ALBUMS_FROM_LASTFM = gql`
 `;
 
 export const GET_ALBUMS_FROM_COLLECTION = gql`
-  query GET_ALBUMS_FROM_COLLECTION($last: Int, $search: String, $limit: Int) {
-    albums(last: $last, search: $search, limit: $limit) {
+  query GET_ALBUMS_FROM_COLLECTION($skip: Int, $search: String, $limit: Int) {
+    albums(skip: $skip, search: $search, limit: $limit) {
       title
       artist
       image

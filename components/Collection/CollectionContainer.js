@@ -7,8 +7,9 @@ import { collectionReducer } from './collectionReducer';
 
 const initialState = {
   queryVariables: {
-    last: 8,
-    search: ''
+    skip: 8,
+    search: '',
+    limit: 10
   }
 };
 

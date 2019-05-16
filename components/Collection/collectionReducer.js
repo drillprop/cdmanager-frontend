@@ -4,8 +4,9 @@ export function collectionReducer(state, action) {
       return {
         ...state,
         queryVariables: {
-          last: action.last,
-          search: action.search
+          skip: action.skip,
+          search: action.search,
+          limit: action.limit
         }
       };
     default:
