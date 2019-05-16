@@ -39,7 +39,7 @@ const StyledNavigation = styled(animated.nav)`
   }
 `;
 
-const HamburgerNavigation = ({ style, setsetT }) => {
+const HamburgerNavigation = ({ style, setToggle }) => {
   return (
     <StyledNavigation style={style}>
       <User>
