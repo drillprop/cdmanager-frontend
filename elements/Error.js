@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Error = ({ error }) => {
-  return <p>{error.message.replace('GraphQL error: ', '')}</p>;
+  if (error) return <p>{error.message.replace('GraphQL error: ', '')}</p>;
+  return null;
 };
 
 export default Error;

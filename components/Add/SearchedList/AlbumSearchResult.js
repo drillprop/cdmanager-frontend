@@ -7,6 +7,7 @@ import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import { AddContext } from '../AddContainer';
 import Button from '../../../elements/Button';
 import { background } from '../../../utils/colors';
+import Error from '../../../elements/Error';
 
 const Item = styled.li`
   display: grid;
@@ -43,28 +44,36 @@ const AlbumSearchResult = ({ artist, title, image }) => {
       <ImageWrapper>
         <LoadedImage title={title} image={image} />
       </ImageWrapper>
-      <div>
-        <div>{artist}</div>
-        <div>{title}</div>
-      </div>
       <Mutation
         mutation={CREATE_ALBUM}
         variables={{ artist, title, image }}
         refetchQueries={[
-          { query: GET_ALBUMS_FROM_COLLECTION, variables: { last: 4 } }
+          { query: GET_ALBUMS_FROM_COLLECTION, variables: { skip: 3 } }
         ]}
       >
         {(createAlbum, payload) => {
           return (
-            <Button
-              disabled={payload.called}
-              onClick={() => {
-                createAlbum();
-                dispatch({ type: 'CREATE_ALBUM' });
-              }}
-            >
-              add
-            </Button>
+            <>
+              {payload.error ? (
+                <Error error={payload.error} />
+              ) : (
+                <div>
+                  <div>{artist}</div>
+                  <div>{title}</div>
+                </div>
+              )}
+              <Button
+                disabled={payload.called}
+                onClick={async () => {
+                  await createAlbum();
+                  if (!payload.error) {
+                    dispatch({ type: 'CREATE_ALBUM' });
+                  }
+                }}
+              >
+                add
+              </Button>
+            </>
           );
         }}
       </Mutation>
