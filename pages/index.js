@@ -1,9 +1,10 @@
 import Hero from '../components/Homepage/Hero';
+import PageTransition from '../utils/PageTransition';
 
 const Home = () => (
-  <div>
+  <PageTransition>
     <Hero />
-  </div>
+  </PageTransition>
 );
 
 export default Home;
