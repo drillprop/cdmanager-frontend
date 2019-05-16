@@ -19,7 +19,6 @@
     "graphql": "^14.1.1",
     "lodash.debounce": "^4.0.8",
     "next": "^7.0.2",
-    "next-page-transitions": "^1.0.0-alpha.6",
     "next-with-apollo": "^3.3.2",
     "nprogress": "^0.2.0",
     "react": "^16.8.1",

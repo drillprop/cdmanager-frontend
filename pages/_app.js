@@ -4,7 +4,6 @@ import Header from '../components/Navigation/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
-import { PageTransition } from 'next-page-transitions';
 import Meta from '../utils/Meta';
 
 class MyApp extends App {
@@ -24,9 +23,7 @@ class MyApp extends App {
         <ApolloProvider client={apollo}>
           <Meta />
           <Header />
-          <PageTransition timeout={300} classNames='page-transition'>
-            <Component {...pageProps} />
-          </PageTransition>
+          <Component {...pageProps} />
         </ApolloProvider>
       </Container>
     );
