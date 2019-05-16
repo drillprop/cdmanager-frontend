@@ -1,7 +1,7 @@
 import React, { useState, useContext, useReducer } from 'react';
 import FilterCollection from './FilterCollection';
 import Pagination from './Pagination';
-import Albums from './AlbumsContainer';
+import AlbumsContainer from './AlbumsContainer';
 import { PageTitle } from '../../elements/Titles';
 import { collectionReducer } from './collectionReducer';
 
@@ -23,7 +23,7 @@ const CollectionContainer = () => {
       <PageTitle>collection</PageTitle>
       <Pagination />
       <FilterCollection showRecentAlbums={showRecentAlbums} />
-      {recentAlbumsVisible && <Albums />}
+      {recentAlbumsVisible && <AlbumsContainer />}
     </CollectionContext.Provider>
   );
 };
