@@ -19,7 +19,7 @@ const DeleteButton = ({ id }) => {
   const page = useContext(QueryContext);
   const query = {
     query: GET_ALBUMS_FROM_COLLECTION,
-    variables: { last: 10 * (page || 1) - 10 }
+    variables: { skip: 10 * (page || 1) - 10 }
   };
   return (
     <Mutation
