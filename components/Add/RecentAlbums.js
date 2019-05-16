@@ -16,7 +16,7 @@ const RecentAlbums = () => {
       <StyledH2>recently added</StyledH2>
       <Query
         query={GET_ALBUMS_FROM_COLLECTION}
-        variables={{ last: 4 }}
+        variables={{ limit: 3 }}
         fetchPolicy='cache-and-network'
       >
         {({ data, error, loading }) => {
