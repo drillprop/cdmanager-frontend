@@ -6,7 +6,9 @@ export const QueryContext = createContext();
 const Collection = ({ query }) => {
   return (
     <QueryContext.Provider value={query.page}>
-      <CollectionContainer />
+      <PageTransition>
+        <CollectionContainer />
+      </PageTransition>
     </QueryContext.Provider>
   );
 };
