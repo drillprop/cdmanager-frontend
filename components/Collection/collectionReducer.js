@@ -1,4 +1,12 @@
-export function collectionReducer(state, action) {
+const initialState = {
+  queryVariables: {
+    skip: 8,
+    search: '',
+    limit: 10
+  }
+};
+
+export function collectionReducer(state = initialState, action) {
   switch (action.type) {
     case 'CHANGE_QUERY_VARIABLES':
       return {

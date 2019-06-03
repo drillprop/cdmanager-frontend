@@ -3,17 +3,10 @@ import SearchAlbumToAdd from './SearchAlbumToAdd';
 import RecentAlbums from './RecentAlbums';
 import { addReducer } from './addReducer';
 
-const initialState = {
-  searchInput: '',
-  isListVisible: false,
-  isRecentAlbumsVisible: true,
-  clearInput: true
-};
-
 export const AddContext = React.createContext({});
 
 const AddContainer = () => {
-  const [state, dispatch] = useReducer(addReducer, initialState);
+  const [state, dispatch] = useReducer(addReducer);
   const { isRecentAlbumsVisible } = state;
   return (
     <>
