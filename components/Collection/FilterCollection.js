@@ -23,6 +23,7 @@ const FilterCollection = ({ showRecentAlbums }) => {
   const { state, dispatch } = useContext(CollectionContext);
   const [result, setValue] = useState('');
   const filter = debounce(text => {
+    text = text.trim();
     dispatch({
       type: 'CHANGE_QUERY_VARIABLES',
       search: text
