@@ -53,7 +53,7 @@ const FilterCollection = ({ showRecentAlbums }) => {
                 return (
                   <>
                     <StyledH2>Searching for: {result}</StyledH2>{' '}
-                    <Albums albums={data.albums} deleteButton={true} />;
+                    <Albums albums={data.albums.albums} deleteButton={true} />;
                   </>
                 );
               }

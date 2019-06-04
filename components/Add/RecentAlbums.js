@@ -22,7 +22,7 @@ const RecentAlbums = () => {
         {({ data, error, loading }) => {
           if (error) return <div>{error.message}</div>;
           if (loading) return <Loading loading={loading} />;
-          const { albums } = data;
+          const { albums } = data.albums;
           if (albums) {
             return <Albums albums={albums} />;
           }
