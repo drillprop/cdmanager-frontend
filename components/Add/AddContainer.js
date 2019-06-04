@@ -5,8 +5,15 @@ import { addReducer } from './addReducer';
 
 export const AddContext = React.createContext({});
 
+const initialState = {
+  searchInput: '',
+  isListVisible: false,
+  isRecentAlbumsVisible: true,
+  clearInput: true
+};
+
 const AddContainer = () => {
-  const [state, dispatch] = useReducer(addReducer);
+  const [state, dispatch] = useReducer(addReducer, initialState);
   const { isRecentAlbumsVisible } = state;
   return (
     <>

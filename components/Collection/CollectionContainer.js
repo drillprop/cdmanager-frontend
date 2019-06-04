@@ -6,9 +6,16 @@ import { PageTitle } from '../../elements/Titles';
 import { collectionReducer } from './collectionReducer';
 
 export const CollectionContext = React.createContext({});
+const initialState = {
+  queryVariables: {
+    skip: 8,
+    search: '',
+    limit: 10
+  }
+};
 
 const CollectionContainer = () => {
-  const [state, dispatch] = useReducer(collectionReducer);
+  const [state, dispatch] = useReducer(collectionReducer, initialState);
   const [recentAlbumsVisible, showRecentAlbums] = useState(true);
   return (
     <CollectionContext.Provider value={{ state, dispatch }}>

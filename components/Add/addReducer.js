@@ -1,11 +1,4 @@
-const initialState = {
-  searchInput: '',
-  isListVisible: false,
-  isRecentAlbumsVisible: true,
-  clearInput: true
-};
-
-export function addReducer(state = initialState, action) {
+export function addReducer(state, action) {
   switch (action.type) {
     case 'SEARCH_ALBUM':
       return {
