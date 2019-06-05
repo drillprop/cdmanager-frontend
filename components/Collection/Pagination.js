@@ -24,8 +24,8 @@ const Pagination = () => {
     <Query query={GET_ALBUMS_LENGTH}>
       {({ data, loading, error }) => {
         if (data) {
-          const { albumsLength } = data;
-          const pages = Math.ceil(albumsLength / 10);
+          const { total } = data.albums;
+          const pages = Math.ceil(total / 10);
           return (
             <StyledPagination>
               <Link
