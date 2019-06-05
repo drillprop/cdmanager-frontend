@@ -48,8 +48,12 @@ const AlbumSearchResult = ({ artist, title, image }) => {
         mutation={CREATE_ALBUM}
         variables={{ artist, title, image }}
         refetchQueries={[
-          { query: GET_ALBUMS_FROM_COLLECTION, variables: { skip: 3 } }
+          {
+            query: GET_ALBUMS_FROM_COLLECTION,
+            variables: { limit: 3 }
+          }
         ]}
+        awaitRefetchQueries={true}
       >
         {(createAlbum, payload) => {
           return (
