@@ -75,7 +75,7 @@ const AlbumSearchResult = ({ artist, title, image }) => {
                   }
                 }}
               >
-                add
+                {payload.loading ? 'adding...' : 'add'}
               </Button>
             </>
           );
