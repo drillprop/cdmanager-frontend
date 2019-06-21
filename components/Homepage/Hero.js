@@ -5,6 +5,7 @@ import { black, lightblack } from '../../utils/colors';
 import HeroImage from './HeroImage';
 import Button from '../../elements/Button';
 import Link from 'next/link';
+import User from '../../utils/User';
 
 const HeroContainer = styled.main`
   overflow-x: hidden;
@@ -61,9 +62,13 @@ const Hero = () => (
         magni!
       </h3>
       <Button>
-        <Link href='/register'>
-          <a>try it now</a>
-        </Link>
+        <User>
+          {({ me }) => (
+            <Link href={me ? '/collection' : '/register'}>
+              <a>try it now</a>
+            </Link>
+          )}
+        </User>
       </Button>
     </StyledHeroHeader>
     <HeroImage />
