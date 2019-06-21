@@ -8,6 +8,8 @@ import { AddContext } from '../AddContainer';
 import Button from '../../../elements/Button';
 import { background } from '../../../utils/colors';
 import Error from '../../../elements/Error';
+import AlbumInfo from './AlbumInfo';
+import AlbumImage from './AlbumImage';
 
 const Item = styled.li`
   display: grid;
@@ -22,18 +24,6 @@ const Item = styled.li`
     padding: 0.8rem 2rem;
     font-size: 0.8rem;
     text-transform: lowercase;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 3px;
-  img {
-    object-fit: cover;
-    max-width: 70px;
-    max-height: 70px;
-    border-radius: 3px;
   }
 `;
 
@@ -54,16 +44,11 @@ const AlbumSearchResult = ({ artist, title, image }) => {
       {(createAlbum, payload) => {
         return (
           <Item>
-            <ImageWrapper>
-              <LoadedImage title={title} image={image} />
-            </ImageWrapper>
+            <AlbumImage title={title} image={image} />
             {payload.error ? (
               <Error error={payload.error} />
             ) : (
-              <div>
-                <div>{artist}</div>
-                <div>{title}</div>
-              </div>
+              <AlbumInfo artist={artist} title={title} />
             )}
             <Button
               disabled={payload.called}
