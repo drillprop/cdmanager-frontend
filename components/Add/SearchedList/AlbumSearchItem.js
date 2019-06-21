@@ -27,7 +27,7 @@ const Item = styled.li`
   }
 `;
 
-const AlbumSearchResult = ({ artist, title, image }) => {
+const AlbumSearchItem = ({ artist, title, image }) => {
   const { state, dispatch } = useContext(AddContext);
   return (
     <Mutation
@@ -68,4 +68,4 @@ const AlbumSearchResult = ({ artist, title, image }) => {
   );
 };
 
-export default AlbumSearchResult;
+export default AlbumSearchItem;

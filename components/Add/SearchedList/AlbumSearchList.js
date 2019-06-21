@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../utils/theme';
 import { useSpring, animated } from 'react-spring';
-import AlbumSearchResult from './AlbumSearchResult';
+import AlbumSearchItem from './AlbumSearchItem';
 
 const List = styled(animated.ul)`
   position: relative;
@@ -43,7 +43,7 @@ const AlbumSearchList = ({ searchResult, loading, error }) => {
       {uniqueSearchResult &&
         uniqueSearchResult.map(({ artist, title, image }) => {
           return (
-            <AlbumSearchResult
+            <AlbumSearchItem
               artist={artist}
               title={title}
               image={image}
