@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { QueryContext } from '../../pages/collection';
 import { GET_ALBUMS_LENGTH } from '../../utils/queries';
+import { CollectionContext } from './CollectionContainer';
 
 const StyledPagination = styled.div`
   max-width: 300px;
@@ -17,9 +18,22 @@ const StyledPagination = styled.div`
   }
 `;
 
+const StyledSearching = styled.h2`
+  max-width: 300px;
+  margin: 3rem auto;
+  text-align: center;
+`;
+
 const Pagination = () => {
   const pageContext = useContext(QueryContext);
+  const { state, dispatch } = useContext(CollectionContext);
   const page = parseInt(pageContext) || 1;
+  if (state.queryVariables.search)
+    return (
+      <StyledSearching>
+        Searching for {state.queryVariables.search}
+      </StyledSearching>
+    );
   return (
     <Query query={GET_ALBUMS_LENGTH}>
       {({ data, loading, error }) => {
