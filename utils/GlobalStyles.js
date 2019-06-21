@@ -6,7 +6,11 @@ export const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
 }
+html {
+  overflow-y: scroll;
+}
   body {
+    padding-right: 16px;
     font-size: 14px;
     margin: 0;
     background: #f9f9f9;
