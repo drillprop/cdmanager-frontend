@@ -40,48 +40,46 @@ const ImageWrapper = styled.div`
 const AlbumSearchResult = ({ artist, title, image }) => {
   const { state, dispatch } = useContext(AddContext);
   return (
-    <Item>
-      <ImageWrapper>
-        <LoadedImage title={title} image={image} />
-      </ImageWrapper>
-      <Mutation
-        mutation={CREATE_ALBUM}
-        variables={{ artist, title, image }}
-        refetchQueries={[
-          {
-            query: GET_ALBUMS_FROM_COLLECTION,
-            variables: { limit: 3 }
-          }
-        ]}
-        awaitRefetchQueries={true}
-      >
-        {(createAlbum, payload) => {
-          return (
-            <>
-              {payload.error ? (
-                <Error error={payload.error} />
-              ) : (
-                <div>
-                  <div>{artist}</div>
-                  <div>{title}</div>
-                </div>
-              )}
-              <Button
-                disabled={payload.called}
-                onClick={async () => {
-                  await createAlbum();
-                  if (!payload.error) {
-                    dispatch({ type: 'CREATE_ALBUM' });
-                  }
-                }}
-              >
-                {payload.loading ? 'adding...' : 'add'}
-              </Button>
-            </>
-          );
-        }}
-      </Mutation>
-    </Item>
+    <Mutation
+      mutation={CREATE_ALBUM}
+      variables={{ artist, title, image }}
+      refetchQueries={[
+        {
+          query: GET_ALBUMS_FROM_COLLECTION,
+          variables: { limit: 3 }
+        }
+      ]}
+      awaitRefetchQueries={true}
+    >
+      {(createAlbum, payload) => {
+        return (
+          <Item>
+            <ImageWrapper>
+              <LoadedImage title={title} image={image} />
+            </ImageWrapper>
+            {payload.error ? (
+              <Error error={payload.error} />
+            ) : (
+              <div>
+                <div>{artist}</div>
+                <div>{title}</div>
+              </div>
+            )}
+            <Button
+              disabled={payload.called}
+              onClick={async () => {
+                await createAlbum();
+                if (!payload.error) {
+                  dispatch({ type: 'CREATE_ALBUM' });
+                }
+              }}
+            >
+              {payload.loading ? 'adding...' : 'add'}
+            </Button>
+          </Item>
+        );
+      }}
+    </Mutation>
   );
 };
 
