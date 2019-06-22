@@ -6,12 +6,13 @@ import Link from 'next/link';
 
 const StyledH1 = styled.h1`
   margin: 0;
-  margin-left: 3rem;
+  margin-left: 2em;
   align-self: center;
   letter-spacing: -3px;
   font-family: ${mont};
   color: ${black};
   text-transform: lowercase;
+  font-size: 2rem;
   font-weight: 700;
   a {
     text-decoration: none;

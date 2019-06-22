@@ -14,16 +14,17 @@ const StyledNav = styled.nav`
     margin: 0;
     padding: 0;
     flex-direction: row;
+    margin-right: 2em;
   }
   li {
     list-style: none;
     font-weight: 700;
     font-style: ${mont};
     color: ${lightblack};
+    font-size: 0.8rem;
     text-transform: lowercase;
-    padding: 0.5rem 1rem;
+    padding: 0.6em 1.3em;
     border-radius: 5px;
-    margin-right: 3rem;
   }
   li:last-child {
     color: ${background};

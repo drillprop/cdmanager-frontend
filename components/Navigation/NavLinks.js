@@ -1,6 +1,8 @@
 import React from 'react';
 import User from '../../utils/User';
 import Link from 'next/link';
+import Icon from '../../elements/Icon';
+import { black, background } from '../../utils/colors';
 
 const NavLinks = () => {
   return (
@@ -10,17 +12,25 @@ const NavLinks = () => {
           <ul>
             <li>
               <Link href='/login'>
-                <a onClick={signout}>logout</a>
+                <a onClick={signout}>
+                  <Icon icon={'logout'} color={black} />
+                  logout
+                </a>
               </Link>
             </li>
             <li>
               <Link href='/add'>
-                <a>add</a>
+                <a>
+                  <Icon icon={'cd'} color={black} />
+                  add cd
+                </a>
               </Link>
             </li>
             <li>
               <Link href='/collection'>
-                <a>{data.me.name}</a>
+                <a>
+                  <Icon icon={'profile'} color={background} /> {data.me.name}
+                </a>
               </Link>
             </li>
           </ul>

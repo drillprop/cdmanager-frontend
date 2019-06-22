@@ -9,12 +9,12 @@ Router.onRouteChangeStart = () => Nprogress.start();
 Router.onRouteChangeComplete = () => Nprogress.done();
 
 const StyledHeader = styled.header`
-  max-width: 1330px;
+  max-width: 1150px;
   margin: 0 auto;
-  margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-top: 3em;
+  margin-bottom: 3em;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 2fr;
   @media (max-width: 600px) {
     grid-template-columns: 3fr 1fr;
   }
