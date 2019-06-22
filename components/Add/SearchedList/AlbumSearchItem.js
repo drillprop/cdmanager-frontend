@@ -3,7 +3,10 @@ import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import LoadedImage from '../../../elements/LoadedImage';
 import { CREATE_ALBUM } from '../../../utils/mutations';
-import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
+import {
+  GET_ALBUMS_FROM_COLLECTION,
+  GET_ALBUMS_LENGTH
+} from '../../../utils/queries';
 import { AddContext } from '../AddContainer';
 import Button from '../../../elements/Button';
 import { background } from '../../../utils/colors';
@@ -37,6 +40,9 @@ const AlbumSearchItem = ({ artist, title, image }) => {
         {
           query: GET_ALBUMS_FROM_COLLECTION,
           variables: { limit: 3 }
+        },
+        {
+          query: GET_ALBUMS_LENGTH
         }
       ]}
       awaitRefetchQueries={true}
