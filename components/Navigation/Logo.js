@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const StyledH1 = styled.h1`
   margin: 0;
-  margin-left: 2em;
+  margin-left: 1em;
   align-self: center;
   letter-spacing: -3px;
   font-family: ${mont};

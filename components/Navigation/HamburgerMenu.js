@@ -9,7 +9,7 @@ const HamburgerButton = styled.div`
   height: 25px;
   width: 25px;
   margin-right: 3rem;
-  top: 1.5rem;
+  top: 3.5em;
   right: 0;
   display: none;
   .toggle {

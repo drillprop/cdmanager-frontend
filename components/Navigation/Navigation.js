@@ -14,7 +14,7 @@ const StyledNav = styled.nav`
     margin: 0;
     padding: 0;
     flex-direction: row;
-    margin-right: 2em;
+    margin-right: 1em;
   }
   li {
     list-style: none;
@@ -23,8 +23,9 @@ const StyledNav = styled.nav`
     color: ${lightblack};
     font-size: 0.8rem;
     text-transform: lowercase;
-    padding: 0.6em 1.3em;
+    padding: 0.6em 1.5em;
     border-radius: 5px;
+    margin-left: 2em;
   }
   li:last-child {
     color: ${background};

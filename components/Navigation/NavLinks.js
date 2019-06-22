@@ -2,7 +2,7 @@ import React from 'react';
 import User from '../../utils/User';
 import Link from 'next/link';
 import Icon from '../../elements/Icon';
-import { black, background } from '../../utils/colors';
+import { background, lighterblack } from '../../utils/colors';
 
 const NavLinks = () => {
   return (
@@ -13,7 +13,7 @@ const NavLinks = () => {
             <li>
               <Link href='/login'>
                 <a onClick={signout}>
-                  <Icon icon={'logout'} color={black} />
+                  <Icon icon={'logout'} color={lighterblack} />
                   logout
                 </a>
               </Link>
@@ -21,7 +21,7 @@ const NavLinks = () => {
             <li>
               <Link href='/add'>
                 <a>
-                  <Icon icon={'cd'} color={black} />
+                  <Icon icon={'cd'} color={lighterblack} />
                   add cd
                 </a>
               </Link>

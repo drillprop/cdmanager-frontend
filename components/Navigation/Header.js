@@ -14,7 +14,7 @@ const StyledHeader = styled.header`
   margin-top: 3em;
   margin-bottom: 3em;
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 2fr 4fr;
   @media (max-width: 600px) {
     grid-template-columns: 3fr 1fr;
   }
