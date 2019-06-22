@@ -5,6 +5,7 @@ const ImageContainer = styled.div`
   position: relative;
   margin: 0 auto;
   max-width: 375px;
+  height: 200px;
   @media (max-width: 1000px) {
     transform: scale(0.8);
   }
