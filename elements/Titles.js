@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { robo } from '../utils/fonts';
+import { mont } from '../utils/fonts';
 import { lightblack } from '../utils/colors';
 
 export const PageTitle = styled.h1`
   text-align: center;
-  font-family: ${robo};
+  font-family: ${mont};
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 2.5rem;
   letter-spacing: -1px;
   color: ${lightblack};
   margin: 0;
