@@ -5,8 +5,8 @@ import Link from 'next/link';
 const NavLinks = () => {
   return (
     <User>
-      {({ me }, signout) =>
-        me ? (
+      {(data, signout) =>
+        data && data.me ? (
           <ul>
             <li>
               <Link href='/login'>
@@ -20,7 +20,7 @@ const NavLinks = () => {
             </li>
             <li>
               <Link href='/collection'>
-                <a>{me.name}</a>
+                <a>{data.me.name}</a>
               </Link>
             </li>
           </ul>

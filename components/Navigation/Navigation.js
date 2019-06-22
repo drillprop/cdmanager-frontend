@@ -35,7 +35,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Navigation = ({ me, signout }) => (
+const Navigation = () => (
   <>
     <StyledNav>
       <NavLinks />
