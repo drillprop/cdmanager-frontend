@@ -63,8 +63,8 @@ const Hero = () => (
       </h3>
       <Button>
         <User>
-          {({ me }) => (
-            <Link href={me ? '/collection' : '/register'}>
+          {data => (
+            <Link href={data && data.me ? '/collection' : '/register'}>
               <a>try it now</a>
             </Link>
           )}
