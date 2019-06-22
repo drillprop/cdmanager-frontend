@@ -6,6 +6,18 @@ import {
   GET_ALBUMS_LENGTH,
   GET_ALBUMS_FROM_COLLECTION
 } from '../utils/queries';
+import Icon from './Icon';
+import { black, background } from '../utils/colors';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background: ${background};
+  color: ${black};
+  border-radius: 5px;
+  border: 1px solid ${black};
+  font-size: 1rem;
+  width: 7em;
+`;
 
 const DELETE_ALBUM = gql`
   mutation DELETE_ALBUM($id: String!) {
@@ -28,13 +40,14 @@ const DeleteButton = ({ id }) => {
       refetchQueries={[query, { query: GET_ALBUMS_LENGTH }]}
     >
       {deleteAlbum => (
-        <button
+        <StyledButton
           onClick={() => {
             deleteAlbum();
           }}
         >
-          Delete
-        </button>
+          <Icon icon={'delete'} color={black} />
+          delete
+        </StyledButton>
       )}
     </Mutation>
   );

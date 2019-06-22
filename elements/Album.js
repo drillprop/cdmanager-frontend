@@ -5,9 +5,8 @@ import { theme } from '../utils/theme';
 import LoadedImage from './LoadedImage';
 
 const StyledFigure = styled.figure`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 140px 100px 30px;
 `;
 
 const ImgWrapper = styled.div`
@@ -19,11 +18,11 @@ const ImgWrapper = styled.div`
   border: 1px solid #909090;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1em;
   box-shadow: ${theme.bs};
   img {
     display: block;
-    max-height: 90px;
+    max-height: 119px;
     margin: 0 auto;
   }
 `;
@@ -56,8 +55,8 @@ const Album = ({ artist, title, image, id, children }) => (
     <figcaption>
       <ArtistName>{artist} </ArtistName>
       <Title>{title}</Title>
-      {children}
     </figcaption>
+    {children}
   </StyledFigure>
 );
 
