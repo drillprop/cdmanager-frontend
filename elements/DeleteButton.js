@@ -38,17 +38,20 @@ const DeleteButton = ({ id }) => {
       mutation={DELETE_ALBUM}
       variables={{ id }}
       refetchQueries={[query, { query: GET_ALBUMS_LENGTH }]}
+      awaitRefetchQueries={true}
     >
-      {deleteAlbum => (
-        <StyledButton
-          onClick={() => {
-            deleteAlbum();
-          }}
-        >
-          <Icon icon={'delete'} color={black} />
-          delete
-        </StyledButton>
-      )}
+      {(deleteAlbum, payload) => {
+        return (
+          <StyledButton
+            onClick={() => {
+              deleteAlbum();
+            }}
+          >
+            <Icon icon={'delete'} color={black} />
+            {payload.called ? 'deleting...' : 'delete'}
+          </StyledButton>
+        );
+      }}
     </Mutation>
   );
 };
