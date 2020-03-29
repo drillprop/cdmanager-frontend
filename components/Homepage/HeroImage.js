@@ -35,7 +35,7 @@ const Shadow = styled.div`
 `;
 const HeroImage = () => (
   <ImageContainer>
-    <StyledImg src='/static/radio.png' alt='radio' />
+    <StyledImg src='/radio.png' alt='radio' />
     <Shadow />
   </ImageContainer>
 );
