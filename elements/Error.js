@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledErrorMessage = styled.p`
-  width: 500px;
   margin: 0 auto;
   text-align: center;
 `;
