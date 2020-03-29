@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Header from '../components/Navigation/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
 import withData from '../lib/withData';
@@ -18,14 +18,14 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, apollo } = this.props;
     return (
-      <Container>
+      <>
         <GlobalStyle />
         <ApolloProvider client={apollo}>
           <Meta />
           <Header />
           <Component {...pageProps} />
         </ApolloProvider>
-      </Container>
+      </>
     );
   }
 }
