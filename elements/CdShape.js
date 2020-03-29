@@ -31,10 +31,9 @@ const Text = styled.span`
   color: white;
 `;
 
-const CdShape = () => (
-  <Shape>
-    {' '}
-    <Text>hello</Text>{' '}
+const CdShape = ({ text }) => (
+  <Shape className='cd'>
+    <Text>{text}</Text>{' '}
   </Shape>
 );
 
