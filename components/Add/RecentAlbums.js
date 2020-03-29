@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Loading from '../../elements/Loading';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Albums from '../../elements/Albums';
+import Error from '../../elements/Error';
 
 const StyledH2 = styled.h2`
   margin: 2rem 0;
@@ -20,7 +21,7 @@ const RecentAlbums = () => {
         fetchPolicy='cache-and-network'
       >
         {({ data, error, loading }) => {
-          if (error) return <div>{error.message}</div>;
+          if (error) return <Error error={error} />;
           if (loading) return <Loading loading={loading} />;
           if (data?.albums?.albums) {
             return <Albums albums={data.albums.albums} />;
