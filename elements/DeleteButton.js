@@ -9,7 +9,6 @@ import {
 import Icon from './Icon';
 import { black, background } from '../utils/colors';
 import styled from 'styled-components';
-import Router from 'next/router';
 
 const StyledButton = styled.button`
   background: ${background};
@@ -39,15 +38,8 @@ const DeleteButton = ({ id }) => {
       mutation={DELETE_ALBUM}
       variables={{ id }}
       refetchQueries={[query, { query: GET_ALBUMS_LENGTH }]}
-      awaitRefetchQueries={true}
     >
       {(deleteAlbum, payload) => {
-        if (payload.error) {
-          Router.push({
-            pathname: '/collection',
-            query: { page: page - 1 || 1 }
-          });
-        }
         return (
           <StyledButton
             onClick={() => {
