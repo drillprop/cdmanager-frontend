@@ -1,10 +1,10 @@
 import Hero from '../components/Homepage/Hero';
-import PageTransition from '../utils/PageTransition';
+import PageSpring from '../utils/PageSpring';
 
 const Home = () => (
-  <PageTransition>
+  <PageSpring>
     <Hero />
-  </PageTransition>
+  </PageSpring>
 );
 
 export default Home;

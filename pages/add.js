@@ -1,11 +1,11 @@
 import React from 'react';
 import AddContainer from '../components/Add/AddContainer';
-import PageTransition from '../utils/PageTransition';
+import PageSpring from '../utils/PageSpring';
 
 const Add = () => (
-  <PageTransition>
+  <PageSpring>
     <AddContainer />
-  </PageTransition>
+  </PageSpring>
 );
 
 export default Add;
