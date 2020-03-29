@@ -22,9 +22,8 @@ const RecentAlbums = () => {
         {({ data, error, loading }) => {
           if (error) return <div>{error.message}</div>;
           if (loading) return <Loading loading={loading} />;
-          const { albums } = data.albums;
-          if (albums) {
-            return <Albums albums={albums} />;
+          if (data?.albums?.albums) {
+            return <Albums albums={data.albums.albums} />;
           }
           return <p>no albums added</p>;
         }}
