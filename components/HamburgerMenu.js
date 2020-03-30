@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { black } from '../../utils/colors';
+import { black } from '../utils/colors';
 import { useTransition, animated } from 'react-spring';
 import HamburgerNavigation from './HamburgerNavigation';
 

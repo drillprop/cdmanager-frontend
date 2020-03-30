@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadedImage from '../../../elements/LoadedImage';
+import LoadedImage from '../elements/LoadedImage';
 import styled from 'styled-components';
 
 const ImageWrapper = styled.div`

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { background, black, lightblack } from '../../utils/colors';
-import { mont } from '../../utils/fonts';
-import { theme } from '../../utils/theme';
+import { background, black, lightblack } from '../utils/colors';
+import { mont } from '../utils/fonts';
+import { theme } from '../utils/theme';
 import NavLinks from './NavLinks';
 
 const StyledNav = styled.nav`

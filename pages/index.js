@@ -1,4 +1,4 @@
-import Hero from '../components/Homepage/Hero';
+import Hero from '../components/Hero';
 import PageSpring from '../utils/PageSpring';
 
 const Home = () => (

@@ -2,9 +2,9 @@ import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 import React, { useState, useContext } from 'react';
 import { Query } from 'react-apollo';
-import { Input } from '../../elements/Form';
-import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
-import Albums from '../../elements/Albums';
+import { Input } from '../elements/Form';
+import { GET_ALBUMS_FROM_COLLECTION } from '../utils/queries';
+import Albums from '../elements/Albums';
 import { CollectionContext } from './CollectionContainer';
 const Container = styled.section`
   max-width: 800px;

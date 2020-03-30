@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
-import { QUERY_ME } from '../../utils/User';
+import { QUERY_ME } from '../utils/User';
 import {
   FormWrapper,
   Form,
@@ -11,10 +11,10 @@ import {
   Input,
   FormButton,
   ButtonGroup
-} from '../../elements/Form';
-import CdShape from '../../elements/CdShape';
-import redirect from '../../lib/redirect';
-import Error from '../../elements/Error';
+} from '../elements/Form';
+import CdShape from '../elements/CdShape';
+import redirect from '../lib/redirect';
+import Error from '../elements/Error';
 
 const LOGIN = gql`
   mutation LOGIN($email: String!, $password: String!) {

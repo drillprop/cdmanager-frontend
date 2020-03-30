@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import LoadedImage from '../../../elements/LoadedImage';
-import { CREATE_ALBUM } from '../../../utils/mutations';
+import LoadedImage from '../elements/LoadedImage';
+import { CREATE_ALBUM } from '../utils/mutations';
 import {
   GET_ALBUMS_FROM_COLLECTION,
   GET_ALBUMS_LENGTH
-} from '../../../utils/queries';
-import { AddContext } from '../AddContainer';
-import Button from '../../../elements/Button';
-import { background } from '../../../utils/colors';
-import Error from '../../../elements/Error';
+} from '../utils/queries';
+import { AddContext } from './AddContainer';
+import Button from '../elements/Button';
+import { background } from '../utils/colors';
+import Error from '../elements/Error';
 import AlbumInfo from './AlbumInfo';
 import AlbumImage from './AlbumImage';
 

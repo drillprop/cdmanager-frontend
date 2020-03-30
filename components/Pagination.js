@@ -2,8 +2,8 @@ import Link from 'next/link';
 import React, { useContext } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { QueryContext } from '../../pages/collection';
-import { GET_ALBUMS_LENGTH } from '../../utils/queries';
+import { QueryContext } from '../pages/collection';
+import { GET_ALBUMS_LENGTH } from '../utils/queries';
 import { CollectionContext } from './CollectionContainer';
 
 const StyledPagination = styled.div`
