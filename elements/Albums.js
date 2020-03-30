@@ -8,6 +8,8 @@ const CdWrapper = styled.section`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-content: center;
+  justify-items: center;
 `;
 
 const Albums = ({ albums, deleteButton }) => {
