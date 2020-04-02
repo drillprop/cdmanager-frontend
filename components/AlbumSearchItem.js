@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../contexts/add/AddContextProvider';
+import { useAddContext } from '../contexts/add/AddProvider';
 import Button from '../elements/Button';
 import Error from '../elements/Error';
 import { background } from '../utils/colors';

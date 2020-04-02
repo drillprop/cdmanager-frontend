@@ -1,15 +1,15 @@
 import React from 'react';
 import Add from '../components/Add';
 import PageSpring from '../utils/PageSpring';
-import AddContextProvider from '../contexts/add/AddContextProvider';
+import AddProvider from '../contexts/add/AddProvider';
 
 const AddPage = () => {
   return (
-    <AddContextProvider>
+    <AddProvider>
       <PageSpring>
         <Add />
       </PageSpring>
-    </AddContextProvider>
+    </AddProvider>
   );
 };
 

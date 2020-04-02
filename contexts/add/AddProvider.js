@@ -13,7 +13,7 @@ export const AddContext = React.createContext({
   dispatch: () => null
 });
 
-const AddContextProvider = ({ children }) => {
+const AddProvider = ({ children }) => {
   const [state, dispatch] = useReducer(addReducer, initialState);
   return (
     <>
@@ -26,4 +26,4 @@ const AddContextProvider = ({ children }) => {
 
 export const useAddContext = () => useContext(AddContext);
 
-export default AddContextProvider;
+export default AddProvider;

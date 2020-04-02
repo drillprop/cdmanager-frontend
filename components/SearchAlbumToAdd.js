@@ -2,7 +2,7 @@ import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../contexts/add/AddContextProvider';
+import { useAddContext } from '../contexts/add/AddProvider';
 import { PageTitle } from '../elements/Titles';
 import { mont } from '../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../utils/queries';
