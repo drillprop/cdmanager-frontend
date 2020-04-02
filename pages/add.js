@@ -1,11 +1,16 @@
 import React from 'react';
-import AddContainer from '../components/AddContainer';
+import Add from '../components/Add';
 import PageSpring from '../utils/PageSpring';
+import AddContextProvider from '../contexts/add/AddContextProvider';
 
-const Add = () => (
-  <PageSpring>
-    <AddContainer />
-  </PageSpring>
-);
+const AddPage = () => {
+  return (
+    <AddContextProvider>
+      <PageSpring>
+        <Add />
+      </PageSpring>
+    </AddContextProvider>
+  );
+};
 
-export default Add;
+export default AddPage;
