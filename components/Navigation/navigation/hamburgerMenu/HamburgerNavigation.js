@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
-import User from '../utils/User';
+import User from '../../../../utils/User';
 import Link from 'next/link';
-import { lighterblack, black, background } from '../utils/colors';
+import { lighterblack, black, background } from '../../../../utils/colors';
 
 const StyledNavigation = styled(animated.nav)`
   display: none;

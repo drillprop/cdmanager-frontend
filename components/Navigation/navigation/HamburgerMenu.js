@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { useTransition } from 'react-spring';
 import styled from 'styled-components';
-import { black } from '../utils/colors';
-import { useTransition, animated } from 'react-spring';
-import HamburgerNavigation from './HamburgerNavigation';
+import { black } from '../../../utils/colors';
+import HamburgerNavigation from './hamburgerMenu/HamburgerNavigation';
 
 const HamburgerButton = styled.div`
   position: fixed;

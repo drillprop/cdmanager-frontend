@@ -4,7 +4,7 @@ import { GlobalStyle } from '../utils/GlobalStyles';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
 import Meta from '../utils/Meta';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation/Navigation';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
