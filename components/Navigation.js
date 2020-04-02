@@ -1,9 +1,28 @@
+import Router from 'next/router';
+import Nprogress from 'nprogress';
 import React from 'react';
 import styled from 'styled-components';
-import { background, black, lightblack } from '../utils/colors';
+import HamburgerMenu from './HamburgerMenu';
+import Logo from './Logo';
 import { mont } from '../utils/fonts';
+import { lightblack, background, black } from '../utils/colors';
 import { theme } from '../utils/theme';
 import NavLinks from './NavLinks';
+
+Router.onRouteChangeStart = () => Nprogress.start();
+Router.onRouteChangeComplete = () => Nprogress.done();
+
+const StyledHeader = styled.header`
+  max-width: 1150px;
+  margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  @media (max-width: 600px) {
+    grid-template-columns: 3fr 1fr;
+  }
+`;
 
 const StyledNav = styled.nav`
   display: flex;
@@ -37,12 +56,18 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Navigation = () => (
-  <>
-    <StyledNav>
-      <NavLinks />
-    </StyledNav>
-  </>
-);
+const Navigation = () => {
+  return (
+    <>
+      <StyledHeader>
+        <Logo />
+        <StyledNav>
+          <NavLinks />
+        </StyledNav>
+        <HamburgerMenu />
+      </StyledHeader>
+    </>
+  );
+};
 
 export default Navigation;
