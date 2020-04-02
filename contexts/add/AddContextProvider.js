@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { addReducer } from './addReducer';
 
 const initialState = {
@@ -23,5 +23,7 @@ const AddContextProvider = ({ children }) => {
     </>
   );
 };
+
+export const useAddContext = () => useContext(AddContext);
 
 export default AddContextProvider;
