@@ -1,13 +1,13 @@
 import React from 'react';
-import { useAddContext } from '../contexts/add/AddProvider';
-import RecentAlbums from './RecentAlbums';
-import SearchAlbumToAdd from './SearchAlbumToAdd';
+import { useAddContext } from '../../contexts/add/AddProvider';
+import RecentAlbums from './add/RecentAlbums';
+import SearchAlbumForm from './add/SearchAlbumForm';
 
 const Add = () => {
   const { state } = useAddContext();
   return (
     <>
-      <SearchAlbumToAdd />
+      <SearchAlbumForm />
       {state.isRecentAlbumsVisible && <RecentAlbums />}
     </>
   );

@@ -2,12 +2,12 @@ import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../contexts/add/AddProvider';
-import { PageTitle } from '../elements/Titles';
-import { mont } from '../utils/fonts';
-import { GET_ALBUMS_FROM_LASTFM } from '../utils/queries';
-import { theme } from '../utils/theme';
-import AlbumSearchList from './AlbumSearchList';
+import { useAddContext } from '../../../contexts/add/AddProvider';
+import { PageTitle } from '../../../elements/Titles';
+import { mont } from '../../../utils/fonts';
+import { GET_ALBUMS_FROM_LASTFM } from '../../../utils/queries';
+import { theme } from '../../../utils/theme';
+import SearchAlbumList from './searchAlbumForm/SearchAlbumList';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -36,7 +36,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const SearchAlbumToAdd = () => {
+const SearchAlbumForm = () => {
   const { state, dispatch } = useAddContext();
 
   const [result, setResult] = useState('');
@@ -70,7 +70,7 @@ const SearchAlbumToAdd = () => {
         <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
           {({ loading, error, data }) => {
             return (
-              <AlbumSearchList
+              <SearchAlbumList
                 searchResult={data}
                 loading={loading}
                 error={error}
@@ -83,4 +83,4 @@ const SearchAlbumToAdd = () => {
   );
 };
 
-export default SearchAlbumToAdd;
+export default SearchAlbumForm;

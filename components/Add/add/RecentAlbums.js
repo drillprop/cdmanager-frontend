@@ -1,10 +1,10 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import Loading from '../elements/Loading';
-import { GET_ALBUMS_FROM_COLLECTION } from '../utils/queries';
-import Albums from '../elements/Albums';
-import Error from '../elements/Error';
+import Loading from '../../../elements/Loading';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
+import Albums from '../../../elements/Albums';
+import Error from '../../../elements/Error';
 
 const StyledH2 = styled.h2`
   margin: 2rem 0;

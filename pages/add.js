@@ -1,5 +1,5 @@
 import React from 'react';
-import Add from '../components/Add';
+import Add from '../components/Add/Add';
 import PageSpring from '../utils/PageSpring';
 import AddProvider from '../contexts/add/AddProvider';
 

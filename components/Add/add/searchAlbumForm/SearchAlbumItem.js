@@ -1,17 +1,17 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../contexts/add/AddProvider';
-import Button from '../elements/Button';
-import Error from '../elements/Error';
-import { background } from '../utils/colors';
-import { CREATE_ALBUM } from '../utils/mutations';
+import { useAddContext } from '../../../../contexts/add/AddProvider';
+import Button from '../../../../elements/Button';
+import Error from '../../../../elements/Error';
+import { background } from '../../../../utils/colors';
+import { CREATE_ALBUM } from '../../../../utils/mutations';
 import {
   GET_ALBUMS_FROM_COLLECTION,
   GET_ALBUMS_LENGTH
-} from '../utils/queries';
-import AlbumImage from './AlbumImage';
-import AlbumInfo from './AlbumInfo';
+} from '../../../../utils/queries';
+import AlbumImage from '../../../AlbumImage';
+import AlbumInfo from '../../../AlbumInfo';
 
 const Item = styled.li`
   display: grid;
@@ -29,7 +29,7 @@ const Item = styled.li`
   }
 `;
 
-const AlbumSearchItem = ({ artist, title, image }) => {
+const SearchAlbumItem = ({ artist, title, image }) => {
   const { dispatch } = useAddContext();
   return (
     <Mutation
@@ -73,4 +73,4 @@ const AlbumSearchItem = ({ artist, title, image }) => {
   );
 };
 
-export default AlbumSearchItem;
+export default SearchAlbumItem;

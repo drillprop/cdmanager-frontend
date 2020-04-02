@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../utils/theme';
+import { theme } from '../../../../utils/theme';
 import { useSpring, animated } from 'react-spring';
-import AlbumSearchItem from './AlbumSearchItem';
+import SearchAlbumItem from './SearchAlbumItem';
 
 const List = styled(animated.ul)`
   position: relative;
@@ -20,7 +20,7 @@ const List = styled(animated.ul)`
   }
 `;
 
-const AlbumSearchList = ({ searchResult, loading, error }) => {
+const SearchAlbumList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
   if (loading) {
     return (
@@ -43,7 +43,7 @@ const AlbumSearchList = ({ searchResult, loading, error }) => {
       {uniqueSearchResult &&
         uniqueSearchResult.map(({ artist, title, image }) => {
           return (
-            <AlbumSearchItem
+            <SearchAlbumItem
               artist={artist}
               title={title}
               image={image}
@@ -55,4 +55,4 @@ const AlbumSearchList = ({ searchResult, loading, error }) => {
   );
 };
 
-export default AlbumSearchList;
+export default SearchAlbumList;
