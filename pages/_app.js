@@ -1,10 +1,10 @@
 import React from 'react';
 import App from 'next/app';
-import Header from '../components/Header';
 import { GlobalStyle } from '../utils/GlobalStyles';
 import withData from '../lib/withData';
 import { ApolloProvider } from 'react-apollo';
 import Meta from '../utils/Meta';
+import Navigation from '../components/Navigation';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -22,7 +22,7 @@ class MyApp extends App {
         <GlobalStyle />
         <ApolloProvider client={apollo}>
           <Meta />
-          <Header />
+          <Navigation />
           <Component {...pageProps} />
         </ApolloProvider>
       </>
