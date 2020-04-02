@@ -7,7 +7,7 @@ import { mont } from '../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../utils/queries';
 import { theme } from '../utils/theme';
 import AlbumSearchList from './AlbumSearchList';
-import { AddContext } from './AddContainer';
+import { AddContext } from '../contexts/add/AddContextProvider';
 
 const StyledForm = styled.form`
   margin: 0 auto;
