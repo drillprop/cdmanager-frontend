@@ -1,13 +1,13 @@
 import debounce from 'lodash.debounce';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
+import { useAddContext } from '../contexts/add/AddContextProvider';
 import { PageTitle } from '../elements/Titles';
 import { mont } from '../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../utils/queries';
 import { theme } from '../utils/theme';
 import AlbumSearchList from './AlbumSearchList';
-import { AddContext } from '../contexts/add/AddContextProvider';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -37,7 +37,7 @@ const StyledForm = styled.form`
 `;
 
 const SearchAlbumToAdd = () => {
-  const { state, dispatch } = useContext(AddContext);
+  const { state, dispatch } = useAddContext();
 
   const [result, setResult] = useState('');
 

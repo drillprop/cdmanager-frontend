@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
+import { useAddContext } from '../contexts/add/AddContextProvider';
 import Button from '../elements/Button';
 import Error from '../elements/Error';
 import { background } from '../utils/colors';
@@ -11,7 +12,6 @@ import {
 } from '../utils/queries';
 import AlbumImage from './AlbumImage';
 import AlbumInfo from './AlbumInfo';
-import { AddContext } from '../contexts/add/AddContextProvider';
 
 const Item = styled.li`
   display: grid;
@@ -30,7 +30,7 @@ const Item = styled.li`
 `;
 
 const AlbumSearchItem = ({ artist, title, image }) => {
-  const { state, dispatch } = useContext(AddContext);
+  const { dispatch } = useAddContext();
   return (
     <Mutation
       mutation={CREATE_ALBUM}

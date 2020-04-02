@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useAddContext } from '../contexts/add/AddContextProvider';
 import RecentAlbums from './RecentAlbums';
 import SearchAlbumToAdd from './SearchAlbumToAdd';
-import { AddContext } from '../contexts/add/AddContextProvider';
 
 const Add = () => {
-  const { state } = useContext(AddContext);
+  const { state } = useAddContext();
   return (
     <>
       <SearchAlbumToAdd />
