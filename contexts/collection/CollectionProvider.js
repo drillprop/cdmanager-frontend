@@ -3,15 +3,15 @@ import { collectionReducer } from './collectionReducer';
 
 const initialState = {
   queryVariables: {
-    skip: 8,
+    skip: 0,
     search: '',
-    limit: 10
-  }
+    limit: 10,
+  },
 };
 export const CollectionContext = React.createContext({
   ...initialState,
   page: 0,
-  dispatch: () => null
+  dispatch: () => null,
 });
 
 const CollectionProvider = ({ children, page = 0 }) => {
