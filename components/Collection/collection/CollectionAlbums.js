@@ -27,7 +27,8 @@ const CdsWrapper = styled.section`
   max-width: 800px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 50px;
   justify-content: center;
   justify-items: center;
 `;
