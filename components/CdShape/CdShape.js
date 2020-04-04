@@ -33,7 +33,7 @@ const Text = styled.span`
 
 const CdShape = ({ text }) => (
   <Shape className='cd'>
-    <Text>{text}</Text>{' '}
+    <Text>{text}</Text>
   </Shape>
 );
 

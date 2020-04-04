@@ -2,13 +2,13 @@ import gql from 'graphql-tag';
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { useCollectionContext } from '../contexts/collection/CollectionProvider';
-import { background, black } from '../utils/colors';
+import { useCollectionContext } from '../../contexts/collection/CollectionProvider';
+import { background, black } from '../../utils/colors';
 import {
   GET_ALBUMS_FROM_COLLECTION,
-  GET_ALBUMS_LENGTH
-} from '../utils/queries';
-import Icon from './Icon';
+  GET_ALBUMS_LENGTH,
+} from '../../utils/queries';
+import Icon from '../../elements/Icon';
 
 const StyledButton = styled.button`
   background: ${background};
@@ -31,7 +31,7 @@ const DeleteButton = ({ id }) => {
   const { page } = useCollectionContext();
   const query = {
     query: GET_ALBUMS_FROM_COLLECTION,
-    variables: { skip: 10 * (page || 1) - 10 }
+    variables: { skip: 10 * (page || 1) - 10 },
   };
   return (
     <Mutation

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { robo, mont } from '../utils/fonts';
-import { theme } from '../utils/theme';
-import LoadedImage from './LoadedImage';
+import { robo, mont } from '../../utils/fonts';
+import { theme } from '../../utils/theme';
+import LoadedImage from '../../elements/LoadedImage';
 
 const StyledFigure = styled.figure`
   display: grid;

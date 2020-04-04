@@ -10,9 +10,9 @@ import {
   Label,
   FormWrapper,
   FormButton,
-  ButtonGroup
+  ButtonGroup,
 } from '../../elements/Form';
-import CdShape from '../../elements/CdShape';
+import CdShape from '../CdShape/CdShape';
 import redirect from '../../lib/redirect';
 import Error from '../../elements/Error';
 
@@ -29,7 +29,7 @@ const REGISTER = gql`
 const RegisterForm = () => {
   const [user, setUser] = useState({ name: '', password: '', email: '' });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
@@ -42,21 +42,21 @@ const RegisterForm = () => {
         variables={user}
         refetchQueries={[
           {
-            query: QUERY_ME
-          }
+            query: QUERY_ME,
+          },
         ]}
         onCompleted={() => redirect({}, '/collection')}
       >
         {(register, { error, loading }) => (
           <FormWrapper>
             <Form
-              onSubmit={async e => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 await register();
                 setUser({
                   name: '',
                   password: '',
-                  email: ''
+                  email: '',
                 });
               }}
               method='post'

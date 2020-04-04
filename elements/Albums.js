@@ -1,6 +1,6 @@
 import React from 'react';
-import Album from './Album';
-import DeleteButton from './DeleteButton';
+import Album from '../components/Album/Album';
+import DeleteButton from '../components/DeleteButton/DeleteButton';
 import styled from 'styled-components';
 
 const CdWrapper = styled.section`
