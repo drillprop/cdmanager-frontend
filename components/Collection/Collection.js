@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageTitle } from '../../styles/Titles';
-import AlbumsContainer from './collection/AlbumsContainer';
+import CollectionAlbums from './collection/CollectionAlbums';
 import Pagination from './collection/Pagination';
 
 const Collection = () => {
@@ -8,7 +8,7 @@ const Collection = () => {
     <>
       <PageTitle>collection</PageTitle>
       <Pagination />
-      <AlbumsContainer />
+      <CollectionAlbums />
     </>
   );
 };

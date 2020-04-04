@@ -5,7 +5,7 @@ import { useCollectionContext } from '../../../contexts/collection/CollectionPro
 import Loading from '../../Loading/Loading';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import Album from '../../Album/Album';
-import DeleteButton from '../../DeleteButton/DeleteButton';
+import DeleteButton from './collectionAlbums/DeleteButton';
 import Error from '../../Error/Error';
 import debounce from 'lodash.debounce';
 import { Input } from '../../../styles/Form';
@@ -32,7 +32,7 @@ const CdsWrapper = styled.section`
   justify-items: center;
 `;
 
-const AlbumsContainer = () => {
+const CollectionAlbums = () => {
   const { page, state, dispatch } = useCollectionContext();
   const [result, setValue] = useState('');
 
@@ -91,4 +91,4 @@ const AlbumsContainer = () => {
   );
 };
 
-export default AlbumsContainer;
+export default CollectionAlbums;

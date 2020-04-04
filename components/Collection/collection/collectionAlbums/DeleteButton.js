@@ -2,12 +2,12 @@ import gql from 'graphql-tag';
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { background, black } from '../../utils/colors';
+import { background, black } from '../../../../utils/colors';
 import {
   GET_ALBUMS_FROM_COLLECTION,
   GET_ALBUMS_LENGTH,
-} from '../../utils/queries';
-import Icon from '../Icon/Icon';
+} from '../../../../utils/queries';
+import Icon from '../../../Icon/Icon';
 
 const StyledButton = styled.button`
   background: ${background};
