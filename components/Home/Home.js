@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mont, robo } from '../utils/fonts';
-import { black, lightblack } from '../utils/colors';
-import HeroImage from './HeroImage';
-import Button from '../elements/Button';
+import { mont, robo } from '../../utils/fonts';
+import { black, lightblack } from '../../utils/colors';
+import HeroImage from './home/HeroImage';
+import Button from '../../elements/Button';
 import Link from 'next/link';
-import User from '../utils/User';
+import User from '../../utils/User';
 
-const HeroContainer = styled.main`
+const HeroWrapper = styled.main`
   overflow-x: hidden;
   max-width: 1100px;
   margin: 0 auto;
@@ -51,8 +51,8 @@ const StyledHeroHeader = styled.header`
   }
 `;
 
-const Hero = () => (
-  <HeroContainer>
+const Home = () => (
+  <HeroWrapper>
     <StyledHeroHeader>
       <h1>Create a your own music library</h1>
       <h3>
@@ -72,7 +72,7 @@ const Hero = () => (
       </Button>
     </StyledHeroHeader>
     <HeroImage />
-  </HeroContainer>
+  </HeroWrapper>
 );
 
-export default Hero;
+export default Home;

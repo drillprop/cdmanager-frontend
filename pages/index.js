@@ -1,10 +1,10 @@
-import Hero from '../components/Hero';
+import Home from '../components/Home/Home';
 import PageSpring from '../utils/PageSpring';
 
-const Home = () => (
+const HomePage = () => (
   <PageSpring>
-    <Hero />
+    <Home />
   </PageSpring>
 );
 
-export default Home;
+export default HomePage;
