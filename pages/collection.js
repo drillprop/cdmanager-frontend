@@ -1,16 +1,16 @@
 import { createContext } from 'react';
-import CollectionContainer from '../components/CollectionContainer';
 import PageSpring from '../utils/PageSpring';
+import Collection from '../components/Collection';
 
 export const QueryContext = createContext();
-const Collection = ({ query }) => {
+const CollectionPage = ({ query }) => {
   return (
     <QueryContext.Provider value={query.page}>
       <PageSpring>
-        <CollectionContainer />
+        <Collection />
       </PageSpring>
     </QueryContext.Provider>
   );
 };
 
-export default Collection;
+export default CollectionPage;
