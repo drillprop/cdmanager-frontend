@@ -2,7 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
-import Loading from '../../../elements/Loading';
+import Loading from '../../Loading/Loading';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import Album from '../../Album/Album';
 import DeleteButton from '../../DeleteButton/DeleteButton';
