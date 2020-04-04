@@ -2,7 +2,6 @@ import gql from 'graphql-tag';
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { useCollectionContext } from '../../contexts/collection/CollectionProvider';
 import { background, black } from '../../utils/colors';
 import {
   GET_ALBUMS_FROM_COLLECTION,
@@ -27,17 +26,15 @@ const DELETE_ALBUM = gql`
   }
 `;
 
-const DeleteButton = ({ id }) => {
-  const { page } = useCollectionContext();
-  const query = {
-    query: GET_ALBUMS_FROM_COLLECTION,
-    variables: { skip: 10 * (page || 1) - 10 },
-  };
+const DeleteButton = ({ id, variables }) => {
   return (
     <Mutation
       mutation={DELETE_ALBUM}
       variables={{ id }}
-      refetchQueries={[query, { query: GET_ALBUMS_LENGTH }]}
+      refetchQueries={[
+        { query: GET_ALBUMS_FROM_COLLECTION, variables },
+        { query: GET_ALBUMS_LENGTH },
+      ]}
     >
       {(deleteAlbum, payload) => {
         return (
