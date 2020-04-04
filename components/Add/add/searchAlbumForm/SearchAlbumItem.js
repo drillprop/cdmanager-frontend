@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import { useAddContext } from '../../../../contexts/add/AddProvider';
 import Button from '../../../../elements/Button';
 import Error from '../../../../elements/Error';
+import LoadedImage from '../../../../elements/LoadedImage';
 import { background } from '../../../../utils/colors';
 import { CREATE_ALBUM } from '../../../../utils/mutations';
 import {
   GET_ALBUMS_FROM_COLLECTION,
-  GET_ALBUMS_LENGTH
+  GET_ALBUMS_LENGTH,
 } from '../../../../utils/queries';
-import AlbumImage from '../../../AlbumImage';
-import AlbumInfo from '../../../AlbumInfo';
 
 const Item = styled.li`
   display: grid;
@@ -29,6 +28,18 @@ const Item = styled.li`
   }
 `;
 
+const ImageWrapper = styled.div`
+  width: 70px;
+  height: 70px;
+  border-radius: 3px;
+  img {
+    object-fit: cover;
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 3px;
+  }
+`;
+
 const SearchAlbumItem = ({ artist, title, image }) => {
   const { dispatch } = useAddContext();
   return (
@@ -38,22 +49,27 @@ const SearchAlbumItem = ({ artist, title, image }) => {
       refetchQueries={[
         {
           query: GET_ALBUMS_FROM_COLLECTION,
-          variables: { limit: 3 }
+          variables: { limit: 3 },
         },
         {
-          query: GET_ALBUMS_LENGTH
-        }
+          query: GET_ALBUMS_LENGTH,
+        },
       ]}
       awaitRefetchQueries={true}
     >
       {(createAlbum, payload) => {
         return (
           <Item>
-            <AlbumImage title={title} image={image} />
+            <ImageWrapper>
+              <LoadedImage title={title} image={image} />
+            </ImageWrapper>
             {payload.error ? (
               <Error error={payload.error} />
             ) : (
-              <AlbumInfo artist={artist} title={title} />
+              <div>
+                <div>{artist}</div>
+                <div>{title}</div>
+              </div>
             )}
             <Button
               disabled={payload.called}
