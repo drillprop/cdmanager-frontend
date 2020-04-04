@@ -3,9 +3,9 @@ import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
 import Albums from '../../../elements/Albums';
-import Error from '../../../elements/Error';
 import Loading from '../../../elements/Loading';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
+import Error from '../../Error/Error';
 
 const StyledH2 = styled.h2`
   text-align: center;

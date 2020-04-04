@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { robo, mont } from '../../utils/fonts';
 import { theme } from '../../utils/theme';
-import LoadedImage from '../../elements/LoadedImage';
+import LoadedImage from '../LoadedImage/LoadedImage';
 
 const StyledFigure = styled.figure`
   display: grid;

@@ -8,7 +8,7 @@ import {
   GET_ALBUMS_FROM_COLLECTION,
   GET_ALBUMS_LENGTH,
 } from '../../utils/queries';
-import Icon from '../../elements/Icon';
+import Icon from '../Icon/Icon';
 
 const StyledButton = styled.button`
   background: ${background};

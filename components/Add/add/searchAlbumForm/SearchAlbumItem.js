@@ -3,14 +3,14 @@ import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../../../contexts/add/AddProvider';
 import Button from '../../../../elements/Button';
-import Error from '../../../../elements/Error';
-import LoadedImage from '../../../../elements/LoadedImage';
+import Error from '../../../Error/Error';
 import { background } from '../../../../utils/colors';
 import { CREATE_ALBUM } from '../../../../utils/mutations';
 import {
   GET_ALBUMS_FROM_COLLECTION,
   GET_ALBUMS_LENGTH,
 } from '../../../../utils/queries';
+import LoadedImage from '../../../LoadedImage/LoadedImage';
 
 const Item = styled.li`
   display: grid;

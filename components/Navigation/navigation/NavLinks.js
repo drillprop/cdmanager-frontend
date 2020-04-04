@@ -1,8 +1,8 @@
 import React from 'react';
 import User from '../../../utils/User';
 import Link from 'next/link';
-import Icon from '../../../elements/Icon';
 import { background, lighterblack } from '../../../utils/colors';
+import Icon from '../../Icon/Icon';
 
 const NavLinks = () => {
   return (

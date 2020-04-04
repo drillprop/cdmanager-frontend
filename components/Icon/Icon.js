@@ -1,5 +1,5 @@
 import React from 'react';
-import { background } from '../utils/colors';
+import { background } from '../../utils/colors';
 
 const Icon = ({ icon, color }) => {
   switch (icon) {
@@ -11,7 +11,7 @@ const Icon = ({ icon, color }) => {
             verticalAlign: 'middle',
             marginRight: '0.5em',
             height: '2em',
-            width: '2em'
+            width: '2em',
           }}
           viewBox='0 0 48 48'
         >
@@ -30,7 +30,7 @@ const Icon = ({ icon, color }) => {
             verticalAlign: 'middle',
             marginRight: '0.5em',
             height: '2em',
-            width: '2em'
+            width: '2em',
           }}
           enableBackground='new 0 0 48 48'
           viewBox='0 0 48 48'
@@ -51,7 +51,7 @@ const Icon = ({ icon, color }) => {
             verticalAlign: 'middle',
             marginRight: '0.5em',
             height: '2em',
-            width: '2em'
+            width: '2em',
           }}
           enableBackground='new 0 0 24 24'
           viewBox='0 0 24 24'
@@ -79,7 +79,7 @@ const Icon = ({ icon, color }) => {
             verticalAlign: 'middle',
             height: '1em',
             width: '1em',
-            marginRight: '0.5em'
+            marginRight: '0.5em',
           }}
           fill='none'
           stroke={color || background}

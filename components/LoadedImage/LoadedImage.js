@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import Loading from './Loading';
+import Loading from '../../elements/Loading';
 
 // Shows only loaded image
 const LoadedImage = ({ title, image }) => {
