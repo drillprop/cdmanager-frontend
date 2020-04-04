@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { QueryContext } from '../pages/collection';
+import { useCollectionContext } from '../contexts/collection/CollectionProvider';
 import { GET_ALBUMS_LENGTH } from '../utils/queries';
 
 const StyledPagination = styled.div`
@@ -18,7 +18,7 @@ const StyledPagination = styled.div`
 `;
 
 const Pagination = () => {
-  const pageContext = useContext(QueryContext);
+  const { page: pageContext } = useCollectionContext();
   const page = parseInt(pageContext) || 1;
   return (
     <Query query={GET_ALBUMS_LENGTH}>
