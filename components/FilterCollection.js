@@ -1,11 +1,11 @@
 import debounce from 'lodash.debounce';
-import styled from 'styled-components';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Query } from 'react-apollo';
+import styled from 'styled-components';
+import { useCollectionContext } from '../contexts/collection/CollectionProvider';
+import Albums from '../elements/Albums';
 import { Input } from '../elements/Form';
 import { GET_ALBUMS_FROM_COLLECTION } from '../utils/queries';
-import Albums from '../elements/Albums';
-import { CollectionContext } from './CollectionContainer';
 const Container = styled.section`
   max-width: 800px;
   margin: 0 auto;
@@ -20,7 +20,7 @@ const StyledH2 = styled.h2`
 `;
 
 const FilterCollection = ({ showRecentAlbums }) => {
-  const { state, dispatch } = useContext(CollectionContext);
+  const { state, dispatch } = useCollectionContext();
   const [result, setValue] = useState('');
   const filter = debounce(text => {
     text = text.trim();

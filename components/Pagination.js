@@ -2,9 +2,9 @@ import Link from 'next/link';
 import React, { useContext } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
+import { useCollectionContext } from '../contexts/collection/CollectionProvider';
 import { QueryContext } from '../pages/collection';
 import { GET_ALBUMS_LENGTH } from '../utils/queries';
-import { CollectionContext } from './CollectionContainer';
 
 const StyledPagination = styled.div`
   max-width: 300px;
@@ -26,7 +26,7 @@ const StyledSearching = styled.h2`
 
 const Pagination = () => {
   const pageContext = useContext(QueryContext);
-  const { state, dispatch } = useContext(CollectionContext);
+  const { state, dispatch } = useCollectionContext();
   const page = parseInt(pageContext) || 1;
   if (state.queryVariables.search)
     return (
