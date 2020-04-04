@@ -48,7 +48,7 @@ const FilterCollection = ({ showRecentAlbums }) => {
           >
             {({ data, error, loading }) => {
               if (error) return <p>{error.message}</p>;
-              if (loading) return <p>Loading...</p>;
+              if (loading) return <StyledH2>Searching for: {result}</StyledH2>;
               if (data) {
                 return (
                   <>
