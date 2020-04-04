@@ -3,7 +3,7 @@ import Nprogress from 'nprogress';
 import React from 'react';
 import styled from 'styled-components';
 import HamburgerMenu from './navigation/HamburgerMenu';
-import Logo from '../Logo';
+import Logo from './navigation/Logo';
 import { mont } from '../../utils/fonts';
 import { lightblack, background, black } from '../../utils/colors';
 import { theme } from '../../utils/theme';

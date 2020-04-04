@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mont } from '../utils/fonts';
-import { black } from '../utils/colors';
+import { mont } from '../../../utils/fonts';
+import { black } from '../../../utils/colors';
 import Link from 'next/link';
 
 const StyledH1 = styled.h1`
