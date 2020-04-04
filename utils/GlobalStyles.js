@@ -10,9 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     overflow-y: scroll;
   }
   body {
-    padding-right: 16px;
     font-size: 14px;
-    margin: 0;
+    margin:0;
+    margin-bottom: 50px;
     background: #f9f9f9;
     font-family: ${mont};
     color: ${lighterblack}
