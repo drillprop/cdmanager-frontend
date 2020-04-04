@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageTitle } from '../../styles/Titles';
 import AlbumsContainer from './collection/AlbumsContainer';
-import FilterCollection from './collection/FilterCollection';
 import Pagination from './collection/Pagination';
 
 const Collection = () => {
-  const [recentAlbumsVisible, showRecentAlbums] = useState(true);
   return (
     <>
       <PageTitle>collection</PageTitle>
       <Pagination />
-      <FilterCollection showRecentAlbums={showRecentAlbums} />
-      {recentAlbumsVisible && <AlbumsContainer />}
+      <AlbumsContainer />
     </>
   );
 };
