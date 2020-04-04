@@ -10,13 +10,14 @@ const initialState = {
 };
 export const CollectionContext = React.createContext({
   ...initialState,
+  page: 0,
   dispatch: () => null
 });
 
-const CollectionProvider = ({ children }) => {
+const CollectionProvider = ({ children, page = 0 }) => {
   const [state, dispatch] = useReducer(collectionReducer, initialState);
   return (
-    <CollectionContext.Provider value={{ state, dispatch }}>
+    <CollectionContext.Provider value={{ state, page, dispatch }}>
       {children}
     </CollectionContext.Provider>
   );
