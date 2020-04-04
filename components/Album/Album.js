@@ -6,7 +6,10 @@ import LoadedImage from '../LoadedImage/LoadedImage';
 
 const StyledFigure = styled.figure`
   display: grid;
-  grid-template-rows: 140px 100px 30px;
+  margin: 0;
+  grid-template-rows: 120px auto 30px;
+  width: 120px;
+  gap: 20px;
 `;
 
 const ImgWrapper = styled.div`
@@ -18,7 +21,6 @@ const ImgWrapper = styled.div`
   border: 1px solid #909090;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: 1em;
   box-shadow: ${theme.bs};
   img {
     display: block;
@@ -28,19 +30,20 @@ const ImgWrapper = styled.div`
 `;
 
 const ArtistName = styled.h3`
+  text-align: center;
   font-family: ${robo};
   font-weight: 700;
   font-size: 1.1rem;
   margin: 0;
-  margin-bottom: 0.5rem;
 `;
 
 const Title = styled.h4`
+  text-align: center;
   font-family: ${mont};
   font-weight: 500;
   font-size: 0.9rem;
   margin: 0;
-  margin-bottom: 0.5rem;
+  margin-top: 20px;
 `;
 
 const Album = ({ artist, title, image, id, children }) => (
