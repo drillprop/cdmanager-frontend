@@ -20,12 +20,13 @@ const Wrapper = styled.section`
 `;
 
 const StyledH2 = styled.h2`
+  margin-top: 30px;
   text-align: center;
 `;
 
 const CdsWrapper = styled.section`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 60px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 50px;
