@@ -2,10 +2,10 @@ import debounce from 'lodash.debounce';
 import React, { useState } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { useCollectionContext } from '../contexts/collection/CollectionProvider';
-import Albums from '../elements/Albums';
-import { Input } from '../elements/Form';
-import { GET_ALBUMS_FROM_COLLECTION } from '../utils/queries';
+import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
+import Albums from '../../../elements/Albums';
+import { Input } from '../../../elements/Form';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 const Container = styled.section`
   max-width: 800px;
   margin: 0 auto;

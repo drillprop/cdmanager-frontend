@@ -1,4 +1,4 @@
-import Collection from '../components/Collection';
+import Collection from '../components/Collection/Collection';
 import CollectionProvider from '../contexts/collection/CollectionProvider';
 import PageSpring from '../utils/PageSpring';
 
