@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { mont, robo } from '../../utils/fonts';
 import { black, lightblack } from '../../utils/colors';
 import HeroImage from './home/HeroImage';
-import Button from '../../elements/Button';
+import Button from '../../styles/Button';
 import Link from 'next/link';
 import User from '../../utils/User';
 
@@ -63,7 +63,7 @@ const Home = () => (
       </h3>
       <Button>
         <User>
-          {data => (
+          {(data) => (
             <Link href={data && data.me ? '/collection' : '/register'}>
               <a>try it now</a>
             </Link>

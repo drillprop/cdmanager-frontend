@@ -2,7 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../../../contexts/add/AddProvider';
-import Button from '../../../../elements/Button';
+import Button from '../../../../styles/Button';
 import Error from '../../../Error/Error';
 import { background } from '../../../../utils/colors';
 import { CREATE_ALBUM } from '../../../../utils/mutations';

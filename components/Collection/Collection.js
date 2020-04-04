@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PageTitle } from '../../elements/Titles';
+import { PageTitle } from '../../styles/Titles';
 import AlbumsContainer from './collection/AlbumsContainer';
 import FilterCollection from './collection/FilterCollection';
 import Pagination from './collection/Pagination';

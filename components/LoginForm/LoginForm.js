@@ -10,7 +10,7 @@ import {
   FormWrapper,
   Input,
   Label,
-} from '../../elements/Form';
+} from '../../styles/Form';
 import redirect from '../../lib/redirect';
 import { QUERY_ME } from '../../utils/User';
 import CdShape from '../CdShape/CdShape';
