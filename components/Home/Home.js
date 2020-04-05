@@ -8,7 +8,6 @@ import Link from 'next/link';
 import User from '../../utils/User';
 
 const HeroWrapper = styled.main`
-  overflow-x: hidden;
   max-width: 1100px;
   margin: 0 auto;
   margin-top: 6rem;
