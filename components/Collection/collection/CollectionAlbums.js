@@ -24,9 +24,9 @@ const StyledH2 = styled.h2`
   text-align: center;
 `;
 
-const CdsWrapper = styled.section`
+const CdsWrapper = styled.div`
   max-width: 800px;
-  margin: 60px auto;
+  margin: 60px 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 50px;
