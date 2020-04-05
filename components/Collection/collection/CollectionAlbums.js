@@ -28,7 +28,7 @@ const CdsWrapper = styled.div`
   max-width: 800px;
   margin: 60px 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
   gap: 50px;
   justify-content: center;
   justify-items: center;
@@ -58,38 +58,36 @@ const CollectionAlbums = () => {
       <StyledH2>
         {result ? `searching for ${result}` : 'recently added'}
       </StyledH2>
-      <Query
-        query={GET_ALBUMS_FROM_COLLECTION}
-        variables={{
-          ...state.queryVariables,
-          skip: 10 * (page || 1) - 10,
-        }}
-        fetchPolicy='cache-and-network'
-      >
-        {({ data, error, loading, variables }) => {
-          if (error) return <Error error={error} />;
-          if (loading) return <Loading loading={loading} />;
-          if (data?.albums?.albums) {
-            const { albums } = data.albums;
-            return (
-              <CdsWrapper>
-                {albums.map(({ artist, title, image, id }) => (
-                  <Album
-                    artist={artist}
-                    title={title}
-                    image={image}
-                    key={id}
-                    id={id}
-                  >
-                    <DeleteButton id={id} variables={variables} />
-                  </Album>
-                ))}
-              </CdsWrapper>
-            );
-          }
-          return <p>no albums added</p>;
-        }}
-      </Query>
+      <CdsWrapper>
+        <Query
+          query={GET_ALBUMS_FROM_COLLECTION}
+          variables={{
+            ...state.queryVariables,
+            skip: 10 * (page || 1) - 10,
+          }}
+          fetchPolicy='cache-and-network'
+        >
+          {({ data, error, loading, variables }) => {
+            if (error) return <Error error={error} />;
+            if (loading) return <Loading loading={loading} />;
+            if (data?.albums?.albums) {
+              const { albums } = data.albums;
+              return albums.map(({ artist, title, image, id }) => (
+                <Album
+                  artist={artist}
+                  title={title}
+                  image={image}
+                  key={id}
+                  id={id}
+                >
+                  <DeleteButton id={id} variables={variables} />
+                </Album>
+              ));
+            }
+            return <p>no albums added</p>;
+          }}
+        </Query>
+      </CdsWrapper>
     </Wrapper>
   );
 };

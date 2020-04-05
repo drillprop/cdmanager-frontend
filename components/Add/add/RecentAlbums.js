@@ -27,33 +27,31 @@ const RecentAlbums = () => {
   return (
     <>
       <StyledH2>recently added</StyledH2>
-      <Query
-        query={GET_ALBUMS_FROM_COLLECTION}
-        variables={{ limit: 3 }}
-        fetchPolicy='cache-and-network'
-      >
-        {({ data, error, loading }) => {
-          if (error) return <Error error={error} />;
-          if (loading) return <Loading loading={loading} />;
-          if (data?.albums?.albums) {
-            const { albums } = data.albums;
-            return (
-              <CdsWrapper>
-                {albums.map(({ artist, title, id, image }) => (
-                  <Album
-                    large
-                    key={id}
-                    artist={artist}
-                    title={title}
-                    image={image}
-                  />
-                ))}
-              </CdsWrapper>
-            );
-          }
-          return <p>no albums added</p>;
-        }}
-      </Query>
+      <CdsWrapper>
+        <Query
+          query={GET_ALBUMS_FROM_COLLECTION}
+          variables={{ limit: 3 }}
+          fetchPolicy='cache-and-network'
+        >
+          {({ data, error, loading }) => {
+            if (error) return <Error error={error} />;
+            if (loading) return <Loading loading={loading} withDelay />;
+            if (data?.albums?.albums) {
+              const { albums } = data.albums;
+              return albums.map(({ artist, title, id, image }) => (
+                <Album
+                  large
+                  key={id}
+                  artist={artist}
+                  title={title}
+                  image={image}
+                />
+              ));
+            }
+            return <p>no albums added</p>;
+          }}
+        </Query>
+      </CdsWrapper>
     </>
   );
 };
