@@ -7,8 +7,10 @@ import LoadedImage from '../LoadedImage/LoadedImage';
 const StyledFigure = styled.figure`
   display: grid;
   margin: 0;
-  grid-template-rows: 120px auto 30px;
-  width: 120px;
+  grid-template-rows: ${(props) => (props.large ? '150px' : '120px')} auto 30px;
+  grid-template-columns: ${(props) => (props.large ? '150px' : '120px')};
+  justify-content: center;
+  justify-content: center;
   gap: 20px;
 `;
 
@@ -16,15 +18,14 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #909090;
   border-radius: 5px;
   background-color: white;
   box-shadow: ${theme.bs};
   img {
     display: block;
-    max-height: 119px;
     margin: 0 auto;
   }
 `;
@@ -46,8 +47,8 @@ const Title = styled.h4`
   margin-top: 20px;
 `;
 
-const Album = ({ artist, title, image, id, children }) => (
-  <StyledFigure>
+const Album = ({ artist, title, image, id, children, large }) => (
+  <StyledFigure large={large}>
     <ImgWrapper>
       {image ? (
         <LoadedImage title={title} image={image} />

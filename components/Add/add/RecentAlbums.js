@@ -16,9 +16,9 @@ const CdsWrapper = styled.section`
   margin: 0 auto;
   justify-content: center;
   display: grid;
-  @media (min-width: 500px) {
+  @media (min-width: 700px) {
     gap: 100px;
-    grid-template-columns: repeat(3, 120px);
+    grid-template-columns: repeat(3, 150px);
     justify-items: center;
   }
 `;
@@ -40,7 +40,13 @@ const RecentAlbums = () => {
             return (
               <CdsWrapper>
                 {albums.map(({ artist, title, id, image }) => (
-                  <Album key={id} artist={artist} title={title} image={image} />
+                  <Album
+                    large
+                    key={id}
+                    artist={artist}
+                    title={title}
+                    image={image}
+                  />
                 ))}
               </CdsWrapper>
             );
