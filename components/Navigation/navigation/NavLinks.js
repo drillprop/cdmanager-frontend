@@ -29,7 +29,7 @@ const NavLinks = () => {
             <li>
               <Link href='/collection'>
                 <a>
-                  <Icon icon={'profile'} color={background} /> {data.me.name}
+                  <Icon icon={'profile'} color={background} /> your collection
                 </a>
               </Link>
             </li>

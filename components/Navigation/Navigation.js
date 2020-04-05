@@ -18,7 +18,7 @@ const StyledHeader = styled.header`
   margin-top: 3em;
   margin-bottom: 3em;
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: repeat(2, auto);
   @media (max-width: 600px) {
     grid-template-columns: 3fr 1fr;
   }
@@ -27,13 +27,12 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-end;
+  margin-right: 1rem;
   ul {
     display: flex;
     align-self: center;
     margin: 0;
     padding: 0;
-    flex-direction: row;
-    margin-right: 1em;
   }
   li {
     list-style: none;
@@ -42,19 +41,29 @@ const StyledNav = styled.nav`
     color: ${lightblack};
     font-size: 0.8rem;
     text-transform: lowercase;
-    padding: 0.6em 1.5em;
+    padding: 0.6rem 1.5em;
     border-radius: 5px;
-    margin-left: 2em;
+    margin-left: 1rem;
   }
   li:last-child {
+    position: relative;
     color: ${background};
     background-color: ${black};
     box-shadow: ${theme.bs};
+    ::after {
+      position: absolute;
+      color: ${black};
+      left: 0;
+      top: 3rem;
+      font-weight: 500;
+    }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     display: none;
   }
 `;
+
+const NavItem = styled.li``;
 
 const Navigation = () => {
   return (

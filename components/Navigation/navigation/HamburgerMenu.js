@@ -55,7 +55,7 @@ const HamburgerButton = styled.div`
     top: 0;
     transform: rotate(90deg);
   }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +67,7 @@ const HamburgerMenu = () => {
   const transitions = useTransition(toggled, null, {
     from: { transform: 'translateX(-800px)' },
     enter: { transform: 'translateX(0px)' },
-    leave: { transform: 'translateX(-800px)' }
+    leave: { transform: 'translateX(-800px)' },
   });
   return (
     <>
