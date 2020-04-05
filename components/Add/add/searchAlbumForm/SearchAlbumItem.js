@@ -31,6 +31,9 @@ const Item = styled.li`
 const ImageWrapper = styled.div`
   width: 70px;
   height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 3px;
   img {
     object-fit: cover;
@@ -61,7 +64,7 @@ const SearchAlbumItem = ({ artist, title, image }) => {
         return (
           <Item>
             <ImageWrapper>
-              <LoadedImage title={title} image={image} />
+              {image ? <LoadedImage title={title} image={image} /> : 'no cover'}
             </ImageWrapper>
             {payload.error ? (
               <Error error={payload.error} />
