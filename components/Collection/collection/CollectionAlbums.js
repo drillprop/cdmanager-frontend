@@ -64,6 +64,7 @@ const CollectionAlbums = () => {
           ...state.queryVariables,
           skip: 10 * (page || 1) - 10,
         }}
+        fetchPolicy='cache-and-network'
       >
         {({ data, error, loading, variables }) => {
           if (error) return <Error error={error} />;
