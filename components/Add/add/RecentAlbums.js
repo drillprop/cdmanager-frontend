@@ -7,17 +7,20 @@ import Album from '../../Album/Album';
 import Error from '../../Error/Error';
 
 const StyledH2 = styled.h2`
-  margin: 2rem 0;
+  margin: 60px 0 30px;
   text-align: center;
 `;
 
 const CdsWrapper = styled.section`
   max-width: 800px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   justify-content: center;
-  justify-items: center;
+  display: grid;
+  @media (min-width: 500px) {
+    gap: 100px;
+    grid-template-columns: repeat(3, 120px);
+    justify-items: center;
+  }
 `;
 
 const RecentAlbums = () => {
