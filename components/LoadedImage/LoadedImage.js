@@ -15,7 +15,7 @@ const LoadedImage = ({ title, image }) => {
         alt={title}
         style={imageLoaded ? { ...props } : { display: 'none', ...props }}
       />
-      {!imageLoaded && <Loading loading={!imageLoaded} />}
+      {!imageLoaded && <Loading loading={!imageLoaded} isStatic withDelay />}
     </>
   );
 };

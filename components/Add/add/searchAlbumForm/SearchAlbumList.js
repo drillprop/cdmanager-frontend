@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { theme } from '../../../../utils/theme';
 import { useSpring, animated } from 'react-spring';
 import SearchAlbumItem from './SearchAlbumItem';
+import Loading from '../../../Loading/Loading';
 
 const List = styled(animated.ul)`
   position: relative;
@@ -25,7 +26,7 @@ const SearchAlbumList = ({ searchResult, loading, error }) => {
   if (loading) {
     return (
       <List>
-        <p>Loading...</p>
+        <Loading loading={loading} />
       </List>
     );
   }
