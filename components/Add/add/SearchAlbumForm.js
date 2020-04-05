@@ -42,13 +42,13 @@ const SearchAlbumForm = () => {
   const [result, setResult] = useState('');
 
   useEffect(() => {
-    return () => handleSearch.cancel();
-  }, []);
+    debouncedSearch(result);
+    return () => debouncedSearch.cancel();
+  }, [result]);
 
-  const handleSearch = debounce((text) => {
+  const debouncedSearch = debounce((text) => {
     dispatch({ type: 'SEARCH_ALBUM', searchInput: text });
-    !text && setResult('');
-  }, 300);
+  }, 500);
 
   return (
     <>
@@ -57,17 +57,15 @@ const SearchAlbumForm = () => {
         <input
           type='text'
           placeholder='search...'
-          value={state.clearInput ? '' : result}
-          onChange={(e) => {
-            dispatch({ type: 'CLEAR_INPUT', clearInput: false });
-            const { value } = e.currentTarget;
-            setResult(value);
-            handleSearch(value);
-          }}
+          value={result}
+          onChange={(e) => setResult(e.currentTarget.value)}
         />
       </StyledForm>
       {state.isListVisible && (
-        <Query query={GET_ALBUMS_FROM_LASTFM} variables={{ search: result }}>
+        <Query
+          query={GET_ALBUMS_FROM_LASTFM}
+          variables={{ search: state.searchInput }}
+        >
           {({ loading, error, data }) => {
             return (
               <SearchAlbumList
