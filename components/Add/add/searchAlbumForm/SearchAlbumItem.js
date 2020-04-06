@@ -43,12 +43,12 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const SearchAlbumItem = ({ artist, title, image }) => {
+const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
   const { dispatch } = useAddContext();
   return (
     <Mutation
       mutation={CREATE_ALBUM}
-      variables={{ artist, title, image }}
+      variables={{ artist, title, image: imageLarge }}
       refetchQueries={[
         {
           query: GET_ALBUMS_FROM_COLLECTION,
@@ -64,7 +64,11 @@ const SearchAlbumItem = ({ artist, title, image }) => {
         return (
           <Item>
             <ImageWrapper>
-              {image ? <LoadedImage title={title} image={image} /> : 'no cover'}
+              {imageSmall ? (
+                <LoadedImage title={title} image={imageSmall} />
+              ) : (
+                'no cover'
+              )}
             </ImageWrapper>
             {payload.error ? (
               <Error error={payload.error} />

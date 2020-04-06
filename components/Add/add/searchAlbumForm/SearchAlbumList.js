@@ -42,12 +42,13 @@ const SearchAlbumList = ({ searchResult, loading, error }) => {
   return (
     <List style={smth}>
       {uniqueSearchResult &&
-        uniqueSearchResult.map(({ artist, title, image }) => {
+        uniqueSearchResult.map(({ artist, title, imageSmall, imageLarge }) => {
           return (
             <SearchAlbumItem
               artist={artist}
               title={title}
-              image={image}
+              imageSmall={imageSmall}
+              imageLarge={imageLarge}
               key={title + artist}
             />
           );
