@@ -9,7 +9,7 @@ import User from '../../utils/User';
 
 const HeroWrapper = styled.main`
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 50px auto;
   margin-top: 6rem;
   display: grid;
   grid-gap: 3rem;

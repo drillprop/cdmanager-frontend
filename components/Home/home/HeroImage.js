@@ -26,12 +26,12 @@ const Shadow = styled.div`
   width: 700px;
   height: 210px;
   border-radius: 100%;
-  position: relative;
+  position: absolute;
   opacity: 0.5;
   margin: 0;
   z-index: -2;
-  bottom: 290px;
-  right: 150px;
+  top: 100px;
+  left: -180px;
 `;
 const HeroImage = () => (
   <ImageContainer>

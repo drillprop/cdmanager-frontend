@@ -12,10 +12,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-size: 14px;
     margin:0;
-    margin-bottom: 50px;
     background: #f9f9f9;
     font-family: ${mont};
-    color: ${lighterblack}
+    color: ${lighterblack};
   }
   a {
     color: inherit;
