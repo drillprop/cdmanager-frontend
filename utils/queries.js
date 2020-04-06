@@ -5,7 +5,8 @@ export const GET_ALBUMS_FROM_LASTFM = gql`
     albumslastfm(search: $search) {
       title
       artist
-      image
+      imageLarge
+      imageSmall
     }
   }
 `;
