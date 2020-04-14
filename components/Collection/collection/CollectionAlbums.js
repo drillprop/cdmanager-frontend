@@ -31,7 +31,7 @@ const CdsWrapper = styled.div`
   margin: 60px 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 200px));
-  gap: 50px;
+  gap: 50px 20px;
   justify-content: center;
   justify-items: center;
 `;
@@ -63,7 +63,7 @@ const CollectionAlbums = () => {
         query={GET_ALBUMS_FROM_COLLECTION}
         variables={{
           ...state.queryVariables,
-          skip: 10 * (page || 1) - 10,
+          skip: 9 * (page || 1) - 9,
         }}
         fetchPolicy='cache-and-network'
       >

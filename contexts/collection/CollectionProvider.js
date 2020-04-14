@@ -5,7 +5,7 @@ const initialState = {
   queryVariables: {
     skip: 0,
     search: '',
-    limit: 10,
+    limit: 9,
   },
 };
 export const CollectionContext = React.createContext({
