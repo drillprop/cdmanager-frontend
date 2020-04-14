@@ -94,4 +94,18 @@ const FormButton = styled(Button)`
   margin: 0 auto;
 `;
 
-export { FormWrapper, ButtonGroup, FormButton, Form, FormHeader, Label, Input };
+const StrongAnchor = styled.a`
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+export {
+  FormWrapper,
+  ButtonGroup,
+  FormButton,
+  Form,
+  FormHeader,
+  Label,
+  Input,
+  StrongAnchor,
+};

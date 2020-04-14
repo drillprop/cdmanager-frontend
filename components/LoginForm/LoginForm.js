@@ -10,6 +10,7 @@ import {
   FormWrapper,
   Input,
   Label,
+  StrongAnchor,
 } from '../../styles/Form';
 import redirect from '../../lib/redirect';
 import { QUERY_ME } from '../../utils/User';
@@ -96,7 +97,7 @@ const LoginForm = () => {
                 <p>
                   Dont have account?
                   <Link href={'/register'}>
-                    <a> Join us!</a>
+                    <StrongAnchor> Join us!</StrongAnchor>
                   </Link>
                 </p>
               </ButtonGroup>
