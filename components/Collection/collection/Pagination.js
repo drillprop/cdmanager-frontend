@@ -21,41 +21,39 @@ const Pagination = () => {
   const { page: pageContext } = useCollectionContext();
   const page = parseInt(pageContext) || 1;
   return (
-    <Query query={GET_ALBUMS_LENGTH}>
+    <Query query={GET_ALBUMS_LENGTH} fetchPolicy='cache-and-network'>
       {({ data, loading, error }) => {
         if (error) return null;
-        if (data?.albums) {
-          const pages = Math.ceil(data.albums.total / 10);
-          return (
-            <StyledPagination>
-              <Link
-                href={{
-                  pathname: 'collection',
-                  query: {
-                    page: page - 1
-                  }
-                }}
-              >
-                <a aria-disabled={page < 2}> &lt; Prev </a>
-              </Link>
-              <div>
-                Page {page} of {pages}
-              </div>
-              <Link
-                href={{
-                  pathname: 'collection',
-                  query: {
-                    page: page + 1
-                  }
-                }}
-              >
-                <a aria-disabled={page >= pages}> Next &gt; </a>
-              </Link>
-            </StyledPagination>
-          );
-        } else {
-          return null;
-        }
+        if (!data?.albums) return null;
+        if (!data?.albums.total) return null;
+        const pages = Math.ceil(data.albums.total / 10) || 1;
+        return (
+          <StyledPagination>
+            <Link
+              href={{
+                pathname: 'collection',
+                query: {
+                  page: page - 1,
+                },
+              }}
+            >
+              <a aria-disabled={page < 2}> &lt; Prev </a>
+            </Link>
+            <div>
+              Page {page} of {pages}
+            </div>
+            <Link
+              href={{
+                pathname: 'collection',
+                query: {
+                  page: page + 1,
+                },
+              }}
+            >
+              <a aria-disabled={page >= pages}> Next &gt; </a>
+            </Link>
+          </StyledPagination>
+        );
       }}
     </Query>
   );
