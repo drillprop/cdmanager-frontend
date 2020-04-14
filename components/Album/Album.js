@@ -7,7 +7,7 @@ import LoadedImage from '../LoadedImage/LoadedImage';
 const StyledFigure = styled.figure`
   display: grid;
   margin: 0;
-  grid-template-rows: ${(props) => (props.large ? '150px' : '120px')} auto 30px;
+  grid-template-rows: ${(props) => (props.large ? '150px' : '120px')} auto;
   grid-template-columns: ${(props) => (props.large ? '150px' : '120px')};
   justify-content: center;
   justify-content: center;
@@ -61,7 +61,6 @@ const Album = ({ artist, title, image, id, children, large }) => (
       <ArtistName>{artist} </ArtistName>
       <Title>{title}</Title>
     </figcaption>
-    {children}
   </StyledFigure>
 );
 
