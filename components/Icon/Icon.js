@@ -74,13 +74,6 @@ const Icon = ({ icon, color }) => {
     case 'delete':
       return (
         <svg
-          style={{
-            display: 'inline-block',
-            verticalAlign: 'middle',
-            height: '1em',
-            width: '1em',
-            marginRight: '0.5em',
-          }}
           fill='none'
           stroke={color || background}
           strokeLinecap='round'
