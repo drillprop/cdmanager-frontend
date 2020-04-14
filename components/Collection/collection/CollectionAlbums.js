@@ -36,6 +36,12 @@ const CdsWrapper = styled.div`
   justify-items: center;
 `;
 
+const SingleAlbumWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 10px;
+`;
+
 const NoAlbumsPar = styled.p`
   font-size: 16px;
   margin-top: 0;
@@ -95,15 +101,15 @@ const CollectionAlbums = () => {
                 </StyledH2>
                 <CdsWrapper>
                   {albums.map(({ artist, title, image, id }) => (
-                    <Album
-                      artist={artist}
-                      title={title}
-                      image={image}
-                      key={id}
-                      id={id}
-                    >
+                    <SingleAlbumWrapper key={id}>
+                      <Album
+                        artist={artist}
+                        title={title}
+                        image={image}
+                        id={id}
+                      />
                       <DeleteButton id={id} variables={variables} />
-                    </Album>
+                    </SingleAlbumWrapper>
                   ))}
                 </CdsWrapper>
               </>
