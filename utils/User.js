@@ -7,7 +7,6 @@ const QUERY_ME = gql`
     me {
       name
       email
-      avatar
     }
   }
 `;
@@ -19,7 +18,7 @@ const SIGNOUT = gql`
     }
   }
 `;
-const User = props => {
+const User = (props) => {
   return (
     <Query {...props} query={QUERY_ME}>
       {({ data, loading, error }) => {
@@ -28,11 +27,11 @@ const User = props => {
             mutation={SIGNOUT}
             refetchQueries={[
               {
-                query: QUERY_ME
-              }
+                query: QUERY_ME,
+              },
             ]}
           >
-            {signout => props.children(data, signout)}
+            {(signout) => props.children(data, signout)}
           </Mutation>
         );
       }}
