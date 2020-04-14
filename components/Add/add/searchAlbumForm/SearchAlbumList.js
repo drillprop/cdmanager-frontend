@@ -21,6 +21,16 @@ const List = styled(animated.ul)`
   }
 `;
 
+const NoAlbumsPar = styled.p`
+  font-style: italic;
+  font-size: 16px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const SearchAlbumList = ({ searchResult, loading, error }) => {
   const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
   if (loading) {
@@ -33,7 +43,7 @@ const SearchAlbumList = ({ searchResult, loading, error }) => {
   if (error) {
     return (
       <List>
-        <p>Failed to fetch data</p>
+        <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>
       </List>
     );
   }
@@ -41,7 +51,7 @@ const SearchAlbumList = ({ searchResult, loading, error }) => {
   const uniqueSearchResult = Array.from(new Set(albumslastfm));
   return (
     <List style={smth}>
-      {uniqueSearchResult &&
+      {uniqueSearchResult.length ? (
         uniqueSearchResult.map(({ artist, title, imageSmall, imageLarge }) => {
           return (
             <SearchAlbumItem
@@ -52,7 +62,10 @@ const SearchAlbumList = ({ searchResult, loading, error }) => {
               key={title + artist}
             />
           );
-        })}
+        })
+      ) : (
+        <NoAlbumsPar> no albums found...</NoAlbumsPar>
+      )}
     </List>
   );
 };
