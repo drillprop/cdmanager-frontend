@@ -3,13 +3,9 @@ import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../../../contexts/add/AddProvider';
 import Button from '../../../../styles/Button';
-import Error from '../../../Error/Error';
 import { background } from '../../../../utils/colors';
 import { CREATE_ALBUM } from '../../../../utils/mutations';
-import {
-  GET_ALBUMS_FROM_COLLECTION,
-  GET_ALBUMS_LENGTH,
-} from '../../../../utils/queries';
+import Error from '../../../Error/Error';
 import LoadedImage from '../../../LoadedImage/LoadedImage';
 
 const Item = styled.li`
@@ -49,16 +45,6 @@ const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
     <Mutation
       mutation={CREATE_ALBUM}
       variables={{ artist, title, image: imageLarge }}
-      refetchQueries={[
-        {
-          query: GET_ALBUMS_FROM_COLLECTION,
-          variables: { limit: 3 },
-        },
-        {
-          query: GET_ALBUMS_LENGTH,
-        },
-      ]}
-      awaitRefetchQueries={true}
     >
       {(createAlbum, payload) => {
         return (

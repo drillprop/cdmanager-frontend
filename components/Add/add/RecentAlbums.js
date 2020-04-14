@@ -38,15 +38,18 @@ const RecentAlbums = () => {
             if (loading) return <Loading loading={loading} withDelay />;
             if (data?.albums?.albums) {
               const { albums } = data.albums;
-              return albums.map(({ artist, title, id, image }) => (
-                <Album
-                  large
-                  key={id}
-                  artist={artist}
-                  title={title}
-                  image={image}
-                />
-              ));
+              return albums.map(
+                (album) =>
+                  album && (
+                    <Album
+                      large
+                      key={album.id}
+                      artist={album.artist}
+                      title={album.title}
+                      image={album.image}
+                    />
+                  )
+              );
             }
             return <p>no albums added</p>;
           }}
