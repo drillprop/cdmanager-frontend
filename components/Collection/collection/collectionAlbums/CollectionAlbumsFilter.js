@@ -1,33 +1,46 @@
-import React, { useState } from 'react';
-import { useCollectionContext } from '../../../../contexts/collection/CollectionProvider';
 import debounce from 'lodash.debounce';
-import { Input } from '../../../../styles/Form';
+import React, { useEffect, useState } from 'react';
 import { Query } from 'react-apollo';
+import { useCollectionContext } from '../../../../contexts/collection/CollectionProvider';
+import { Input } from '../../../../styles/Form';
 import { GET_ALBUMS_LENGTH } from '../../../../utils/queries';
 
 const CollectionAlbumsFilter = () => {
   const { dispatch } = useCollectionContext();
   const [val, setValue] = useState('');
 
-  const filter = debounce((text) => {
+  useEffect(() => {
+    if (val) {
+      debouncedFilter(val);
+    } else {
+      dispatch({
+        type: 'CHANGE_QUERY_VARIABLES',
+        search: '',
+      });
+    }
+    return () => debouncedFilter.cancel();
+  }, [val]);
+
+  const debouncedFilter = debounce((text) => {
     text = text.trim();
     dispatch({
       type: 'CHANGE_QUERY_VARIABLES',
       search: text,
     });
-    !text && setValue('');
-    return setValue(text);
   }, 300);
+
   return (
-    <Query query={GET_ALBUMS_LENGTH} fetchPolicy='cache-and-network'>
-      {({ data, loading, error }) => {
+    <Query query={GET_ALBUMS_LENGTH}>
+      {({ data, error, loading }) => {
         if (error) return null;
+        if (loading) return null;
         if (!data?.albums?.total) return null;
         return (
           <Input
             type='text'
             placeholder='filter'
-            onChange={(e) => filter(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
+            value={val}
           />
         );
       }}
