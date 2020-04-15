@@ -11,6 +11,7 @@ import Album from '../../Album/Album';
 import Error from '../../Error/Error';
 import Loading from '../../Loading/Loading';
 import DeleteButton from './collectionAlbums/DeleteButton';
+import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
 
 const Wrapper = styled.section`
   max-width: 800px;
@@ -50,21 +51,11 @@ const NoAlbumsPar = styled.p`
 `;
 
 const CollectionAlbums = () => {
-  const { page, state, dispatch } = useCollectionContext();
-  const [result, setValue] = useState('');
-
-  const filter = debounce((text) => {
-    text = text.trim();
-    dispatch({
-      type: 'CHANGE_QUERY_VARIABLES',
-      search: text,
-    });
-    !text && setValue('');
-    return setValue(text);
-  }, 300);
+  const { page, state } = useCollectionContext();
 
   return (
     <Wrapper>
+      <CollectionAlbumsFilter />
       <Query
         query={GET_ALBUMS_FROM_COLLECTION}
         variables={{
@@ -91,13 +82,10 @@ const CollectionAlbums = () => {
               );
             return (
               <>
-                <Input
-                  type='text'
-                  placeholder='filter'
-                  onChange={(e) => filter(e.target.value)}
-                />
                 <StyledH2>
-                  {result ? `searching for ${result}` : 'recently added'}
+                  {state.queryVariables.search
+                    ? `searching for ${state.queryVariables.search}`
+                    : 'recently added'}
                 </StyledH2>
                 <CdsWrapper>
                   {albums.map(({ artist, title, image, id }) => (
