@@ -25,8 +25,8 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  width: 500px;
-  height: 500px;
+  width: 430px;
+  height: 430px;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
   background-color: white;
@@ -91,9 +91,15 @@ const FormButton = styled(Button)`
   margin: 0 auto;
 `;
 
-const StrongAnchor = styled.a`
-  font-weight: bold;
-  cursor: pointer;
+const MobileLinks = styled.p`
+  display: none;
+  @media (max-width: 900px) {
+    display: block;
+    a {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
 `;
 
 export {
@@ -104,5 +110,5 @@ export {
   FormHeader,
   Label,
   Input,
-  StrongAnchor,
+  MobileLinks,
 };

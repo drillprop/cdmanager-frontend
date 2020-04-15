@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
+import redirect from '../../lib/redirect';
 import {
   ButtonGroup,
   Form,
@@ -10,9 +11,8 @@ import {
   FormWrapper,
   Input,
   Label,
-  StrongAnchor,
+  MobileLinks,
 } from '../../styles/Form';
-import redirect from '../../lib/redirect';
 import { QUERY_ME } from '../../utils/User';
 import CdShape from '../CdShape/CdShape';
 import Error from '../Error/Error';
@@ -106,12 +106,12 @@ const RegisterForm = () => {
               </div>
               <ButtonGroup>
                 <FormButton type='submit'>Register</FormButton>
-                <p>
+                <MobileLinks>
                   Already have account?{' '}
                   <Link href={'/login'}>
-                    <StrongAnchor> Sign in!</StrongAnchor>
+                    <a> Sign in!</a>
                   </Link>
-                </p>
+                </MobileLinks>
               </ButtonGroup>
             </Form>
             <CdShape
