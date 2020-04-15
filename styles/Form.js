@@ -38,10 +38,6 @@ const Form = styled.form`
     width: 100%;
     border: none;
   }
-  &:hover ~ .cd {
-    transition: all 1500ms;
-    transform: translateX(120px) rotate(360deg);
-  }
 `;
 
 const FormHeader = styled.h1`

@@ -114,7 +114,11 @@ const RegisterForm = () => {
                 </p>
               </ButtonGroup>
             </Form>
-            <CdShape />
+            <CdShape
+              link='/login'
+              question={`Already have account?`}
+              answer='Sign in!'
+            />
           </FormWrapper>
         )}
       </Mutation>

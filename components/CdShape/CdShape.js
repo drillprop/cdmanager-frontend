@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+import { background, black } from '../../utils/colors';
 
 const Shape = styled.div`
   position: absolute;
@@ -14,26 +16,44 @@ const Shape = styled.div`
     inset 0 0 0 195px white, inset 0 0 0 196px #333, inset 0 0 0 220px white,
     inset 0 0 0 221px black;
   border-radius: 50%;
-  transition: all 1500ms;
+  transition: transform 800ms;
   :hover {
-    transition: all 1500ms;
-    transform: translateX(120px) rotate(360deg);
+    transform: translateX(120px) rotate(180deg);
   }
   @media (max-width: 900px) {
     display: none;
   }
 `;
-const Text = styled.span`
-  position: relative;
-  overflow: hidden;
+const Question = styled.p`
+  font-size: 18px;
+  margin: 0;
+  color: ${background};
+  position: absolute;
+  width: 90px;
   top: 45%;
-  left: 76%;
-  color: white;
+  left: 70%;
 `;
 
-const CdShape = ({ text }) => (
+const Answer = styled.a`
+  font-size: 20px;
+  position: absolute;
+  background-color: ${background};
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  top: 45%;
+  left: 10%;
+  color: ${black};
+  transform: rotate(180deg);
+`;
+
+const CdShape = ({ question, answer, link }) => (
   <Shape className='cd'>
-    <Text>{text}</Text>
+    <Question>{question}</Question>
+    <Link href={link}>
+      <Answer>{answer}</Answer>
+    </Link>
   </Shape>
 );
 
