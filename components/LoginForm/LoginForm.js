@@ -64,34 +64,32 @@ const LoginForm = () => {
             >
               <FormHeader>Login into your account</FormHeader>
               {error && <Error error={error} />}
-              <div>
-                <Label htmlFor='email'>
-                  <p>Email:</p>
-                  <Input
-                    value={user.email}
-                    required
-                    placeholder='your email'
-                    name='email'
-                    id='email'
-                    type='email'
-                    onChange={handleChange}
-                  />
-                </Label>
-                <Label htmlFor='password'>
-                  <p>Password</p>
-                  <Input
-                    value={user.password}
-                    required
-                    placeholder='your password'
-                    name='password'
-                    id='password'
-                    type='password'
-                    aria-autocomplete={'list'}
-                    autoComplete='new-password'
-                    onChange={handleChange}
-                  />
-                </Label>
-              </div>
+              <Label htmlFor='email'>
+                Email
+                <Input
+                  value={user.email}
+                  required
+                  placeholder='your email'
+                  name='email'
+                  id='email'
+                  type='email'
+                  onChange={handleChange}
+                />
+              </Label>
+              <Label htmlFor='password'>
+                Password
+                <Input
+                  value={user.password}
+                  required
+                  placeholder='your password'
+                  name='password'
+                  id='password'
+                  type='password'
+                  aria-autocomplete={'list'}
+                  autoComplete='new-password'
+                  onChange={handleChange}
+                />
+              </Label>
               <ButtonGroup>
                 <FormButton type='submit'>Login</FormButton>
                 <MobileLinks>

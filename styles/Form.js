@@ -22,7 +22,6 @@ const Form = styled.form`
   display: flex;
   transform: translateX(-75%);
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   z-index: 2;
   width: 430px;
@@ -45,8 +44,8 @@ const FormHeader = styled.h1`
   font-size: 1.5rem;
   text-transform: uppercase;
   position: relative;
+  margin: 0;
   margin-top: 2rem;
-  margin-bottom: 2rem;
   ::after {
     content: '';
     position: absolute;
@@ -62,17 +61,18 @@ const FormHeader = styled.h1`
 `;
 
 const Label = styled.label`
-  margin-bottom: 1.5rem;
-  p {
-    font-size: 0.9rem;
-    margin: 0;
-    margin-bottom: 0.4rem;
+  :first-of-type {
+    margin-top: 3rem;
   }
+  margin-top: 1.5rem;
+  display: block;
+  font-size: 0.9rem;
 `;
 
 const Input = styled.input`
+  margin-top: 0.3rem;
+  display: block;
   width: 13rem;
-  margin-bottom: 1.5rem;
   font-family: ${mont};
   font-size: 0.8rem;
   padding: 0.4rem 0.8rem;
@@ -81,6 +81,7 @@ const Input = styled.input`
   border-radius: 2px;
 `;
 const ButtonGroup = styled.div`
+  margin-top: 2rem;
   margin-bottom: 1rem;
 `;
 
@@ -89,6 +90,7 @@ const FormButton = styled(Button)`
   padding: 1rem 2rem;
   display: block;
   margin: 0 auto;
+  align-self: flex-end;
 `;
 
 const MobileLinks = styled.p`
