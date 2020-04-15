@@ -97,7 +97,7 @@ const LoginForm = () => {
                 <MobileLinks>
                   Dont have account?
                   <Link href={'/register'}>
-                    <a> Join us!</a>
+                    <a>Sign up!</a>
                   </Link>
                 </MobileLinks>
               </ButtonGroup>
@@ -105,7 +105,7 @@ const LoginForm = () => {
             <CdShape
               link='/register'
               question={`Don't have account?`}
-              answer='Join us!'
+              answer='Sign up!'
             />
           </FormWrapper>
         )}
