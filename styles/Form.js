@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { black, lightblack, lighterblack } from '../utils/colors';
-import { robo, mont } from '../utils/fonts';
+import { lighterblack } from '../utils/colors';
+import { mont, robo } from '../utils/fonts';
 import Button from './Button';
 
 const FormWrapper = styled.section`
   margin: 0 auto;
   position: relative;
-  margin-top: 3.5rem;
-  height: 450px;
+  margin-top: 80px;
+  height: 600px;
   overflow: hidden;
   @media (max-width: 900px) {
     width: 300px;
@@ -19,19 +19,20 @@ const Form = styled.form`
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -220px;
   display: flex;
+  transform: translateX(-75%);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  width: 430px;
-  height: 430px;
+  width: 500px;
+  height: 500px;
   border: 1px solid ${lighterblack};
   border-radius: 5px;
   background-color: white;
   @media (max-width: 900px) {
     background: none;
+    transform: translateX(0);
     margin-left: 0;
     left: 0;
     width: 100%;

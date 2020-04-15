@@ -35,6 +35,8 @@ const LoginForm = () => {
     setUser({ ...user, [name]: value });
   };
 
+  const handleSubmit = async () => {};
+
   return (
     <>
       <Mutation
