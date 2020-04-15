@@ -77,8 +77,8 @@ const CollectionAlbums = () => {
           if (error) return <Error error={error} />;
           if (loading) return <Loading loading={loading} />;
           if (data?.albums?.albums) {
-            const { albums } = data.albums;
-            if (!albums.length)
+            const { albums, total } = data.albums;
+            if (!total)
               return (
                 <>
                   <NoAlbumsPar>no albums added yet</NoAlbumsPar>
