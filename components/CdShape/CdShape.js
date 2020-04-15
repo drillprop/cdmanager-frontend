@@ -8,13 +8,13 @@ const Shape = styled.div`
   top: 0;
   left: 50%;
   margin-left: -150px;
-  width: 500px;
-  height: 500px;
+  width: 430px;
+  height: 430px;
   border: 1px solid #333;
   background: white;
-  box-shadow: inset 0 0 0 10px white, inset 0 0 0 185px #333,
-    inset 0 0 0 195px white, inset 0 0 0 196px #333, inset 0 0 0 220px white,
-    inset 0 0 0 221px black;
+  box-shadow: inset 0 0 0 10px white, inset 0 0 0 165px #333,
+    inset 0 0 0 175px white, inset 0 0 0 176px #333, inset 0 0 0 200px white,
+    inset 0 0 0 201px black;
   border-radius: 50%;
   transition: transform 800ms;
   :hover {
