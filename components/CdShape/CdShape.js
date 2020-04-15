@@ -7,7 +7,7 @@ const Shape = styled.div`
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -150px;
+  margin-left: -145px;
   width: 430px;
   height: 430px;
   border: 1px solid #333;
@@ -25,7 +25,7 @@ const Shape = styled.div`
   }
 `;
 const Question = styled.p`
-  font-size: 18px;
+  font-size: 14px;
   margin: 0;
   color: ${background};
   position: absolute;
@@ -35,7 +35,7 @@ const Question = styled.p`
 `;
 
 const Answer = styled.a`
-  font-size: 20px;
+  font-size: 14px;
   position: absolute;
   background-color: ${background};
   padding: 5px 20px;
