@@ -8,11 +8,12 @@ import Link from 'next/link';
 import User from '../../utils/User';
 
 const HeroWrapper = styled.main`
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 50px auto;
+  overflow-x: hidden;
   margin-top: 6rem;
   display: grid;
-  grid-gap: 3rem;
+  grid-gap: 2rem;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 750px) {
     grid-template-columns: 1fr;

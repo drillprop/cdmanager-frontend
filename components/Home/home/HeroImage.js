@@ -4,8 +4,7 @@ import styled from 'styled-components';
 const ImageContainer = styled.div`
   position: relative;
   margin: 0 auto;
-  max-width: 375px;
-  height: 200px;
+  height: 500px;
   @media (max-width: 1000px) {
     transform: scale(0.8);
   }
@@ -29,9 +28,9 @@ const Shadow = styled.div`
   position: absolute;
   opacity: 0.5;
   margin: 0;
-  z-index: -2;
-  top: 100px;
-  left: -180px;
+  z-index: -1;
+  top: 120px;
+  left: -165px;
 `;
 const HeroImage = () => (
   <ImageContainer>
