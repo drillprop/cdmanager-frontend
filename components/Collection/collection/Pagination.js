@@ -6,12 +6,19 @@ import { useCollectionContext } from '../../../contexts/collection/CollectionPro
 import { GET_ALBUMS_LENGTH } from '../../../utils/queries';
 
 const StyledPagination = styled.div`
-  max-width: 300px;
+  font-size: 14px;
+  max-width: 280px;
+  white-space: nowrap;
   margin: 3rem auto;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  a {
+    cursor: pointer;
+    span {
+      font-weight: bold;
+    }
+  }
   a[aria-disabled='true'] {
     pointer-events: none;
   }
@@ -37,10 +44,13 @@ const Pagination = () => {
                 },
               }}
             >
-              <a aria-disabled={page < 2}> &lt; Prev </a>
+              <a aria-disabled={page < 2}>
+                {' '}
+                <span>&lt;</span> prev{' '}
+              </a>
             </Link>
             <div>
-              Page {page} of {pages}
+              page {page} of {pages}
             </div>
             <Link
               href={{
@@ -50,7 +60,10 @@ const Pagination = () => {
                 },
               }}
             >
-              <a aria-disabled={page >= pages}> Next &gt; </a>
+              <a aria-disabled={page >= pages}>
+                {' '}
+                next <span>&gt;</span>{' '}
+              </a>
             </Link>
           </StyledPagination>
         );
