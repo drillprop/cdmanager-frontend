@@ -9,7 +9,6 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            marginRight: '0.5em',
             height: '2em',
             width: '2em',
           }}
@@ -28,7 +27,6 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            marginRight: '0.5em',
             height: '2em',
             width: '2em',
           }}
@@ -49,7 +47,6 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            marginRight: '0.5em',
             height: '2em',
             width: '2em',
           }}
