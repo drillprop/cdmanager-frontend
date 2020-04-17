@@ -21,19 +21,23 @@ const SIGNOUT = gql`
 const User = (props) => {
   return (
     <Query {...props} query={QUERY_ME}>
-      {({ data, loading, error }) => {
-        return (
-          <Mutation
-            mutation={SIGNOUT}
-            refetchQueries={[
-              {
-                query: QUERY_ME,
-              },
-            ]}
-          >
-            {(signout) => props.children(data, signout)}
-          </Mutation>
-        );
+      {({ data }) => {
+        if (data) {
+          return (
+            <Mutation
+              mutation={SIGNOUT}
+              refetchQueries={[
+                {
+                  query: QUERY_ME,
+                },
+              ]}
+            >
+              {(signout) => props.children(data, signout)}
+            </Mutation>
+          );
+        } else {
+          return null;
+        }
       }}
     </Query>
   );
