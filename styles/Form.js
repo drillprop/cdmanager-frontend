@@ -17,7 +17,7 @@ const FormWrapper = styled.section`
 
 const Form = styled.form`
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   left: 50%;
   display: flex;

@@ -7,7 +7,7 @@ import User from '../../../../utils/User';
 import Icon from '../../../Icon/Icon';
 
 const StyledNavigation = styled(animated.nav)`
-  z-index: 1;
+  z-index: 2;
   display: none;
   top: 0;
   right: 0;

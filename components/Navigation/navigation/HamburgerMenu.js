@@ -5,7 +5,7 @@ import { background, black } from '../../../utils/colors';
 import HamburgerNavigation from './hamburgerMenu/HamburgerNavigation';
 
 const HamburgerButton = styled.div`
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   height: 25px;
   width: 25px;
@@ -25,7 +25,7 @@ const HamburgerButton = styled.div`
     height: 100%;
   }
   div {
-    z-index: 3;
+    z-index: 4;
     position: relative;
     transition: transform 0.5s ease, background-color 0.5s ease;
     width: 25px;
