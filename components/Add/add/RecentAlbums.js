@@ -16,8 +16,8 @@ const CdsWrapper = styled.section`
   margin: 0 auto;
   justify-content: center;
   display: grid;
+  gap: 50px;
   @media (min-width: 700px) {
-    gap: 100px;
     grid-template-columns: repeat(3, 150px);
     justify-items: center;
   }
