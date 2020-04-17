@@ -1,39 +1,39 @@
-import styled from 'styled-components';
-import React, { useState } from 'react';
-import { useTransition, animated } from 'react-spring';
-import User from '../../../../utils/User';
 import Link from 'next/link';
-import { lighterblack, black, background } from '../../../../utils/colors';
+import React from 'react';
+import { animated } from 'react-spring';
+import styled from 'styled-components';
+import { background, black } from '../../../../utils/colors';
+import User from '../../../../utils/User';
+import Icon from '../../../Icon/Icon';
 
 const StyledNavigation = styled(animated.nav)`
+  z-index: 1;
   display: none;
   top: 0;
-  left: 0;
+  right: 0;
   margin: 0;
   padding: 0;
-  z-index: 5;
   position: fixed;
   background: ${black};
   width: 80%;
   height: 100%;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  ul {
+    margin-top: 10rem;
+    padding: 0;
+    margin-left: 30px;
+  }
   li {
     color: ${background};
     list-style: none;
     position: relative;
     text-transform: lowercase;
-    margin-bottom: 2rem;
-    ::after {
-      content: '';
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: ${lighterblack};
-    }
+    margin-bottom: 3rem;
   }
-  @media (max-width: 600px) {
+  li a svg {
+    margin-right: 2rem;
+  }
+  @media (max-width: 700px) {
     display: block;
   }
 `;
@@ -47,17 +47,26 @@ const HamburgerNavigation = ({ style, setToggle }) => {
             <ul>
               <li onClick={() => setToggle(false)}>
                 <Link href='/collection'>
-                  <a> {me.name}</a>
+                  <a>
+                    <Icon icon='profile' />
+                    your profile
+                  </a>
                 </Link>
               </li>
               <li onClick={() => setToggle(false)}>
                 <Link href='/add'>
-                  <a>add</a>
+                  <a>
+                    <Icon icon='cd' />
+                    add an album
+                  </a>
                 </Link>
               </li>
               <li onClick={() => setToggle(false)}>
                 <Link href='/login'>
-                  <a onClick={signout}>logout</a>
+                  <a onClick={signout}>
+                    <Icon icon='logout' />
+                    logout
+                  </a>
                 </Link>
               </li>
             </ul>

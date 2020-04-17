@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useTransition } from 'react-spring';
 import styled from 'styled-components';
-import { black } from '../../../utils/colors';
+import { background, black } from '../../../utils/colors';
 import HamburgerNavigation from './hamburgerMenu/HamburgerNavigation';
 
 const HamburgerButton = styled.div`
+  z-index: 2;
   position: fixed;
   height: 25px;
   width: 25px;
@@ -13,31 +14,31 @@ const HamburgerButton = styled.div`
   right: 0;
   display: none;
   .toggle {
-    z-index: 10;
+    z-index: 5;
     opacity: 0;
     cursor: pointer;
     margin: 0;
     padding: 0;
     border: none;
-    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
   }
   div {
+    z-index: 3;
     position: relative;
-    z-index: -2;
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease, background-color 0.5s ease;
     width: 25px;
-    height: 3px;
+    height: 4px;
     background-color: ${black};
     border-radius: 5px;
     ::after,
     ::before {
+      transition: transform 0.5s ease;
       content: '';
       position: absolute;
       width: 25px;
-      height: 3px;
+      height: 4px;
       background-color: ${black};
     }
     ::before {
@@ -49,11 +50,13 @@ const HamburgerButton = styled.div`
   }
   .toggle:checked + div {
     transform: rotate(135deg);
+    background-color: ${background};
   }
   .toggle:checked + div:after,
   .toggle:checked + div:before {
     top: 0;
     transform: rotate(90deg);
+    background-color: ${background};
   }
   @media (max-width: 700px) {
     display: flex;
@@ -65,9 +68,9 @@ const HamburgerButton = styled.div`
 const HamburgerMenu = () => {
   const [toggled, setToggle] = useState(false);
   const transitions = useTransition(toggled, null, {
-    from: { transform: 'translateX(-800px)' },
+    from: { transform: 'translateX(800px)' },
     enter: { transform: 'translateX(0px)' },
-    leave: { transform: 'translateX(-800px)' },
+    leave: { transform: 'translateX(800px)' },
   });
   return (
     <>
