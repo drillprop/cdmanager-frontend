@@ -74,12 +74,18 @@ const HamburgerNavigation = ({ style, setToggle }) => {
             <ul>
               <li onClick={() => setToggle(false)}>
                 <Link href='/login'>
-                  <a>login</a>
+                  <a>
+                    <Icon size='1.4em' icon='login' />
+                    login
+                  </a>
                 </Link>
               </li>
               <li onClick={() => setToggle(false)}>
                 <Link href='/register'>
-                  <a>Register</a>
+                  <a>
+                    <Icon size='1.4em' icon='profile' />
+                    Register
+                  </a>
                 </Link>
               </li>
             </ul>
