@@ -7,7 +7,6 @@ import Loading from '../../../Loading/Loading';
 
 const List = styled(animated.ul)`
   position: relative;
-  z-index: 2;
   margin: 0.4rem auto;
   background: white;
   width: calc(1.3 * 400px);

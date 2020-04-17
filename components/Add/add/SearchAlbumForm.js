@@ -14,7 +14,6 @@ const StyledForm = styled.form`
   max-width: 700px;
   input {
     position: relative;
-    z-index: 1;
     margin: 0 auto;
     display: block;
     width: 400px;

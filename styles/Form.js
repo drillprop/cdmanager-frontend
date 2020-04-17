@@ -23,7 +23,6 @@ const Form = styled.form`
   transform: translateX(-75%);
   flex-direction: column;
   align-items: center;
-  z-index: 2;
   width: 430px;
   height: 430px;
   border: 1px solid ${lighterblack};
