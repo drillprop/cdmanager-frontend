@@ -19,7 +19,7 @@ const StyledNavigation = styled(animated.nav)`
   height: 100%;
   font-size: 1.2rem;
   ul {
-    margin-top: 10rem;
+    margin-top: 8rem;
     padding: 0;
     margin-left: 30px;
   }
@@ -31,7 +31,7 @@ const StyledNavigation = styled(animated.nav)`
     margin-bottom: 3rem;
   }
   li a svg {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
   @media (max-width: 700px) {
     display: block;
@@ -48,7 +48,7 @@ const HamburgerNavigation = ({ style, setToggle }) => {
               <li onClick={() => setToggle(false)}>
                 <Link href='/collection'>
                   <a>
-                    <Icon icon='profile' />
+                    <Icon size='1.4em' icon='profile' />
                     your profile
                   </a>
                 </Link>
@@ -56,7 +56,7 @@ const HamburgerNavigation = ({ style, setToggle }) => {
               <li onClick={() => setToggle(false)}>
                 <Link href='/add'>
                   <a>
-                    <Icon icon='cd' />
+                    <Icon icon='cd' size='1.4em' />
                     add an album
                   </a>
                 </Link>
@@ -64,7 +64,7 @@ const HamburgerNavigation = ({ style, setToggle }) => {
               <li onClick={() => setToggle(false)}>
                 <Link href='/login'>
                   <a onClick={signout}>
-                    <Icon icon='logout' />
+                    <Icon icon='logout' size='1.4em' />
                     logout
                   </a>
                 </Link>

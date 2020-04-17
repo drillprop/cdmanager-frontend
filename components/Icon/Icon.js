@@ -1,7 +1,7 @@
 import React from 'react';
 import { background } from '../../utils/colors';
 
-const Icon = ({ icon, color }) => {
+const Icon = ({ icon, color, size }) => {
   switch (icon) {
     case 'profile':
       return (
@@ -9,8 +9,8 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            height: '2em',
-            width: '2em',
+            height: size || '2em',
+            width: size || '2em',
           }}
           viewBox='0 0 48 48'
         >
@@ -27,8 +27,8 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            height: '2em',
-            width: '2em',
+            height: size || '2em',
+            width: size || '2em',
           }}
           enableBackground='new 0 0 48 48'
           viewBox='0 0 48 48'
@@ -47,8 +47,8 @@ const Icon = ({ icon, color }) => {
           style={{
             display: 'inline-block',
             verticalAlign: 'middle',
-            height: '2em',
-            width: '2em',
+            height: size || '2em',
+            width: size || '2em',
           }}
           enableBackground='new 0 0 24 24'
           viewBox='0 0 24 24'
