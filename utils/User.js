@@ -36,7 +36,7 @@ const User = (props) => {
             </Mutation>
           );
         } else {
-          return null;
+          return props.children();
         }
       }}
     </Query>
