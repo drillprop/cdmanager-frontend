@@ -41,7 +41,7 @@ const Form = styled.form`
 
 const FormHeader = styled.h1`
   font-family: ${robo};
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   position: relative;
   margin: 0;
@@ -80,22 +80,24 @@ const Input = styled.input`
   outline: none;
   border-radius: 2px;
 `;
-const ButtonGroup = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-`;
 
 const FormButton = styled(Button)`
-  position: relative;
-  padding: 1rem 2rem;
-  display: block;
-  margin: 0 auto;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  font-size: 1rem;
+  transform: translateX(-50%);
+  @media (max-width: 900px) {
+    margin-top: 3rem;
+    position: unset;
+    transform: unset;
+  }
 `;
 
 const MobileLinks = styled.p`
   display: none;
   @media (max-width: 900px) {
+    margin-top: 1.5rem;
     display: block;
     a {
       font-weight: bold;
@@ -104,13 +106,4 @@ const MobileLinks = styled.p`
   }
 `;
 
-export {
-  FormWrapper,
-  ButtonGroup,
-  FormButton,
-  Form,
-  FormHeader,
-  Label,
-  Input,
-  MobileLinks,
-};
+export { FormWrapper, FormButton, Form, FormHeader, Label, Input, MobileLinks };
