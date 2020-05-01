@@ -31,25 +31,13 @@ const NoAlbumsPar = styled.p`
 `;
 
 const SearchAlbumList = ({ searchResult, loading, error }) => {
-  const smth = useSpring({ opacity: 1, from: { opacity: 0 } });
-  if (loading) {
-    return (
-      <List>
-        <Loading loading={loading} />
-      </List>
-    );
-  }
-  if (error) {
-    return (
-      <List>
-        <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>
-      </List>
-    );
-  }
+  const springAnimation = useSpring({ opacity: 1, from: { opacity: 0 } });
   const { albumslastfm } = searchResult;
   const uniqueSearchResult = Array.from(new Set(albumslastfm));
   return (
-    <List style={smth}>
+    <List style={springAnimation}>
+      {loading && <Loading loading={loading} />}
+      {error && <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>}
       {uniqueSearchResult.length ? (
         uniqueSearchResult.map(({ artist, title, imageSmall, imageLarge }) => {
           return (
