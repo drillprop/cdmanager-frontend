@@ -29,10 +29,9 @@ const Pagination = () => {
   const page = parseInt(pageContext) || 1;
   return (
     <Query query={GET_ALBUMS_LENGTH} fetchPolicy='cache-and-network'>
-      {({ data, loading, error }) => {
+      {({ data, error }) => {
         if (error) return null;
-        if (!data?.albums) return null;
-        if (!data?.albums.total) return null;
+        if (!data?.albums?.total) return <StyledPagination />;
         const pages = Math.ceil(data.albums.total / 10) || 1;
         return (
           <StyledPagination>
@@ -45,8 +44,7 @@ const Pagination = () => {
               }}
             >
               <a aria-disabled={page < 2}>
-                {' '}
-                <span>&lt;</span> prev{' '}
+                <span>&lt;</span> prev
               </a>
             </Link>
             <div>
@@ -61,8 +59,7 @@ const Pagination = () => {
               }}
             >
               <a aria-disabled={page >= pages}>
-                {' '}
-                next <span>&gt;</span>{' '}
+                next <span>&gt;</span>
               </a>
             </Link>
           </StyledPagination>
