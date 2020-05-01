@@ -11,12 +11,11 @@ import Icon from '../../../Icon/Icon';
 
 const StyledButton = styled.button`
   background: ${background};
-  padding: 5px 10px;
+  padding: 8px 10px;
   color: ${black};
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid ${black};
-  margin: 0 auto;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   svg {
     width: 1em;
     margin-right: 0.3em;

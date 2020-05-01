@@ -43,7 +43,7 @@ const CdsWrapper = styled.div`
 const SingleAlbumWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr auto;
-  gap: 10px;
+  gap: 15px;
 `;
 
 const NoAlbumsPar = styled.p`

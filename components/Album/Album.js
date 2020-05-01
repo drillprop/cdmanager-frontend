@@ -10,24 +10,25 @@ const StyledFigure = styled.figure`
   grid-template-rows: ${(props) => (props.large ? '150px' : '120px')} auto;
   grid-template-columns: ${(props) => (props.large ? '150px' : '120px')};
   justify-content: center;
-  justify-content: center;
   gap: 20px;
+  figcaption {
+    display: grid;
+    grid-template-rows: minmax(30px, 1fr) 1fr;
+    gap: 10px;
+  }
 `;
 
 const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
   border: 1px solid #909090;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: white;
   box-shadow: ${theme.bs};
   img {
     display: block;
-    max-height: 100%;
-    margin: 0 auto;
+    height: 100%;
   }
 `;
 
@@ -45,10 +46,9 @@ const Title = styled.h4`
   font-weight: 500;
   font-size: 0.9rem;
   margin: 0;
-  margin-top: 20px;
 `;
 
-const Album = ({ artist, title, image, id, children, large }) => (
+const Album = ({ artist, title, image, large }) => (
   <StyledFigure large={large}>
     <ImgWrapper>
       {image ? (
