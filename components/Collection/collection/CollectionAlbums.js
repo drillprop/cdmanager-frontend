@@ -20,6 +20,9 @@ const Wrapper = styled.section`
     display: block;
     margin: 0 auto;
   }
+  > .loading-spinner {
+    margin-top: 7rem;
+  }
 `;
 
 const StyledH2 = styled.h2`
