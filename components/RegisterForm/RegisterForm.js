@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import redirect from '../../lib/redirect';
 import {
-  ButtonGroup,
   Form,
   FormButton,
   FormHeader,
@@ -102,15 +101,13 @@ const RegisterForm = () => {
                   onChange={handleChange}
                 />
               </Label>
-              <ButtonGroup>
-                <FormButton type='submit'>Register</FormButton>
-                <MobileLinks>
-                  Already have account?{' '}
-                  <Link href={'/login'}>
-                    <a> Sign in!</a>
-                  </Link>
-                </MobileLinks>
-              </ButtonGroup>
+              <FormButton type='submit'>Register</FormButton>
+              <MobileLinks>
+                Already have account?{' '}
+                <Link href={'/login'}>
+                  <a> Sign in!</a>
+                </Link>
+              </MobileLinks>
             </Form>
             <CdShape
               link='/login'
