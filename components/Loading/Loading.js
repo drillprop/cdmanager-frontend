@@ -55,7 +55,10 @@ const Loading = ({ loading, withDelay, isStatic }) => {
   }, [loading]);
 
   if (withDelay)
-    return showLoading ? <LoadingSpinner isStatic={isStatic} /> : null;
-  else return <LoadingSpinner isStatic={isStatic} />;
+    return showLoading ? (
+      <LoadingSpinner isStatic={isStatic} className='loading-spinner' />
+    ) : null;
+  else
+    return <LoadingSpinner isStatic={isStatic} className='loading-spinner' />;
 };
 export default Loading;
