@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { theme } from '../../../../utils/theme';
-import { useSpring, animated } from 'react-spring';
 import SearchAlbumItem from './SearchAlbumItem';
 import Loading from '../../../Loading/Loading';
 
-const List = styled(animated.ul)`
+const List = styled.ul`
   position: relative;
   margin: 0.4rem auto;
   background: white;
@@ -30,14 +29,24 @@ const NoAlbumsPar = styled.p`
   align-items: center;
 `;
 
-const SearchAlbumList = ({ searchResult, loading, error }) => {
-  const springAnimation = useSpring({ opacity: 1, from: { opacity: 0 } });
-  const { albumslastfm } = searchResult;
+const SearchAlbumList = ({ albumslastfm, loading, error }) => {
+  if (loading) {
+    return (
+      <List>
+        <Loading loading={loading} />
+      </List>
+    );
+  }
+  if (error) {
+    return (
+      <List>
+        <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>
+      </List>
+    );
+  }
   const uniqueSearchResult = Array.from(new Set(albumslastfm));
   return (
-    <List style={springAnimation}>
-      {loading && <Loading loading={loading} />}
-      {error && <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>}
+    <List>
       {uniqueSearchResult.length ? (
         uniqueSearchResult.map(({ artist, title, imageSmall, imageLarge }) => {
           return (

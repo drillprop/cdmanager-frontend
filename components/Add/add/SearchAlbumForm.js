@@ -65,15 +65,15 @@ const SearchAlbumForm = () => {
           query={GET_ALBUMS_FROM_LASTFM}
           variables={{ search: state.searchInput }}
         >
-          {({ loading, error, data }) => {
-            return (
+          {({ loading, error, data }) =>
+            data && data.albumslastfm ? (
               <SearchAlbumList
-                searchResult={data}
+                albumslastfm={data.albumslastfm}
                 loading={loading}
                 error={error}
               />
-            );
-          }}
+            ) : null
+          }
         </Query>
       )}
     </>
