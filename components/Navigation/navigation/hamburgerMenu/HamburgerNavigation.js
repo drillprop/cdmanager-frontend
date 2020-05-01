@@ -42,8 +42,8 @@ const HamburgerNavigation = ({ style, setToggle }) => {
   return (
     <StyledNavigation style={style}>
       <User>
-        {({ me }, signout) =>
-          me ? (
+        {(data, signout) =>
+          data && data.me ? (
             <ul>
               <li onClick={() => setToggle(false)}>
                 <Link href='/collection'>
