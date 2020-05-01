@@ -2,18 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledErrorMessage = styled.p`
-  margin: 0 auto;
+  margin: 30px auto 0;
   text-align: center;
+  color: #e22929;
 `;
 
 const Error = ({ error }) => {
-  if (error)
-    return (
-      <StyledErrorMessage>
-        {error.message.replace('GraphQL error: ', '')}
-      </StyledErrorMessage>
-    );
-  return null;
+  return (
+    <StyledErrorMessage className='error-message'>
+      {error ? error.message.replace('GraphQL error: ', '') : ''}
+    </StyledErrorMessage>
+  );
 };
 
 export default Error;
