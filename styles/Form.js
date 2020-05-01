@@ -62,7 +62,7 @@ const FormHeader = styled.h1`
 
 const Label = styled.label`
   :first-of-type {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   margin-top: 1.5rem;
   display: block;

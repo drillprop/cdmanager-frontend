@@ -48,7 +48,7 @@ const LoginForm = () => {
         ]}
         onCompleted={() => redirect({}, '/collection')}
       >
-        {(login, { error, loading }) => (
+        {(login, { error }) => (
           <FormWrapper>
             <Form
               onSubmit={async (e) => {
@@ -63,7 +63,7 @@ const LoginForm = () => {
               method='post'
             >
               <FormHeader>Login into your account</FormHeader>
-              {error && <Error error={error} />}
+              <Error error={error} />
               <Label htmlFor='email'>
                 Email
                 <Input

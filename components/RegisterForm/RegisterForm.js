@@ -48,7 +48,7 @@ const RegisterForm = () => {
         ]}
         onCompleted={() => redirect({}, '/collection')}
       >
-        {(register, { error, loading }) => (
+        {(register, { error }) => (
           <FormWrapper>
             <Form
               onSubmit={async (e) => {
@@ -63,7 +63,7 @@ const RegisterForm = () => {
               method='post'
             >
               <FormHeader>Create account</FormHeader>
-              {error && <Error error={error} />}
+              <Error error={error} />
               <Label htmlFor='name'>
                 Name
                 <Input
