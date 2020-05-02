@@ -9,6 +9,7 @@ import Album from '../../Album/Album';
 import Loading from '../../Loading/Loading';
 import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
 import DeleteButton from './collectionAlbums/DeleteButton';
+import AlbumsError from '../../AlbumsError/AlbumsError';
 
 const Wrapper = styled.section`
   max-width: 800px;
@@ -65,6 +66,7 @@ const CollectionAlbums = () => {
         fetchPolicy='cache-and-network'
       >
         {({ data, error, loading, variables }) => {
+          if (error) return <AlbumsError error={error} />;
           if (loading) return <Loading loading={loading} />;
           if (data?.albums?.albums) {
             const { albums, total } = data.albums;
