@@ -4,11 +4,10 @@ import { mont, robo } from '../utils/fonts';
 import Button from './Button';
 
 const FormWrapper = styled.section`
-  margin: 0 auto;
+  margin: 40px auto;
   position: relative;
-  margin-top: 80px;
-  height: 600px;
-  overflow: hidden;
+  height: 430px;
+  margin-top: 100px;
   @media (max-width: 900px) {
     width: 300px;
     left: 0;
@@ -41,7 +40,7 @@ const Form = styled.form`
 
 const FormHeader = styled.h1`
   font-family: ${robo};
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   position: relative;
   margin: 0;
@@ -50,7 +49,7 @@ const FormHeader = styled.h1`
     content: '';
     position: absolute;
     left: 0;
-    top: 2rem;
+    top: 1.7rem;
     width: 100%;
     height: 1px;
     background-color: #e1e1e1;
@@ -62,15 +61,15 @@ const FormHeader = styled.h1`
 
 const Label = styled.label`
   :first-of-type {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
-  margin-top: 1.5rem;
+  margin-top: 1.3rem;
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
 `;
 
 const Input = styled.input`
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   display: block;
   width: 13rem;
   font-family: ${mont};
@@ -83,9 +82,9 @@ const Input = styled.input`
 
 const FormButton = styled(Button)`
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.8rem;
   left: 50%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transform: translateX(-50%);
   @media (max-width: 900px) {
     margin-top: 3rem;
