@@ -1,10 +1,9 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import Loading from '../../Loading/Loading';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import Album from '../../Album/Album';
-import Error from '../../Error/Error';
+import Loading from '../../Loading/Loading';
 
 const StyledH2 = styled.h2`
   margin: 60px 0 30px;
@@ -37,7 +36,6 @@ const RecentAlbums = () => {
           fetchPolicy='cache-and-network'
         >
           {({ data, error, loading }) => {
-            if (error) return <Error error={error} />;
             if (loading) return <Loading loading={loading} withDelay />;
             if (data?.albums?.albums) {
               const { albums } = data.albums;

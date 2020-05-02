@@ -5,7 +5,6 @@ import { useAddContext } from '../../../../contexts/add/AddProvider';
 import Button from '../../../../styles/Button';
 import { background } from '../../../../utils/colors';
 import { CREATE_ALBUM } from '../../../../utils/mutations';
-import Error from '../../../Error/Error';
 import LoadedImage from '../../../LoadedImage/LoadedImage';
 
 const Item = styled.li`
@@ -57,7 +56,7 @@ const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
               )}
             </ImageWrapper>
             {payload.error ? (
-              <Error error={payload.error} />
+              <p>error!</p>
             ) : (
               <div>
                 <div>{artist}</div>

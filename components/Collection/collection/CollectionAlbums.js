@@ -1,17 +1,14 @@
-import debounce from 'lodash.debounce';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
 import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
 import Button from '../../../styles/Button';
-import { Input } from '../../../styles/Form';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import Album from '../../Album/Album';
-import Error from '../../Error/Error';
 import Loading from '../../Loading/Loading';
-import DeleteButton from './collectionAlbums/DeleteButton';
 import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
+import DeleteButton from './collectionAlbums/DeleteButton';
 
 const Wrapper = styled.section`
   max-width: 800px;
@@ -68,7 +65,6 @@ const CollectionAlbums = () => {
         fetchPolicy='cache-and-network'
       >
         {({ data, error, loading, variables }) => {
-          if (error) return <Error error={error} />;
           if (loading) return <Loading loading={loading} />;
           if (data?.albums?.albums) {
             const { albums, total } = data.albums;
