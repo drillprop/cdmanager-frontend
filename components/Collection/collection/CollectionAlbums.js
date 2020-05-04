@@ -44,13 +44,6 @@ const SingleAlbumWrapper = styled.div`
   gap: 15px;
 `;
 
-const NoAlbumsPar = styled.p`
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  text-align: center;
-`;
-
 const CollectionAlbums = () => {
   const { page, state } = useCollectionContext();
 
@@ -73,8 +66,8 @@ const CollectionAlbums = () => {
             if (!total)
               return (
                 <>
-                  <NoAlbumsPar>no albums added yet</NoAlbumsPar>
-                  <Button small center>
+                  <StyledH2>no albums added yet</StyledH2>
+                  <Button style={{ marginTop: '40px' }} small center>
                     <Link href={'/add'}>
                       <a> click here to add one</a>
                     </Link>
