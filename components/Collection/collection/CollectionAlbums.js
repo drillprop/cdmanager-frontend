@@ -10,6 +10,7 @@ import Loading from '../../Loading/Loading';
 import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
 import DeleteButton from './collectionAlbums/DeleteButton';
 import AlbumsError from '../../AlbumsError/AlbumsError';
+import StarsRating from './collectionAlbums/StarsRating';
 
 const Wrapper = styled.section`
   max-width: 800px;
@@ -90,6 +91,7 @@ const CollectionAlbums = () => {
                         image={image}
                         id={id}
                       />
+                      <StarsRating />
                       <DeleteButton id={id} variables={variables} />
                     </SingleAlbumWrapper>
                   ))}
