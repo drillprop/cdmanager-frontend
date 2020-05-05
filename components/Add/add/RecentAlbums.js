@@ -16,7 +16,7 @@ const CdsWrapper = styled.section`
   margin: 0 auto;
   justify-content: center;
   display: grid;
-  gap: 50px;
+  gap: 80px;
   .error-message {
     grid-column: 1/6;
   }
