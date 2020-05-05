@@ -7,14 +7,14 @@ import LoadedImage from '../LoadedImage/LoadedImage';
 const StyledFigure = styled.figure`
   display: grid;
   margin: 0;
-  grid-template-rows: ${(props) => (props.large ? '150px' : '120px')} auto;
-  grid-template-columns: ${(props) => (props.large ? '150px' : '120px')};
+  grid-template-rows: ${(props) => (props.large ? '170px' : '150px')} auto;
+  grid-template-columns: ${(props) => (props.large ? '170px' : '150px')};
   justify-content: center;
   gap: 20px;
   figcaption {
     display: grid;
-    grid-template-rows: minmax(30px, 1fr) 1fr;
-    gap: 10px;
+    grid-template-rows: minmax(20px, 1fr) 1fr;
+    gap: 15px;
   }
 `;
 
@@ -36,7 +36,7 @@ const ArtistName = styled.h3`
   text-align: center;
   font-family: ${robo};
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0;
 `;
 
@@ -44,7 +44,7 @@ const Title = styled.h4`
   text-align: center;
   font-family: ${mont};
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin: 0;
 `;
 
