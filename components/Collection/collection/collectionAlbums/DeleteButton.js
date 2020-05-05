@@ -10,15 +10,28 @@ import {
 import Icon from '../../../Icon/Icon';
 
 const StyledButton = styled.button`
+  position: absolute;
+  cursor: pointer;
+  margin-left: 130px;
+  margin-top: -20px;
   background: ${background};
-  padding: 8px 10px;
+  padding: 10px 10px;
   color: ${black};
-  border-radius: 3px;
-  border: 1px solid ${black};
-  font-size: 0.8rem;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  transition: 200ms;
+  :hover {
+    transform: scale(1.1);
+    background-color: #222;
+    svg {
+      stroke: white;
+      fill: white;
+    }
+  }
+
   svg {
     width: 1em;
-    margin-right: 0.3em;
     height: 1em;
     display: inline-block;
     vertical-align: middle;
@@ -51,7 +64,6 @@ const DeleteButton = ({ id, variables }) => {
             }}
           >
             <Icon icon={'delete'} color={black} />
-            {payload.called ? 'deleting...' : 'delete'}
           </StyledButton>
         );
       }}
