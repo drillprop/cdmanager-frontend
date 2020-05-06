@@ -40,6 +40,7 @@ const StarsRating = () => {
       />
       <span>users rating</span>
       <Stars
+        disableMouseEvents
         fillColor='#575757'
         blankColor='silver'
         height='18px'

@@ -8,6 +8,7 @@ const Stars = ({
   rating = 100,
   id = 'path',
   setRating,
+  disableMouseEvents,
 }) => {
   const [cover, setCover] = useState(0);
 
@@ -25,6 +26,7 @@ const Stars = ({
 
   return (
     <svg
+      style={{ pointerEvents: disableMouseEvents ? 'none' : 'unset' }}
       viewBox='0 0 100 20'
       height={height}
       onMouseMove={handleMouseMove}
@@ -51,6 +53,7 @@ Stars.propTypes = {
   blankColor: PropTypes.string,
   rating: PropTypes.number,
   setRating: PropTypes.func,
+  disableMouseEvents: PropTypes.bool,
 };
 
 export default Stars;
