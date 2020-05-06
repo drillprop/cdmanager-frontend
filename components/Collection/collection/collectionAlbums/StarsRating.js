@@ -19,7 +19,8 @@ const StarsWrapper = styled.div`
     font-style: italic;
   }
   svg {
-    margin-bottom: 15px;
+    display: block;
+    margin: 0 auto 15px;
   }
 `;
 
@@ -30,7 +31,7 @@ const StarsRating = () => {
       <Stars
         fillColor='#333'
         blankColor='silver'
-        size='26px'
+        height='26px'
         cover={50}
         id='your-rating'
       />
@@ -38,7 +39,7 @@ const StarsRating = () => {
       <Stars
         fillColor='#575757'
         blankColor='silver'
-        size='18px'
+        height='18px'
         cover={50}
         id='user-rating'
       />
