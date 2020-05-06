@@ -32,7 +32,7 @@ const StarsRating = () => {
         fillColor='#333'
         blankColor='silver'
         height='26px'
-        cover={50}
+        rate={50}
         id='your-rating'
       />
       <span>users rating</span>
@@ -40,7 +40,7 @@ const StarsRating = () => {
         fillColor='#575757'
         blankColor='silver'
         height='18px'
-        cover={50}
+        rate={50}
         id='user-rating'
       />
     </StarsWrapper>

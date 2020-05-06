@@ -5,7 +5,7 @@ const Stars = ({
   height = '40px',
   fillColor = 'black',
   blankColor = 'white',
-  cover = 100,
+  rate = 100,
   id = 'path',
 }) => {
   const [cov, setCover] = useState(0);
@@ -27,8 +27,8 @@ const Stars = ({
     >
       <defs>
         <linearGradient id={id}>
-          <stop offset={`${cover}%`} stopColor={fillColor} />
-          <stop offset={`${cover}%`} stopColor={blankColor} stopOpacity='1' />
+          <stop offset={`${rate}%`} stopColor={fillColor} />
+          <stop offset={`${rate}%`} stopColor={blankColor} stopOpacity='1' />
         </linearGradient>
       </defs>
       <path
@@ -43,7 +43,7 @@ Stars.propTypes = {
   height: PropTypes.string,
   fillColor: PropTypes.string,
   blankColor: PropTypes.string,
-  cover: PropTypes.number,
+  rate: PropTypes.number,
 };
 
 export default Stars;
