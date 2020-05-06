@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Stars from '../../../Stars/Stars';
 import { robo } from '../../../../utils/fonts';
@@ -25,6 +25,8 @@ const StarsWrapper = styled.div`
 `;
 
 const StarsRating = () => {
+  const [rating, setRating] = useState(0);
+
   return (
     <StarsWrapper>
       <span>your rating</span>
@@ -32,7 +34,8 @@ const StarsRating = () => {
         fillColor='#333'
         blankColor='silver'
         height='26px'
-        rate={50}
+        rating={rating}
+        setRating={setRating}
         id='your-rating'
       />
       <span>users rating</span>
@@ -40,7 +43,7 @@ const StarsRating = () => {
         fillColor='#575757'
         blankColor='silver'
         height='18px'
-        rate={50}
+        rating={50}
         id='user-rating'
       />
     </StarsWrapper>

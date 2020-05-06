@@ -5,14 +5,15 @@ const Stars = ({
   height = '40px',
   fillColor = 'black',
   blankColor = 'white',
-  rate = 100,
+  rating = 100,
   id = 'path',
+  setRating,
 }) => {
   const [cover, setCover] = useState(0);
 
   useEffect(() => {
-    setCover(rate);
-  }, [rate]);
+    setCover(rating);
+  }, [rating]);
 
   const handleMouseMove = (e) => {
     const { width, x } = e.currentTarget.getBoundingClientRect();
@@ -27,7 +28,8 @@ const Stars = ({
       viewBox='0 0 100 20'
       height={height}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setCover(rate)}
+      onMouseLeave={() => setCover(rating)}
+      onClick={() => setRating && setRating(cover)}
     >
       <defs>
         <linearGradient id={id + cover}>
@@ -47,7 +49,8 @@ Stars.propTypes = {
   height: PropTypes.string,
   fillColor: PropTypes.string,
   blankColor: PropTypes.string,
-  rate: PropTypes.number,
+  rating: PropTypes.number,
+  setRating: PropTypes.func,
 };
 
 export default Stars;
