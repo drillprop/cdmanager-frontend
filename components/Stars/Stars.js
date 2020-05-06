@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Stars = ({
   size = '40px',
@@ -8,9 +8,24 @@ const Stars = ({
   cover = 100,
   id = 'path',
 }) => {
+  const [cov, setCover] = useState(0);
+
+  const handleMouseMove = (e) => {
+    const { width, x } = e.currentTarget.getBoundingClientRect();
+    const relativePos = e.clientX - x;
+
+    const roundedPos = Math.round((relativePos / width) * 10) * 10;
+    setCover(roundedPos);
+  };
+
   const coverCorrection = cover / 50 - 1; // add some correction, because stars are not sticking to each other
   return (
-    <svg height={size} viewBox='0 0 2500 500'>
+    <svg
+      height={size}
+      viewBox='0 0 2500 500'
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setCover(0)}
+    >
       <defs>
         <linearGradient id={id}>
           <stop offset={`${cover + coverCorrection}%`} stopColor={fillColor} />
