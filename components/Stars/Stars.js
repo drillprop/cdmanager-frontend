@@ -9,6 +9,7 @@ const Stars = ({
   id = 'path',
   setRating,
   disableMouseEvents,
+  loading,
 }) => {
   const [cover, setCover] = useState(0);
 
@@ -30,19 +31,32 @@ const Stars = ({
       viewBox='0 0 100 20'
       height={height}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setCover(rating)}
+      onMouseLeave={() => (loading ? setCover(cover) : setCover(rating))}
       onClick={() => setRating && setRating(cover)}
     >
       <defs>
-        <linearGradient id={id + cover}>
-          <stop offset={`${cover}%`} stopColor={fillColor} />
-          <stop offset={`${cover}%`} stopColor={blankColor} stopOpacity='1' />
-        </linearGradient>
+        {loading ? (
+          <linearGradient id={id}>
+            <stop offset='0' stopColor={blankColor} stopOpacity='.5' />
+            <stop offset='100%' stopColor={fillColor} stopOpacity='.5' />
+            <animate
+              attributeName='y2'
+              dur='1000ms'
+              values='0%;100%;0%'
+              repeatCount='indefinite'
+            />
+          </linearGradient>
+        ) : (
+          <linearGradient id={id}>
+            <stop offset={`${cover}%`} stopColor={fillColor} />
+            <stop offset={`${cover}%`} stopColor={blankColor} stopOpacity='1' />
+          </linearGradient>
+        )}
       </defs>
 
       <g>
         <path
-          fill={`url(#${id + cover})`}
+          fill={`url(#${id})`}
           d='M90.090956.5219413l3.120605 6.3219131 6.977429 1.014226-5.049015 4.9213426 1.19165 6.949241-6.240669-3.281448-6.24067 3.281448 1.191651-6.949241-5.049019-4.9213426 6.977432-1.014226zm-20.004721 6e-8l3.120609 6.32191304 6.977429 1.014226-5.049019 4.9213426 1.191646 6.949241-6.240665-3.281448-6.240669 3.281448 1.19165-6.949241-5.049019-4.9213426 6.977429-1.014226zm-20.13508 6e-8l3.120611 6.32191298 6.977428 1.014226-5.049019 4.9213426 1.191647 6.949241-6.240667-3.281448-6.240666 3.281448 1.191647-6.949241-5.049019-4.9213426 6.977428-1.014226zm-19.917786 6e-8l3.120609 6.32191292 6.977431 1.014226-5.049021 4.9213426 1.191647 6.949241-6.240666-3.281448-6.240665 3.281448 1.191646-6.949241-5.049019-4.9213426 6.977428-1.014226zm-20.1021922 6e-8L13.051787 6.8438545l6.977429 1.0142256-5.04902 4.9213429 1.191647 6.949241-6.2406662-3.281448-6.2406645 3.281448 1.1916458-6.949241-5.04901911-4.9213429L6.8105676 6.8438545z'
         />
       </g>
@@ -57,6 +71,7 @@ Stars.propTypes = {
   rating: PropTypes.number,
   setRating: PropTypes.func,
   disableMouseEvents: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 export default Stars;
