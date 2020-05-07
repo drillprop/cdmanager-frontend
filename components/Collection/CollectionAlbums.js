@@ -2,14 +2,14 @@ import Link from 'next/link';
 import React from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
-import Button from '../../../styles/Button';
-import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
-import Album from '../../Album/Album';
-import Loading from '../../Loading/Loading';
+import { useCollectionContext } from '../../contexts/collection/CollectionProvider';
+import Button from '../../styles/Button';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
+import Album from '../Album/Album';
+import Loading from '../Loading/Loading';
 import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
 import DeleteButton from './collectionAlbums/DeleteButton';
-import AlbumsError from '../../AlbumsError/AlbumsError';
+import AlbumsError from '../AlbumsError/AlbumsError';
 import StarsRating from './collectionAlbums/StarsRating';
 
 const Wrapper = styled.section`

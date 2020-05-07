@@ -1,8 +1,8 @@
 import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
-import { useCollectionContext } from '../../../../contexts/collection/CollectionProvider';
-import { Input } from '../../../../styles/Form';
-import { GET_ALBUMS_LENGTH } from '../../../../utils/queries';
+import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
+import { Input } from '../../../styles/Form';
+import { GET_ALBUMS_LENGTH } from '../../../utils/queries';
 import { Query } from 'react-apollo';
 
 const CollectionAlbumsFilter = () => {

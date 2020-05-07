@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import Stars from '../../../Stars/Stars';
-import { robo } from '../../../../utils/fonts';
+import Stars from '../../Stars/Stars';
+import { robo } from '../../../utils/fonts';
 
 const StarsWrapper = styled.div`
   display: flex;
