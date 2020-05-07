@@ -5,12 +5,12 @@ const initialState = {
   searchInput: '',
   isListVisible: false,
   isRecentAlbumsVisible: true,
-  clearInput: true
+  clearInput: true,
 };
 
 export const AddContext = React.createContext({
   ...initialState,
-  dispatch: () => null
+  dispatch: () => null,
 });
 
 const AddProvider = ({ children }) => {

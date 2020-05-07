@@ -64,6 +64,7 @@ const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
               </div>
             )}
             <Button
+              type='submit'
               disabled={payload.called}
               onClick={async () => {
                 await createAlbum();

@@ -6,7 +6,6 @@ export function addReducer(state, action) {
         searchInput: action.searchInput,
         isListVisible: !!action.searchInput,
         isRecentAlbumsVisible: !action.searchInput,
-        input: action.input
       };
     case 'CREATE_ALBUM':
       return {
@@ -14,12 +13,12 @@ export function addReducer(state, action) {
         searchInput: '',
         isListVisible: false,
         isRecentAlbumsVisible: true,
-        clearInput: true
+        clearInput: true,
       };
     case 'CLEAR_INPUT':
       return {
         ...state,
-        clearInput: action.clearInput
+        clearInput: action.clearInput,
       };
     default:
       return state;

@@ -37,7 +37,6 @@ const StyledForm = styled.form`
 
 const AddAlbumForm = () => {
   const { state, dispatch } = useAddContext();
-
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -54,28 +53,31 @@ const AddAlbumForm = () => {
       <PageTitle>add an album</PageTitle>
       <StyledForm displayRecent={!state.isListVisible}>
         <input
-          type='text'
+          type='search'
           placeholder='search...'
-          value={result}
-          onChange={(e) => setResult(e.currentTarget.value)}
+          value={state.clearInput ? '' : result}
+          onChange={(e) => {
+            dispatch({ type: 'CLEAR_INPUT', clearInput: false });
+            setResult(e.currentTarget.value);
+          }}
         />
+        {state.isListVisible && (
+          <Query
+            query={GET_ALBUMS_FROM_LASTFM}
+            variables={{ search: state.searchInput }}
+          >
+            {({ loading, error, data }) =>
+              data && data.albumslastfm ? (
+                <SearchAlbumList
+                  albumslastfm={data.albumslastfm}
+                  loading={loading}
+                  error={error}
+                />
+              ) : null
+            }
+          </Query>
+        )}
       </StyledForm>
-      {state.isListVisible && (
-        <Query
-          query={GET_ALBUMS_FROM_LASTFM}
-          variables={{ search: state.searchInput }}
-        >
-          {({ loading, error, data }) =>
-            data && data.albumslastfm ? (
-              <SearchAlbumList
-                albumslastfm={data.albumslastfm}
-                loading={loading}
-                error={error}
-              />
-            ) : null
-          }
-        </Query>
-      )}
     </>
   );
 };
