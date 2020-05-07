@@ -83,18 +83,23 @@ const CollectionAlbums = () => {
                     : 'recently added'}
                 </StyledH2>
                 <CdsWrapper>
-                  {albums.map(({ artist, title, image, id }) => (
-                    <SingleAlbumWrapper key={id}>
-                      <Album
-                        artist={artist}
-                        title={title}
-                        image={image}
-                        id={id}
-                      />
-                      <StarsRating />
-                      <DeleteButton id={id} variables={variables} />
-                    </SingleAlbumWrapper>
-                  ))}
+                  {albums.map(
+                    ({ artist, title, image, id, rateAvg, yourRate }) => (
+                      <SingleAlbumWrapper key={id}>
+                        <Album
+                          artist={artist}
+                          title={title}
+                          image={image}
+                          id={id}
+                        />
+                        <StarsRating
+                          rateAvg={rateAvg || 0}
+                          yourRate={yourRate?.value || 0}
+                        />
+                        <DeleteButton id={id} variables={variables} />
+                      </SingleAlbumWrapper>
+                    )
+                  )}
                 </CdsWrapper>
               </>
             );

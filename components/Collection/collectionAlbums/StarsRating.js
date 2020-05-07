@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Stars from '../../Stars/Stars';
 import { robo } from '../../../utils/fonts';
+import Stars from '../../Stars/Stars';
 
 const StarsWrapper = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const StarsWrapper = styled.div`
   }
 `;
 
-const StarsRating = () => {
+const StarsRating = ({ rateAvg, yourRate }) => {
   const [rating, setRating] = useState(0);
 
   return (
@@ -34,7 +35,7 @@ const StarsRating = () => {
         fillColor='#333'
         blankColor='silver'
         height='26px'
-        rating={rating}
+        rating={yourRate * 10}
         setRating={setRating}
         id='your-rating'
       />
@@ -44,11 +45,16 @@ const StarsRating = () => {
         fillColor='#575757'
         blankColor='silver'
         height='18px'
-        rating={50}
+        rating={rateAvg * 10}
         id='user-rating'
       />
     </StarsWrapper>
   );
+};
+
+StarsRating.propTypes = {
+  rateAvg: PropTypes.number,
+  yourRate: PropTypes.number,
 };
 
 export default StarsRating;
