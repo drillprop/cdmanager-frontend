@@ -7,7 +7,8 @@ import { PageTitle } from '../../styles/Titles';
 import { mont } from '../../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
 import { theme } from '../../utils/theme';
-import SearchAlbumList from './addAlbumForm/SearchAlbumList';
+import Loading from '../Loading/Loading';
+import SearchAlbumItem from './addAlbumForm/SearchAlbumItem';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -33,6 +34,31 @@ const StyledForm = styled.form`
       height: 40px;
     }
   }
+`;
+
+const List = styled.ul`
+  position: relative;
+  margin: 0.4rem auto;
+  background: white;
+  width: calc(1.3 * 400px);
+  border: 1px solid #909090;
+  border-radius: 3px;
+  box-shadow: ${theme.bs};
+  list-style: none;
+  padding: 0;
+  @media (max-width: 600px) {
+    width: calc(1.3 * 230px);
+  }
+`;
+
+const NoAlbumsPar = styled.p`
+  font-style: italic;
+  font-size: 16px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const AddAlbumForm = () => {
@@ -62,20 +88,38 @@ const AddAlbumForm = () => {
           }}
         />
         {state.isListVisible && (
-          <Query
-            query={GET_ALBUMS_FROM_LASTFM}
-            variables={{ search: state.searchInput }}
-          >
-            {({ loading, error, data }) =>
-              data && data.albumslastfm ? (
-                <SearchAlbumList
-                  albumslastfm={data.albumslastfm}
-                  loading={loading}
-                  error={error}
-                />
-              ) : null
-            }
-          </Query>
+          <List>
+            <Query
+              query={GET_ALBUMS_FROM_LASTFM}
+              variables={{ search: state.searchInput }}
+            >
+              {({ loading, error, data }) => {
+                if (loading) return <Loading loading={loading} />;
+                if (error)
+                  return <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>;
+
+                const uniqueSearchResult =
+                  data &&
+                  data.albumslastfm &&
+                  Array.from(new Set(data.albumslastfm));
+
+                if (!uniqueSearchResult.length)
+                  return <NoAlbumsPar> no albums found...</NoAlbumsPar>;
+
+                return uniqueSearchResult.map(
+                  ({ artist, title, imageSmall, imageLarge }) => (
+                    <SearchAlbumItem
+                      artist={artist}
+                      title={title}
+                      imageSmall={imageSmall}
+                      imageLarge={imageLarge}
+                      key={title + artist}
+                    />
+                  )
+                );
+              }}
+            </Query>
+          </List>
         )}
       </StyledForm>
     </>
