@@ -20,6 +20,12 @@ export const GET_ALBUMS_FROM_COLLECTION = gql`
         artist
         image
         id
+        rateAvg
+        rateCount
+        yourRate {
+          value
+          review
+        }
       }
     }
   }
