@@ -1,13 +1,15 @@
 import React from 'react';
-import Add from '../components/Add/Add';
 import PageSpring from '../utils/PageSpring';
 import AddProvider from '../contexts/add/AddProvider';
+import RecentAlbums from '../components/Add/RecentAlbums';
+import SearchAlbumForm from '../components/Add/SearchAlbumForm';
 
 const AddPage = () => {
   return (
     <AddProvider>
       <PageSpring>
-        <Add />
+        <SearchAlbumForm />
+        <RecentAlbums />
       </PageSpring>
     </AddProvider>
   );

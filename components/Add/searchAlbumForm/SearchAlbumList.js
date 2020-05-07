@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../../../utils/theme';
+import { theme } from '../../../utils/theme';
 import SearchAlbumItem from './SearchAlbumItem';
-import Loading from '../../../Loading/Loading';
+import Loading from '../../Loading/Loading';
 
 const List = styled.ul`
   position: relative;

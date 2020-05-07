@@ -2,11 +2,11 @@ import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
 import { Query } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../../../contexts/add/AddProvider';
-import { PageTitle } from '../../../styles/Titles';
-import { mont } from '../../../utils/fonts';
-import { GET_ALBUMS_FROM_LASTFM } from '../../../utils/queries';
-import { theme } from '../../../utils/theme';
+import { useAddContext } from '../../contexts/add/AddProvider';
+import { PageTitle } from '../../styles/Titles';
+import { mont } from '../../utils/fonts';
+import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
+import { theme } from '../../utils/theme';
 import SearchAlbumList from './searchAlbumForm/SearchAlbumList';
 
 const StyledForm = styled.form`

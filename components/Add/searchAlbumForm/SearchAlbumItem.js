@@ -1,11 +1,11 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
-import { useAddContext } from '../../../../contexts/add/AddProvider';
-import Button from '../../../../styles/Button';
-import { background } from '../../../../utils/colors';
-import { CREATE_ALBUM } from '../../../../utils/mutations';
-import LoadedImage from '../../../LoadedImage/LoadedImage';
+import { useAddContext } from '../../../contexts/add/AddProvider';
+import Button from '../../../styles/Button';
+import { background } from '../../../utils/colors';
+import { CREATE_ALBUM } from '../../../utils/mutations';
+import LoadedImage from '../../LoadedImage/LoadedImage';
 
 const Item = styled.li`
   display: grid;
