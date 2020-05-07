@@ -7,7 +7,7 @@ import { PageTitle } from '../../styles/Titles';
 import { mont } from '../../utils/fonts';
 import { GET_ALBUMS_FROM_LASTFM } from '../../utils/queries';
 import { theme } from '../../utils/theme';
-import SearchAlbumList from './searchAlbumForm/SearchAlbumList';
+import SearchAlbumList from './addAlbumForm/SearchAlbumList';
 
 const StyledForm = styled.form`
   margin: 0 auto;
@@ -35,7 +35,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const SearchAlbumForm = () => {
+const AddAlbumForm = () => {
   const { state, dispatch } = useAddContext();
 
   const [result, setResult] = useState('');
@@ -80,4 +80,4 @@ const SearchAlbumForm = () => {
   );
 };
 
-export default SearchAlbumForm;
+export default AddAlbumForm;
