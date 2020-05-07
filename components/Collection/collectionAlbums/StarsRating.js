@@ -51,7 +51,6 @@ const StarsRating = ({ rateAvg, yourRate, id, variables }) => {
               setRating={(value) =>
                 rateAlbum({ variables: { id, value: value / 10 } })
               }
-              loading={loading}
               id={'your-rating' + id}
             />
           );

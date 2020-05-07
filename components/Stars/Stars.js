@@ -1,28 +1,42 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 
 const Stars = ({
   height = '40px',
   fillColor = 'black',
   blankColor = 'white',
-  rating = 100,
+  rating = 0,
   id = 'path',
   setRating,
   disableMouseEvents,
-  loading,
 }) => {
   const [cover, setCover] = useState(0);
+  const [isSpringDisabled, disableSpring] = useState(false);
+
+  const springAnimation = useSpring({
+    number: cover + '%',
+    immediate: isSpringDisabled,
+  });
 
   useEffect(() => {
     setCover(rating);
   }, [rating]);
 
   const handleMouseMove = (e) => {
+    disableSpring(true);
     const { width, x } = e.currentTarget.getBoundingClientRect();
     const relativePos = e.clientX - x;
-
     const roundedPos = Math.round((relativePos / width) * 10) * 10;
     setCover(roundedPos);
+  };
+
+  const handleMouseLeave = (e) => {
+    setCover(rating);
+  };
+
+  const handleClick = () => {
+    setRating(cover);
   };
 
   return (
@@ -31,29 +45,18 @@ const Stars = ({
       viewBox='0 0 100 20'
       height={height}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => (loading ? setCover(cover) : setCover(rating))}
-      onClick={() => setRating && setRating(cover)}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       <defs>
-        {loading ? (
-          <linearGradient id={id}>
-            <stop offset='0' stopColor={blankColor} stopOpacity='.5' />
-            <stop offset='100%' stopColor={fillColor} stopOpacity='.5' />
-            <animate
-              attributeName='y2'
-              dur='1000ms'
-              values='0%;100%;0%'
-              repeatCount='indefinite'
-            />
-          </linearGradient>
-        ) : (
-          <linearGradient id={id}>
-            <stop offset={`${cover}%`} stopColor={fillColor} />
-            <stop offset={`${cover}%`} stopColor={blankColor} stopOpacity='1' />
-          </linearGradient>
-        )}
+        <linearGradient id={id}>
+          <animated.stop
+            offset={springAnimation.number}
+            stopColor={fillColor}
+          />
+          <stop offset={0} stopColor={blankColor} stopOpacity='1' />
+        </linearGradient>
       </defs>
-
       <g>
         <path
           fill={`url(#${id})`}
@@ -71,7 +74,6 @@ Stars.propTypes = {
   rating: PropTypes.number,
   setRating: PropTypes.func,
   disableMouseEvents: PropTypes.bool,
-  loading: PropTypes.bool,
 };
 
 export default Stars;
