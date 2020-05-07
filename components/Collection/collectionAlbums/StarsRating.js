@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
+import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import { robo } from '../../../utils/fonts';
+import { RATE_ALBUM } from '../../../utils/mutations';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import Stars from '../../Stars/Stars';
 
 const StarsWrapper = styled.div`
@@ -25,20 +28,34 @@ const StarsWrapper = styled.div`
   }
 `;
 
-const StarsRating = ({ rateAvg, yourRate }) => {
-  const [rating, setRating] = useState(0);
-
+const StarsRating = ({ rateAvg, yourRate, id, variables }) => {
   return (
     <StarsWrapper>
       <span>your rating</span>
-      <Stars
-        fillColor='#333'
-        blankColor='silver'
-        height='26px'
-        rating={yourRate * 10}
-        setRating={setRating}
-        id='your-rating'
-      />
+      <Mutation
+        mutation={RATE_ALBUM}
+        refetchQueries={[
+          {
+            query: GET_ALBUMS_FROM_COLLECTION,
+            variables,
+          },
+        ]}
+      >
+        {(rateAlbum, { loading }) => {
+          return (
+            <Stars
+              fillColor='#333'
+              blankColor='silver'
+              height='26px'
+              rating={yourRate * 10}
+              setRating={(value) =>
+                rateAlbum({ variables: { id, value: value / 10 } })
+              }
+              id={'your-rating' + id}
+            />
+          );
+        }}
+      </Mutation>
       <span>users rating</span>
       <Stars
         disableMouseEvents
@@ -46,13 +63,19 @@ const StarsRating = ({ rateAvg, yourRate }) => {
         blankColor='silver'
         height='18px'
         rating={rateAvg * 10}
-        id='user-rating'
+        id={'users-rating' + id}
       />
     </StarsWrapper>
   );
 };
 
 StarsRating.propTypes = {
+  id: PropTypes.string,
+  variables: PropTypes.shape({
+    skip: PropTypes.number,
+    search: PropTypes.string,
+    limit: PropTypes.number,
+  }),
   rateAvg: PropTypes.number,
   yourRate: PropTypes.number,
 };

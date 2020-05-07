@@ -93,6 +93,8 @@ const CollectionAlbums = () => {
                           id={id}
                         />
                         <StarsRating
+                          variables={variables}
+                          id={id}
                           rateAvg={rateAvg || 0}
                           yourRate={yourRate?.value || 0}
                         />
