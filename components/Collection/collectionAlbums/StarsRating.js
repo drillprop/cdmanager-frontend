@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import { robo } from '../../../utils/fonts';
@@ -29,6 +29,7 @@ const StarsWrapper = styled.div`
 `;
 
 const StarsRating = ({ rateAvg, yourRate, id, variables }) => {
+  const [newRating, setNewRating] = useState(0);
   return (
     <StarsWrapper>
       <span>your rating</span>
@@ -41,16 +42,17 @@ const StarsRating = ({ rateAvg, yourRate, id, variables }) => {
           },
         ]}
       >
-        {(rateAlbum, { loading }) => {
+        {(rateAlbum) => {
           return (
             <Stars
               fillColor='#333'
               blankColor='silver'
               height='26px'
-              rating={yourRate * 10}
-              setRating={(value) =>
-                rateAlbum({ variables: { id, value: value / 10 } })
-              }
+              rating={newRating || yourRate * 10}
+              setRating={(value) => {
+                setNewRating(value);
+                rateAlbum({ variables: { id, value: value / 10 } });
+              }}
               id={'your-rating' + id}
             />
           );

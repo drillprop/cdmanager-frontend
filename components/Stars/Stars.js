@@ -31,22 +31,17 @@ const Stars = ({
     setCover(roundedPos);
   };
 
-  const handleMouseLeave = (e) => {
-    setCover(rating);
-  };
-
-  const handleClick = () => {
-    setRating(cover);
-  };
-
   return (
     <svg
-      style={{ pointerEvents: disableMouseEvents ? 'none' : 'unset' }}
+      style={{
+        pointerEvents: disableMouseEvents ? 'none' : 'unset',
+        cursor: 'pointer',
+      }}
       viewBox='0 0 100 20'
       height={height}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
+      onMouseLeave={() => setCover(rating)}
+      onClick={() => setRating(cover)}
     >
       <defs>
         <linearGradient id={id}>
