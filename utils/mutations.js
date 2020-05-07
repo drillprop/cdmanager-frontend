@@ -10,3 +10,11 @@ export const CREATE_ALBUM = gql`
     }
   }
 `;
+
+export const RATE_ALBUM = gql`
+  mutation RATE_ALBUM($id: String!, $value: Int, $review: String) {
+    rateAlbum(id: $id, value: $value, review: $review) {
+      message
+    }
+  }
+`;
