@@ -15,10 +15,14 @@ const FormError = ({ error }) => {
 
   useEffect(() => {
     if (error) {
-      const errMessages = Object.values(
-        error.graphQLErrors[0].extensions.errors
-      );
-      setError([...errMessages]);
+      if (error.graphQLErrors[0]) {
+        const errMessages = Object.values(
+          error.graphQLErrors[0].extensions.errors
+        );
+        setError([...errMessages]);
+      } else {
+        setError(['Something went wrong']);
+      }
     }
   }, [error]);
 
