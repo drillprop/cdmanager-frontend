@@ -85,7 +85,7 @@ const Shadow = styled.div`
 const Home = () => (
   <HeroWrapper>
     <StyledHeroHeader>
-      <h1>Create a your own music library</h1>
+      <h1>Create your own music library</h1>
       <h3>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
         distinctio quos sequi laudantium ipsum corporis odit! Omnis iste aliquid
