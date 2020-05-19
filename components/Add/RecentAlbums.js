@@ -14,7 +14,7 @@ const StyledH2 = styled.h2`
 
 const CdsWrapper = styled.section`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 60px auto;
   justify-content: center;
   display: grid;
   gap: 80px;
@@ -38,7 +38,7 @@ const RecentAlbums = () => {
           fetchPolicy='cache-and-network'
         >
           {({ data, error, loading }) => {
-            if (error) return <AlbumsError error={error}></AlbumsError>;
+            if (error) return <AlbumsError error={error} />;
             if (loading) return <Loading loading={loading} withDelay />;
             if (data?.albums?.albums) {
               const { albums } = data.albums;
