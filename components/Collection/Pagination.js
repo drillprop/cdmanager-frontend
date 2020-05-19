@@ -32,7 +32,7 @@ const Pagination = () => {
       {({ data, error }) => {
         if (error) return null;
         if (!data?.albums?.total) return <StyledPagination />;
-        const pages = Math.ceil(data.albums.total / 10) || 1;
+        const pages = Math.ceil(data.albums.total / 9) || 1;
         return (
           <StyledPagination>
             <Link

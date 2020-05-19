@@ -55,6 +55,7 @@ const CollectionAlbums = () => {
         query={GET_ALBUMS_FROM_COLLECTION}
         variables={{
           ...state.queryVariables,
+          limit: 9,
           skip: 9 * (page || 1) - 9,
         }}
         fetchPolicy='cache-and-network'

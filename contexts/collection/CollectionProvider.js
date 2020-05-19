@@ -5,12 +5,11 @@ const initialState = {
   queryVariables: {
     skip: 0,
     search: '',
-    limit: 9,
   },
 };
+
 export const CollectionContext = React.createContext({
   ...initialState,
-  page: 0,
   dispatch: () => null,
 });
 
