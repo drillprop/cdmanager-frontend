@@ -4,11 +4,14 @@ Full stack project built with **react**, **node** and **mongodb** as database.
 
 You can find backend code [here](https://github.com/drillprop/cdmanager-backend)
 
-## Screenshot
+## Screenshots
+
+![front](https://user-images.githubusercontent.com/51168865/82314148-a8576f00-99c9-11ea-9848-58007cca78f0.png)
+![collection](https://user-images.githubusercontent.com/51168865/82314151-a9889c00-99c9-11ea-9c7b-285fa598cd3b.png)
 
 ## Description
 
-Cd-manager is a simple app where authenticated users can create and manage their own albums collection.
+Simple app where authenticated users can create and manage their own albums collection.
 
 ## Technologies
 
