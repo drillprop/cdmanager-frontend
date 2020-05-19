@@ -49,3 +49,9 @@ npm install
 ## Demo
 
 [cd-manager](https://cdmanager-frontend.now.sh/)
+
+If you want to play around, you can sign in with this email and password:
+
+**email:** test@test.com
+
+**password:** test123
