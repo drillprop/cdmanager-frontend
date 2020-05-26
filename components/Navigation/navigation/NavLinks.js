@@ -89,12 +89,18 @@ const NavLinks = () => {
             <ul>
               <li>
                 <Link href='/login'>
-                  <a>login</a>
+                  <a>
+                    <Icon icon={'login'} color={lighterblack}></Icon>
+                    login
+                  </a>
                 </Link>
               </li>
               <li>
                 <Link href='/register'>
-                  <a>Register</a>
+                  <a>
+                    <Icon icon={'profile'} color={background}></Icon>
+                    Register
+                  </a>
                 </Link>
               </li>
             </ul>
