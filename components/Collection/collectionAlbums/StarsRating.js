@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Mutation } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 import styled from 'styled-components';
 import { robo } from '../../../utils/fonts';
 import { RATE_ALBUM } from '../../../utils/mutations';
@@ -29,35 +29,32 @@ const StarsWrapper = styled.div`
 `;
 
 const StarsRating = ({ rateAvg, yourRate, id, variables }) => {
+  const [rateAlbum] = useMutation(RATE_ALBUM, {
+    refetchQueries: [
+      {
+        query: GET_ALBUMS_FROM_COLLECTION,
+        variables,
+      },
+    ],
+  });
   const [newRating, setNewRating] = useState(0);
+
+  const handleRate = (value) => {
+    setNewRating(value);
+    rateAlbum({ variables: { id, value: value / 10 } });
+  };
+
   return (
     <StarsWrapper>
       <span>your rating</span>
-      <Mutation
-        mutation={RATE_ALBUM}
-        refetchQueries={[
-          {
-            query: GET_ALBUMS_FROM_COLLECTION,
-            variables,
-          },
-        ]}
-      >
-        {(rateAlbum) => {
-          return (
-            <Stars
-              fillColor='#333'
-              blankColor='silver'
-              height='26px'
-              rating={newRating || yourRate * 10}
-              setRating={(value) => {
-                setNewRating(value);
-                rateAlbum({ variables: { id, value: value / 10 } });
-              }}
-              id={'your-rating' + id}
-            />
-          );
-        }}
-      </Mutation>
+      <Stars
+        fillColor='#333'
+        blankColor='silver'
+        height='26px'
+        rating={newRating || yourRate * 10}
+        setRating={handleRate}
+        id={'your-rating' + id}
+      />
       <span>users rating</span>
       <Stars
         disableMouseEvents
