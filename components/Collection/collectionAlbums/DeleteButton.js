@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import React from 'react';
-import { Mutation } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 import styled from 'styled-components';
 import { background, black } from '../../../utils/colors';
 import {
@@ -35,6 +35,17 @@ const StyledButton = styled.button`
     height: 1em;
     display: inline-block;
     vertical-align: middle;
+    animation: ${(props) =>
+      props.loading ? 'mymove 1.5s linear infinite;' : ''};
+  }
+
+  @keyframes mymove {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 `;
 
@@ -47,27 +58,22 @@ const DELETE_ALBUM = gql`
 `;
 
 const DeleteButton = ({ id, variables }) => {
+  const [deleteAlbum, { loading }] = useMutation(DELETE_ALBUM, {
+    variables: { id },
+    refetchQueries: [
+      { query: GET_ALBUMS_FROM_COLLECTION, variables },
+      { query: GET_ALBUMS_LENGTH },
+    ],
+  });
   return (
-    <Mutation
-      mutation={DELETE_ALBUM}
-      variables={{ id }}
-      refetchQueries={[
-        { query: GET_ALBUMS_FROM_COLLECTION, variables },
-        { query: GET_ALBUMS_LENGTH },
-      ]}
-    >
-      {(deleteAlbum, payload) => {
-        return (
-          <StyledButton
-            onClick={() => {
-              deleteAlbum();
-            }}
-          >
-            <Icon icon={'delete'} color={black} />
-          </StyledButton>
-        );
+    <StyledButton
+      loading={loading}
+      onClick={() => {
+        deleteAlbum();
       }}
-    </Mutation>
+    >
+      <Icon icon={'delete'} color={black} />
+    </StyledButton>
   );
 };
 
