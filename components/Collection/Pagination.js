@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 import styled from 'styled-components';
 import { useCollectionContext } from '../../contexts/collection/CollectionProvider';
 import { GET_ALBUMS_LENGTH } from '../../utils/queries';
@@ -27,45 +27,42 @@ const StyledPagination = styled.div`
 const Pagination = () => {
   const { page: pageContext } = useCollectionContext();
   const page = parseInt(pageContext) || 1;
+  const { data, error } = useQuery(GET_ALBUMS_LENGTH, {
+    fetchPolicy: 'cache-and-network',
+  });
+  if (error) return null;
+  if (!data?.albums?.total) return <StyledPagination />;
+  const pages = Math.ceil(data.albums.total / 9) || 1;
   return (
-    <Query query={GET_ALBUMS_LENGTH} fetchPolicy='cache-and-network'>
-      {({ data, error }) => {
-        if (error) return null;
-        if (!data?.albums?.total) return <StyledPagination />;
-        const pages = Math.ceil(data.albums.total / 9) || 1;
-        return (
-          <StyledPagination>
-            <Link
-              href={{
-                pathname: 'collection',
-                query: {
-                  page: page - 1,
-                },
-              }}
-            >
-              <a aria-disabled={page < 2}>
-                <span>&lt;</span> prev
-              </a>
-            </Link>
-            <div>
-              page {page} of {pages}
-            </div>
-            <Link
-              href={{
-                pathname: 'collection',
-                query: {
-                  page: page + 1,
-                },
-              }}
-            >
-              <a aria-disabled={page >= pages}>
-                next <span>&gt;</span>
-              </a>
-            </Link>
-          </StyledPagination>
-        );
-      }}
-    </Query>
+    <StyledPagination>
+      <Link
+        href={{
+          pathname: 'collection',
+          query: {
+            page: page - 1,
+          },
+        }}
+      >
+        <a aria-disabled={page < 2}>
+          <span>&lt;</span> prev
+        </a>
+      </Link>
+      <div>
+        page {page} of {pages}
+      </div>
+      <Link
+        href={{
+          pathname: 'collection',
+          query: {
+            page: page + 1,
+          },
+        }}
+      >
+        <a aria-disabled={page >= pages}>
+          next <span>&gt;</span>
+        </a>
+      </Link>
+    </StyledPagination>
   );
 };
 export default Pagination;

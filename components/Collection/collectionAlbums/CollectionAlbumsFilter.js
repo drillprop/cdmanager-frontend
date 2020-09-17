@@ -1,11 +1,12 @@
 import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-apollo';
 import { useCollectionContext } from '../../../contexts/collection/CollectionProvider';
 import { Input } from '../../../styles/Form';
 import { GET_ALBUMS_LENGTH } from '../../../utils/queries';
-import { Query } from 'react-apollo';
 
 const CollectionAlbumsFilter = () => {
+  const { data } = useQuery(GET_ALBUMS_LENGTH);
   const { dispatch } = useCollectionContext();
   const [val, setValue] = useState('');
 
@@ -29,20 +30,14 @@ const CollectionAlbumsFilter = () => {
     });
   }, 300);
 
-  return (
-    <Query query={GET_ALBUMS_LENGTH}>
-      {({ data }) => {
-        return data?.albums?.total ? (
-          <Input
-            type='search'
-            placeholder='filter'
-            onChange={(e) => setValue(e.target.value)}
-            value={val}
-          />
-        ) : null;
-      }}
-    </Query>
-  );
+  return data?.albums?.total ? (
+    <Input
+      type='search'
+      placeholder='filter'
+      onChange={(e) => setValue(e.target.value)}
+      value={val}
+    />
+  ) : null;
 };
 
 export default CollectionAlbumsFilter;
