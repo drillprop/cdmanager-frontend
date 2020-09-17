@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mutation } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../../contexts/add/AddProvider';
 import Button from '../../../styles/Button';
@@ -40,45 +40,38 @@ const ImageWrapper = styled.div`
 
 const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
   const { dispatch } = useAddContext();
+  const [createAlbum, { error, called, loading }] = useMutation(CREATE_ALBUM);
+
+  const handleCreateAlbum = async () => {
+    await createAlbum({
+      variables: { artist, title, image: imageLarge },
+    });
+    if (!error) {
+      dispatch({ type: 'CREATE_ALBUM' });
+    }
+  };
+
   return (
-    <Mutation
-      mutation={CREATE_ALBUM}
-      variables={{ artist, title, image: imageLarge }}
-    >
-      {(createAlbum, payload) => {
-        return (
-          <Item>
-            <ImageWrapper>
-              {imageSmall ? (
-                <LoadedImage title={title} image={imageSmall} />
-              ) : (
-                'no cover'
-              )}
-            </ImageWrapper>
-            {payload.error ? (
-              <p>error!</p>
-            ) : (
-              <div>
-                <div>{artist}</div>
-                <div>{title}</div>
-              </div>
-            )}
-            <Button
-              type='submit'
-              disabled={payload.called}
-              onClick={async () => {
-                await createAlbum();
-                if (!payload.error) {
-                  dispatch({ type: 'CREATE_ALBUM' });
-                }
-              }}
-            >
-              {payload.loading ? 'adding...' : 'add'}
-            </Button>
-          </Item>
-        );
-      }}
-    </Mutation>
+    <Item>
+      <ImageWrapper>
+        {imageSmall ? (
+          <LoadedImage title={title} image={imageSmall} />
+        ) : (
+          'no cover'
+        )}
+      </ImageWrapper>
+      {error ? (
+        <p>error!</p>
+      ) : (
+        <div>
+          <div>{artist}</div>
+          <div>{title}</div>
+        </div>
+      )}
+      <Button type='submit' disabled={called} onClick={handleCreateAlbum}>
+        {loading ? 'adding...' : 'add'}
+      </Button>
+    </Item>
   );
 };
 
