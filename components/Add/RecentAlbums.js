@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query, useQuery } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../contexts/add/AddProvider';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';

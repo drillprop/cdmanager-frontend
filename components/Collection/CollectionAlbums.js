@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 import styled from 'styled-components';
 import { useCollectionContext } from '../../contexts/collection/CollectionProvider';
 import Button from '../../styles/Button';
 import { GET_ALBUMS_FROM_COLLECTION } from '../../utils/queries';
 import Album from '../Album/Album';
+import AlbumsError from '../AlbumsError/AlbumsError';
 import Loading from '../Loading/Loading';
 import CollectionAlbumsFilter from './collectionAlbums/CollectionAlbumsFilter';
 import DeleteButton from './collectionAlbums/DeleteButton';
-import AlbumsError from '../AlbumsError/AlbumsError';
 import StarsRating from './collectionAlbums/StarsRating';
 
 const Wrapper = styled.section`
@@ -47,68 +47,56 @@ const SingleAlbumWrapper = styled.div`
 
 const CollectionAlbums = () => {
   const { page, state } = useCollectionContext();
-
+  const { data, error, loading, variables } = useQuery(
+    GET_ALBUMS_FROM_COLLECTION,
+    {
+      variables: {
+        ...state.queryVariables,
+        limit: 9,
+        skip: 9 * (page || 1) - 9,
+      },
+      fetchPolicy: 'cache-and-network',
+    }
+  );
+  const albums = data?.albums;
   return (
     <Wrapper>
       <CollectionAlbumsFilter />
-      <Query
-        query={GET_ALBUMS_FROM_COLLECTION}
-        variables={{
-          ...state.queryVariables,
-          limit: 9,
-          skip: 9 * (page || 1) - 9,
-        }}
-        fetchPolicy='cache-and-network'
-      >
-        {({ data, error, loading, variables }) => {
-          if (error) return <AlbumsError error={error} />;
-          if (loading) return <Loading loading={loading} />;
-          if (data?.albums?.albums) {
-            const { albums, total } = data.albums;
-            if (!total)
-              return (
-                <>
-                  <StyledH2>no albums added yet</StyledH2>
-                  <Button style={{ marginTop: '40px' }} small center>
-                    <Link href={'/add'}>
-                      <a> click here to add one</a>
-                    </Link>
-                  </Button>
-                </>
-              );
-            return (
-              <>
-                <StyledH2>
-                  {state.queryVariables.search
-                    ? `searching for ${state.queryVariables.search}`
-                    : 'recently added'}
-                </StyledH2>
-                <CdsWrapper>
-                  {albums.map(
-                    ({ artist, title, image, id, rateAvg, yourRate }) => (
-                      <SingleAlbumWrapper key={id}>
-                        <Album
-                          artist={artist}
-                          title={title}
-                          image={image}
-                          id={id}
-                        />
-                        <StarsRating
-                          variables={variables}
-                          id={id}
-                          rateAvg={rateAvg || 0}
-                          yourRate={yourRate?.value || 0}
-                        />
-                        <DeleteButton id={id} variables={variables} />
-                      </SingleAlbumWrapper>
-                    )
-                  )}
-                </CdsWrapper>
-              </>
-            );
-          }
-        }}
-      </Query>
+      <StyledH2>
+        {state.queryVariables.search
+          ? `searching for ${state.queryVariables.search}`
+          : 'recently added'}
+      </StyledH2>
+      {error && <AlbumsError error={error} />}
+      {loading && <Loading loading={loading} />}
+      {!albums?.total ? (
+        <>
+          <StyledH2>no albums added yet</StyledH2>
+          <Button style={{ marginTop: '40px' }} small center>
+            <Link href={'/add'}>
+              <a> click here to add one</a>
+            </Link>
+          </Button>
+        </>
+      ) : (
+        <CdsWrapper>
+          {!loading &&
+            albums?.albums.map(
+              ({ artist, title, image, id, rateAvg, yourRate }) => (
+                <SingleAlbumWrapper key={id}>
+                  <Album artist={artist} title={title} image={image} id={id} />
+                  <StarsRating
+                    variables={variables}
+                    id={id}
+                    rateAvg={rateAvg || 0}
+                    yourRate={yourRate?.value || 0}
+                  />
+                  <DeleteButton id={id} variables={variables} />
+                </SingleAlbumWrapper>
+              )
+            )}
+        </CdsWrapper>
+      )}
     </Wrapper>
   );
 };
