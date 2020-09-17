@@ -1,6 +1,5 @@
 import gql from 'graphql-tag';
-import React from 'react';
-import { Query, Mutation } from 'react-apollo';
+import { useMutation, useQuery } from 'react-apollo';
 
 const QUERY_ME = gql`
   query QUERY_ME {
@@ -19,28 +18,20 @@ const SIGNOUT = gql`
   }
 `;
 const User = (props) => {
-  return (
-    <Query {...props} query={QUERY_ME}>
-      {({ data }) => {
-        if (data) {
-          return (
-            <Mutation
-              mutation={SIGNOUT}
-              refetchQueries={[
-                {
-                  query: QUERY_ME,
-                },
-              ]}
-            >
-              {(signout) => props.children(data, signout)}
-            </Mutation>
-          );
-        } else {
-          return props.children();
-        }
-      }}
-    </Query>
-  );
+  const [signout] = useMutation(SIGNOUT, {
+    refetchQueries: [
+      {
+        query: QUERY_ME,
+      },
+    ],
+  });
+
+  const { data } = useQuery(QUERY_ME);
+  if (data) {
+    return props.children(data, signout);
+  } else {
+    return props.children();
+  }
 };
 
 export default User;
