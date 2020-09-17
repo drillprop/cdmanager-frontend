@@ -36,7 +36,7 @@ const StyledButton = styled.button`
     display: inline-block;
     vertical-align: middle;
     animation: ${(props) =>
-      props.loading ? 'mymove 1.5s linear infinite;' : ''};
+      props.isDeleting ? 'mymove 1.5s linear infinite;' : ''};
   }
 
   @keyframes mymove {
@@ -67,7 +67,7 @@ const DeleteButton = ({ id, variables }) => {
   });
   return (
     <StyledButton
-      loading={loading}
+      isDeleting={loading}
       onClick={() => {
         deleteAlbum();
       }}
