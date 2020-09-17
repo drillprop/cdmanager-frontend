@@ -5,6 +5,7 @@ import { useAddContext } from '../../../contexts/add/AddProvider';
 import Button from '../../../styles/Button';
 import { background } from '../../../utils/colors';
 import { CREATE_ALBUM } from '../../../utils/mutations';
+import { GET_ALBUMS_FROM_COLLECTION } from '../../../utils/queries';
 import LoadedImage from '../../LoadedImage/LoadedImage';
 
 const Item = styled.li`
@@ -40,7 +41,14 @@ const ImageWrapper = styled.div`
 
 const SearchAlbumItem = ({ artist, title, imageLarge, imageSmall }) => {
   const { dispatch } = useAddContext();
-  const [createAlbum, { error, called, loading }] = useMutation(CREATE_ALBUM);
+  const [createAlbum, { error, called, loading }] = useMutation(CREATE_ALBUM, {
+    refetchQueries: [
+      {
+        query: GET_ALBUMS_FROM_COLLECTION,
+        variables: { limit: 3 },
+      },
+    ],
+  });
 
   const handleCreateAlbum = async () => {
     await createAlbum({
