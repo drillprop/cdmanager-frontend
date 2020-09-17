@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 import React, { useEffect, useState } from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from 'react-apollo';
 import styled from 'styled-components';
 import { useAddContext } from '../../contexts/add/AddProvider';
 import { PageTitle } from '../../styles/Titles';
@@ -64,6 +64,11 @@ const NoAlbumsPar = styled.p`
 const AddAlbumForm = () => {
   const { state, dispatch } = useAddContext();
   const [result, setResult] = useState('');
+  const { loading, error, data } = useQuery(GET_ALBUMS_FROM_LASTFM, {
+    variables: {
+      search: state.searchInput,
+    },
+  });
 
   useEffect(() => {
     debouncedSearch(result);
@@ -73,6 +78,9 @@ const AddAlbumForm = () => {
   const debouncedSearch = debounce((text) => {
     dispatch({ type: 'SEARCH_ALBUM', searchInput: text });
   }, 500);
+
+  const uniqueSearchResult =
+    data && data.albumslastfm && Array.from(new Set(data.albumslastfm));
 
   return (
     <>
@@ -89,24 +97,10 @@ const AddAlbumForm = () => {
         />
         {state.isListVisible && (
           <List>
-            <Query
-              query={GET_ALBUMS_FROM_LASTFM}
-              variables={{ search: state.searchInput }}
-            >
-              {({ loading, error, data }) => {
-                if (loading) return <Loading loading={loading} />;
-                if (error)
-                  return <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>;
-
-                const uniqueSearchResult =
-                  data &&
-                  data.albumslastfm &&
-                  Array.from(new Set(data.albumslastfm));
-
-                if (!uniqueSearchResult.length)
-                  return <NoAlbumsPar> no albums found...</NoAlbumsPar>;
-
-                return uniqueSearchResult.map(
+            {loading && <Loading loading={loading} />}
+            {error && <NoAlbumsPar>Failed to fetch data</NoAlbumsPar>}
+            {uniqueSearchResult && uniqueSearchResult.length
+              ? uniqueSearchResult.map(
                   ({ artist, title, imageSmall, imageLarge }) => (
                     <SearchAlbumItem
                       artist={artist}
@@ -116,9 +110,12 @@ const AddAlbumForm = () => {
                       key={title + artist}
                     />
                   )
-                );
-              }}
-            </Query>
+                )
+              : null}
+
+            {uniqueSearchResult && !uniqueSearchResult.length && (
+              <NoAlbumsPar> no albums found...</NoAlbumsPar>
+            )}
           </List>
         )}
       </StyledForm>
