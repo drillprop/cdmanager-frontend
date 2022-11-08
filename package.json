@@ -18,7 +18,7 @@
     "apollo-link-http": "^1.5.16",
     "graphql": "^14.6.0",
     "lodash.debounce": "^4.0.8",
-    "next": "^9.3.6",
+    "next": "^13.0.2",
     "next-with-apollo": "^5.0.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
